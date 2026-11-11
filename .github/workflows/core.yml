@@ -27,10 +27,12 @@ jobs:
         run: dotnet build tests/Yokai.Tissue.Checks -c Release
       - name: Execute numerical checks
         run: dotnet run --project tests/Yokai.Tissue.Checks -c Release --no-build
+      - name: Execute rotation and volume regression checks
+        run: dotnet run --project tests/Yokai.Tissue.AdvancedChecks -c Release
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: core-results-${{ matrix.os }}
-          path: artifacts/core-results.json
+          path: artifacts/*-results.json
           if-no-files-found: warn
           retention-days: 14

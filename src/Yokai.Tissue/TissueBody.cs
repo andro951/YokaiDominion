@@ -6,6 +6,7 @@ public readonly record struct BodyDiagnostics(double MinJacobian,double MaxVolum
 /// Tetrahedral stable Neo-Hookean XPBD baseline. A coupled 2x2 local solve balances
 /// deviatoric/volumetric prestress at rest. This is not an anatomical production solver.
 /// Contacts are discrete particle-vs-analytic-shape projections, with no self-collision/CCD.
+/// One rigid support delta is provided per region; skeletal multi-bone blending is not yet implemented.
 /// </summary>
 public sealed class TissueBody
 {
@@ -14,14 +15,15 @@ public sealed class TissueBody
     private readonly Element[] elements;
     private readonly List<Attachment> attachments=[];
     private readonly TissueMaterial material;
-    private V3 anchorOffset;
+    private RigidPose anchorPose=RigidPose.Identity;
     public TetMesh Mesh { get; }
     public SolverSettings Settings { get; }
     public List<IContactShape> Contacts { get; }=[];
     public ReadOnlySpan<V3> Positions=>x;
     public ReadOnlySpan<V3> Velocities=>v;
     public ReadOnlySpan<double> Masses=>mass;
-    public V3 AnchorOffset=>anchorOffset;
+    public V3 AnchorOffset=>anchorPose.Translation;
+    public RigidPose AnchorPose=>anchorPose;
 
     private sealed class Element(Tetrahedron indices,M3 inverse,double volume)
     {
@@ -66,32 +68,39 @@ public sealed class TissueBody
         if(vertex<0||vertex>=x.Length||!position.IsFinite||!velocity.IsFinite) throw new ArgumentException("Invalid particle state.");
         x[vertex]=position; v[vertex]=velocity;
     }
-    public void Reset(V3 offset=default)
+    public void Reset(V3 offset=default)=>ResetPose(RigidPose.FromTranslation(offset));
+    public void ResetPose(RigidPose pose)
     {
-        if(!offset.IsFinite) throw new ArgumentException("Non-finite reset offset.");
-        for(int i=0;i<x.Length;i++) { x[i]=Mesh.RestPositions[i]+offset; v[i]=default; }
-        anchorOffset=offset;
+        if(!pose.IsValid) throw new ArgumentException("Invalid reset pose.");
+        for(int i=0;i<x.Length;i++) { x[i]=pose.TransformPoint(Mesh.RestPositions[i]); v[i]=default; }
+        anchorPose=pose;
         foreach(var e in elements) { e.LambdaD=0; e.LambdaV=0; }
         foreach(var a in attachments) a.Lambda=default;
     }
-    /// <summary>Translate the whole state without introducing impulse, e.g. a teleport.</summary>
-    public void Translate(V3 delta)
+    /// <summary>Translate state and support without introducing an impulse.</summary>
+    public void Translate(V3 delta)=>Teleport(RigidPose.FromTranslation(delta));
+    /// <summary>Rigidly relocate the entire state, rotating existing velocities rather than creating a physical impulse.</summary>
+    public void Teleport(RigidPose delta)
     {
-        if(!delta.IsFinite) throw new ArgumentException("Non-finite translation.");
-        for(int i=0;i<x.Length;i++) x[i]+=delta;
-        anchorOffset+=delta;
+        if(!delta.IsValid) throw new ArgumentException("Invalid teleport delta.");
+        for(int i=0;i<x.Length;i++) { x[i]=delta.TransformPoint(x[i]); v[i]=delta.Rotation.Rotate(v[i]); }
+        anchorPose=delta*anchorPose;
     }
-    public void Step(double dt)=>Step(dt,anchorOffset);
-    /// <summary>Linearly samples moving attachment translation across substeps; rotational anchors are not yet implemented.</summary>
-    public void Step(double dt,V3 newAnchorOffset)
+    public void Step(double dt)=>Step(dt,anchorPose);
+    public void Step(double dt,V3 newAnchorOffset)=>Step(dt,new RigidPose(newAnchorOffset,anchorPose.Rotation));
+    /// <summary>
+    /// Supply animatedBoneWorld * inverse(bindBoneWorld), not the raw bone world pose.
+    /// Rotation follows shortest-path slerp and translation is linear within each fixed step.
+    /// </summary>
+    public void Step(double dt,RigidPose newAnchorPose)
     {
         if(!double.IsFinite(dt)||dt<=0||dt>0.05) throw new ArgumentOutOfRangeException(nameof(dt),"Use fixed positive steps <= 50 ms.");
-        if(!newAnchorOffset.IsFinite) throw new ArgumentException("Non-finite anchor target.");
+        if(!newAnchorPose.IsValid) throw new ArgumentException("Invalid anchor pose.");
         double h=dt/Settings.Substeps,decay=Math.Exp(-Settings.VelocityDrag*h);
-        V3 oldAnchor=anchorOffset;
+        RigidPose oldAnchor=anchorPose;
         for(int s=0;s<Settings.Substeps;s++)
         {
-            V3 target=V3.Lerp(oldAnchor,newAnchorOffset,(s+1.0)/Settings.Substeps);
+            RigidPose target=RigidPose.Interpolate(oldAnchor,newAnchorPose,(s+1.0)/Settings.Substeps);
             for(int i=0;i<x.Length;i++)
             {
                 previous[i]=x[i]; contactNormal[i]=default;
@@ -102,7 +111,7 @@ public sealed class TissueBody
             foreach(var a in attachments)
             {
                 a.Lambda=default;
-                if(a.Compliance==0) x[a.Index]=Mesh.RestPositions[a.Index]+target;
+                if(a.Compliance==0) x[a.Index]=target.TransformPoint(Mesh.RestPositions[a.Index]);
             }
             for(int k=0;k<Settings.Iterations;k++)
             {
@@ -110,7 +119,7 @@ public sealed class TissueBody
                 foreach(var a in attachments) if(a.Compliance>0)
                 {
                     int i=a.Index; double alpha=a.Compliance/(h*h);
-                    V3 dl=(-(x[i]-Mesh.RestPositions[i]-target)-a.Lambda*alpha)/(invMass[i]+alpha);
+                    V3 dl=(-(x[i]-target.TransformPoint(Mesh.RestPositions[i]))-a.Lambda*alpha)/(invMass[i]+alpha);
                     a.Lambda+=dl; x[i]+=dl*invMass[i];
                 }
                 ProjectContacts();
@@ -130,14 +139,14 @@ public sealed class TissueBody
                 if(!x[i].IsFinite||!v[i].IsFinite) throw new InvalidOperationException($"Non-finite solver state at particle {i}. Reset and inspect inputs.");
             }
         }
-        anchorOffset=newAnchorOffset;
+        anchorPose=newAnchorPose;
     }
 
     private void SolveElastic(Element e,double h)
     {
         var ids=e.Ids; M3 f=ids.EdgeMatrix(x)*e.Inverse;
         double norm=Math.Sqrt(f.NormSquared);
-        if(norm<1e-12) return; // fully collapsed singular state: diagnostics must expose this; no fabricated recovery
+        if(norm<1e-12) return; // collapsed state remains visible in diagnostics; no fabricated recovery
         M3 gdMatrix=(f*(1/norm))*e.Inverse.Transposed;
         M3 gvMatrix=f.Cofactor*e.Inverse.Transposed;
         Span<V3> gd=stackalloc V3[4]; Span<V3> gv=stackalloc V3[4];
