@@ -1,0 +1,66 @@
+name: Anatomical restart source inspection
+on:
+  push:
+    paths: ['.github/workflows/anatomy-restart.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download official CC0 human base bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p source-base evidence
+          url=https://download.blender.org/demo/asset-bundles/human-base-meshes/human-base-meshes-bundle-v1.4.1.zip
+          curl -fL --retry 2 "$url" -o source-base/bundle.zip || curl -fL --retry 2 https://mirror.blender.org/demo/asset-bundles/human-base-meshes/human-base-meshes-bundle-v1.4.1.zip -o source-base/bundle.zip
+          sha256sum source-base/bundle.zip | tee evidence/bundle.sha256
+          unzip -oq source-base/bundle.zip -d source-base/unpacked
+          find source-base/unpacked -type f -printf '%p %s bytes\n' | tee evidence/files.txt
+      - name: Download verified Blender LTS
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -fL --retry 2 https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz -o blender.tar.xz
+          curl -fL --retry 2 https://download.blender.org/release/Blender4.5/blender-4.5.3.sha256 -o sums
+          expected=$(grep 'blender-4.5.3-linux-x64.tar.xz' sums | awk '{print $1}')
+          echo "$expected  blender.tar.xz" | sha256sum -c -
+          tar -xf blender.tar.xz
+          echo "BLENDER=$RUNNER_TEMP/blender-4.5.3-linux-x64/blender" >> "$GITHUB_ENV"
+      - name: Inspect real objects and extract female anatomy
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/inspect_base.py <<'PY'
+          import bpy, json, os
+          from pathlib import Path
+          root=Path(os.environ['GITHUB_WORKSPACE'])
+          entries=[]
+          for f in sorted((root/'source-base/unpacked').rglob('*.blend')):
+              bpy.ops.wm.open_mainfile(filepath=str(f))
+              rec={'file':str(f.relative_to(root)), 'objects':[],'collections':list(bpy.data.collections.keys()), 'texts':{t.name:t.as_string() for t in bpy.data.texts}}
+              for o in bpy.data.objects:
+                  rec['objects'].append({'name':o.name,'type':o.type,'dimensions':list(o.dimensions),'vertices':len(o.data.vertices) if o.type=='MESH' else 0,'modifiers':[(m.name,m.type) for m in o.modifiers], 'collections':[c.name for c in o.users_collection], 'parent':o.parent.name if o.parent else None})
+              entries.append(rec)
+              # Preserve actual female geometry and related dependencies, not the asset preview cameras.
+              candidates=[o for o in bpy.data.objects if o.type=='MESH' and ('female' in o.name.lower() or any('female' in c.name.lower() for c in o.users_collection))]
+              if candidates:
+                  dst=root/'evidence'/('female-'+f.stem+'.blend')
+                  bpy.data.libraries.write(str(dst), set(candidates), fake_user=True, compress=True)
+          (root/'evidence/inspection.json').write_text(json.dumps(entries,indent=2))
+          print(json.dumps(entries,indent=2))
+          PY
+          "$BLENDER" --background --python-exit-code 1 --python /tmp/inspect_base.py > evidence/inspection.log 2>&1
+          cp source-base/unpacked/*.txt evidence/ 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-female-anatomy-source
+          path: evidence/
+          retention-days: 30
+          if-no-files-found: error
