@@ -1,36 +1,43 @@
-# Progress - milestone 001
+# Progress: milestone 002 handoff
 
-## Completed and observed
-The executable foundation is established. A portable C# volumetric simulation and a Godot .NET laboratory run through CI. Blender can create an editable rigged asset, export it with a corrective shape and animation, and Godot can import, sample and render those features.
+## Delivered
 
-The fixtures are deliberately simple. No actual character mesh or completed game has been produced.
+Actual editable Character01 .blend and animated GLB; anatomical body with separate fantasy details and clothing; 176-joint deformation skeleton including fingers; eight diagnostic poses; four tetrahedral tissue regions with graded supports; portable C# region-data loading and surface binding; a Godot morph/skin/tissue reference path and physics-disabled native-skin fallback; rendered pose/motion evidence; a safe asset installer and Windows launch script.
 
-## Evidence
-- Bootstrap `809fef153337701459485c4c4c968060c91610b0`: Windows/Linux check passed, run 42955416399.
-- Initial numerical core `9437302ce6353d6a3006d73e4ad0c9feaa473e59`: 18 checks passed on both OSes, run 42955998709.
-- Current core `e9705b8bb049975cf3e4fe2b4b019938ebbe232e`: all 27 checks passed on both OSes, run 42958865072.
-- Tuned Godot lab `adaaf334b7a0d623857fd3dac4a4ae2db35c1fa7`: compiled, ran headlessly, ran with Mesa/Xvfb, saved a frame that was downloaded and inspected, run 42958219773. At 600 ticks peak local volume change was 2.90681%, final 1.1593%, no inversion.
-- Complete Blender/native Godot calibration `e9705b8bb049975cf3e4fe2b4b019938ebbe232e`: authored .blend, exported GLB, validated actual animation streams, sampled bone/morph motion in Godot headless and rendered modes; image downloaded and inspected, run 42958864946. Measured imported bend was 1.2961192 radians and corrective value 0.9901621 at the sampled middle time.
-- Companion testing repo `b1d86c4ac241ba50b2a2ba2910e3d94689369084`: independent pinned 27 checks plus material sweep passed, run 42958498338.
+This is an engineering/modeling prototype, not final art or game-ready acceptance. The original illustration remains authoritative. Do not treat the current face, hair, costume edges or silhouette as approved.
 
-Selected machine-readable evidence is in evidence/milestone-001.json. Full generated assets/logs are workflow artifacts; retention is 14 days.
+## Verified checkpoints
 
-## Problems found and corrected
-The initial lab material changed local volume too much. The testing repo varied only Poisson ratio at fixed other inputs; nu=0.499 lowered peak local volume change from about 30.72% to 2.91%. Added explicit peak/end regression gates rather than relying only on finite state. This is fixture tuning, not biological calibration.
+- Asset: `95af2eb3f902dac56705f4b6d51f16589a8d8787`, run 42971187686. Blender authored source assets and renders. Portable C# cage checks passed. Godot headless and rendered pose/jump/fallback checks passed.
+- Runtime/colour: `409ae5f39de720bb12e36cb82050825975f596a9`, run 42973867993. Reused the exact asset (GLB SHA256 f66da485c5d5fe62f02ecc7b905cfd6baffff055fd299d8a5935eb288cc17850), compiled optimized assemblies, passed pixel-based colour calibration and actual-character rendered checks.
+- Core checks: same runtime revision, run 42973868017; 18 core plus 9 advanced checks passed on both Windows and Linux.
+- Local installer checks: valid artifact installed; identical reinstall was idempotent; differing local content was preserved and overwrite refused; explicit force restored the artifact.
 
-Adding rotational Step overloads exposed two target-typed-new ambiguities in older tests. Fixed by spelling V3 explicitly; no assertions were weakened.
+The final jump fixture reports 5,984 bound surface vertices, maximum rest-skin transform discrepancy 0.00008495 m, peak local volume error 4.1946% breast / 2.5084% glute, zero inversions, and peak surface displacement 0.1054 m. These quantities characterize this fixture only. Numerical boundedness does not imply believable tissue motion.
 
-Initial Blender export split bone and shape-key motion into separate clips. Native Godot checks caught the absent bone motion in the selected clip. Fixed SCENE export to merge object clips and used manual animation sampling. UV/tangent validation also caught polygon caps unsupported by Blender tangent generation; explicit triangle caps before skin/morph authoring resolved it. Final export has UVs, tangents and a combined bone/morph clip.
+## Rejected attempts and corrections
 
-## Next milestone
-Recover/verify the exact original and secondary reference images, then establish original-reference body proportions in a multi-view 3D blockout and an early full-body deformation rig. Introduce character-specific tetrahedral regions and graded supports alongside that rig; test difficult poses before final textures/topology polish. Do not substitute the calibration limb for anatomical work or keep expanding unrelated infrastructure.
+The initial fused primitive body had severe overhead spikes. Independent GLB sampling showed 99.9th-percentile edge stretch above 100x. Smooth masks helped but retained unrelated pelvis/spine weights on distal arms. Anatomically limited chains improved that baseline, but fused fingers and joint topology still made it a poor final foundation.
 
-## Outstanding quality requirements
-No finished character likeness/topology/UVs, full-body rig, multi-bone support blending, anatomical layers/material fitting, cloth restraint, hair/tail dynamics, full-body ragdoll, robust triangle/self/continuous contact, or target-PC performance result. The debug mesh rebuild is not production deformation integration.
+The accepted *development foundation* now uses pinned CC0 MakeHuman graphical mesh/morph/rig/weight data, reshaped by our own authoring code. This is not an artistic acceptance. Independent sampled GLB audit now measures overhead p99.9 stretch 3.218x, crouch 1.831x, high kick 1.546x. The overhead maximum is still 7.823x and has 48 counted triangle-edge entries over 4x. Do not claim shoulder deformation is solved. No audit threshold was relaxed to hide this.
 
-## Recovery and checkpoints
-Source, tests, authoring scripts, requirements and measured summaries are committed regularly. Read AGENTS.md and CHARACTER_CONTRACT.md before continuing. Testing uses an immutable production pin, not copied solver code. Verify current heads and avoid overwriting user changes.
+Initial tissue settings reached roughly 25% local volume error. Exposing solver iteration/substep settings, fitting the new cages and retuning material settings brought the controlled fixture below the provisional 5% volume-change goal. This was not a biological material calibration or a single-variable experiment across different geometry revisions.
 
-The original illustration controls sizes, silhouette, outfit and palette; the turnaround supplies secondary details only. Its Astra label is not an approved character name. Exact hashes are in assets/reference/manifest.json; image bytes remain conversation attachments and are included in the downloadable handoff package, not currently in Git.
+Actual Godot renders exposed two colour bugs missed by structural checks: first an unused vertex-colour stream, then linear glTF colours displayed too dark by Compatibility rendering. The shared shader now handles OUTPUT_IS_SRGB explicitly. Rendered unshaded palette samples match the reference material within 2/255 per channel (skin exactly in that test). Do not substitute material-flag checks for pixel inspection.
 
-The originating container could not install the tools; execution was performed through GitHub Actions. This is not a claim of local graphical/GPU execution. No asynchronous development continues after a response ends.
+## Unfinished / known failures
+
+- Visual likeness, face/hair design, body sculpt detail, garment contour and reference proportion matching need refinement.
+- Shoulder skinning/correctives are not accepted. The anatomical revision's named corrective keys contain zero offsets.
+- Eight static pose imports are not a capable animation/controller suite. Crouch feet float and the diagnostic knockdown intersects the floor. No full-body IK or ragdoll controller.
+- The four simulation meshes are coarse bounding volumes, not anatomical tissue layers. Their volume/mass, material values, support geometry and stress-free rest state are not biologically calibrated.
+- The current model does not solve full body, garment, self or continuous collision; free garments and hair are only skinned. A chest patch following tissue is not garment restraint.
+- CPU mesh rebuilding and solver quality settings have not been benchmarked on the user's Windows/GPU hardware. The launch script exists but has not been executed on that PC.
+
+## Resume here
+
+Read this file, CHARACTER_CONTRACT.md, ANATOMICAL_BASE_REVIEW.md and milestone-002.json. Inspect the actual .blend/GLB and previews before editing. Focus next on reference likeness and shoulder/hip deformation corrections, followed by fitted tissue volumes/support and contact. Do not add more unrelated infrastructure or label this prototype production-ready.
+
+Recover generated assets from authoring run 42971187686 or the milestone bundle. The fast runtime regression pins that run and therefore requires its artifact while retained; after expiry regenerate with the full character authoring workflow and update the pin/hash explicitly. Full reproduction uses selected CC0 data at the immutable revision in THIRD_PARTY_ASSETS.md.
+
+Source and measured summaries are on GitHub; the handoff archive includes both exact source repositories, source model, exported model, runtime data, selected authoring data with license, original references, previews and results. No asynchronous work is implied.

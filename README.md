@@ -1,57 +1,47 @@
 # YokaiDominion
 
-C#-first game and reusable character/deformation project. Initial host: **Godot 4.7.2 .NET**, with **Blender 4.5.3 LTS** authoring and an engine-independent .NET 10 tissue core.
+C#-first character/game project: **Godot 4.7.2 .NET**, **Blender 4.5.3 LTS**, and an engine-independent **.NET 10** volumetric tissue runtime.
 
-## Current milestone: executable foundation
+## Milestone 002: actual rigged character and tissue integration
 
-The build/test/asset pipeline now runs, rather than being only a design proposal. There is a working volumetric tissue laboratory, 27 numerical checks, and an actual Blender-to-Godot rig/morph animation calibration test.
+An editable character prototype now exists, not just the earlier block/limb fixtures. It has an anatomical humanoid body, fantasy details, clothing, an exported skeleton, diagnostic poses, four volumetric tissue regions, and C# deformation of the visible character in Godot.
 
-**There is not yet a finished game or character model.** The block and bent limb in test screenshots are engineering fixtures, not the character or the intended visual-quality target. Passing these tests does not establish anatomical realism or production readiness.
+**This is a functional modeling/deformation prototype, NOT finished character art, anatomically calibrated flesh, a complete game, or final game-ready acceptance.** The reference likeness, shoulders, supported rest shape, collision handling and clothing require substantial refinement.
 
-## Verified results
+## Inspect or run
 
-- The 18 core and 9 advanced C# checks passed on Windows and Linux at `e9705b8bb049975cf3e4fe2b4b019938ebbe232e`, Actions run [42958865072](https://github.com/andro951/YokaiDominion/actions/runs/42958865072).
-- The Godot tissue scene compiled, ran headlessly, and produced an inspected software-rendered frame at `adaaf334b7a0d623857fd3dac4a4ae2db35c1fa7`, run [42958219773](https://github.com/andro951/YokaiDominion/actions/runs/42958219773). In its fixed jump fixture, maximum local volume change was about 2.91%, ending at 1.16%, with no inverted elements.
-- Blender authored an editable rigged calibration asset, exported its skin/morph animation, and Godot successfully sampled and rendered it at `e9705b8bb049975cf3e4fe2b4b019938ebbe232e`, run [42958864946](https://github.com/andro951/YokaiDominion/actions/runs/42958864946). The imported corrective and bone motion were checked, not merely the presence of an animation file.
+See [RUN_CHARACTER.md](docs/RUN_CHARACTER.md). The downloadable milestone bundle includes the editable `.blend`, exported `.glb`, tissue data, both source repositories, actual rendered previews, a Godot motion video, reports, references and selected CC0 authoring data. Its game asset directory is populated for inspection.
 
-See [development progress](docs/PROGRESS.md) and [retained milestone evidence](docs/evidence/milestone-001.json). Generated .blend/.glb files, screenshots and full logs are available as workflow artifacts with 14-day retention. The source needed to regenerate them and durable result summaries stay in Git.
+For a fresh Git clone, obtain the `character-blockout` artifact from authoring run **42971187686** and install it with `python tools/install_character_asset.py character-blockout.zip`. Then run `tools/Run-CharacterLab.ps1` with the path to Godot 4.7.2 .NET, or build/import/run `game/Scenes/CharacterLab.tscn` manually. The default project scene remains the simpler numerical laboratory.
 
-## Run the current laboratory
+Character controls: left-drag/wheel orbit and zoom; 1-8 diagnostic poses; Space controlled jump; P native-skin/tissue comparison; R reset; Tab pose-study playback. The pose study is not a locomotion or contact-aware animation set.
 
-Install .NET 10 SDK and **Godot 4.7.2 .NET**, not the non-C# edition. From the repository root:
+## Verified evidence
 
-`dotnet run --project tests/Yokai.Tissue.Checks -c Release`
+- Asset authoring revision: `95af2eb3f902dac56705f4b6d51f16589a8d8787`, full Blender/portable C#/Godot run **42971187686**, successful. Body: 13,380 authoring vertices, 26,756 triangles after export, 176 exported joints. Native topology, fingers and weight data are derived from a pinned CC0 base, not generated entirely from scratch.
+- Corrected renderer/runtime revision: `409ae5f39de720bb12e36cb82050825975f596a9`, run **42973867993**, successful. This reuses the exact SHA-256-checked asset above and checks actual rendered colour pixels as well as the character.
+- The controlled four-second character jump fixture drives **5,984 surface vertices**. Peak local volume change is approximately **4.19% in each breast cage** and **2.51% in each glute cage**, with zero inverted elements. These are fixture integrity results, not proof of anatomical realism.
+- Eight imported pose samples, rest skin-transform agreement and native skinned fallback passed. Actual pose images and video were downloaded and inspected. Residual shoulder stretching, floating crouch feet and floor penetration in the diagnostic knockdown remain known quality failures.
+- The existing **27 general numerical checks passed on Windows and Linux** at runtime revision `409ae5f`, run **42973868017**. This does not establish target-PC graphics performance.
 
-`dotnet run --project tests/Yokai.Tissue.AdvancedChecks -c Release`
+Detailed source/run identities and limitations are in [milestone evidence](docs/evidence/milestone-002.json), [progress](docs/PROGRESS.md), and the companion testing repository. Generated workflow artifacts have finite retention (30 days for character builds); source, data hashes, reports and reproduction instructions remain in Git.
 
-`dotnet build game/YokaiDominion.csproj -c Debug`
+## Reference authority
 
-Open `game/project.godot` in the matching .NET editor and run the main scene. Space: jump; T: turn; D: drop; R: reset; P: pause; right-drag/wheel: camera. Full headless/render/export reproduction is in [GETTING_STARTED.md](docs/GETTING_STARTED.md).
+The original single illustration controls body proportions, breast size, hip shape, silhouette, outfit and palette. The generated turnaround is secondary for hair/horns/face and missing views. The current prototype is not a new approved reference and must not replace the original target. The generated sheet's Astra label is not an approved character name; use Character01 internally.
 
-## Repository layout
+Original/secondary image hashes and authority are in `assets/reference/manifest.json`. Full image bytes are included in the downloadable package, not currently in Git.
 
-- `src/Yokai.Tissue/`: portable, double-precision tetrahedral elasticity and support/contact code; no Godot dependency.
-- `game/`: C# Godot laboratory and native asset-import checks.
-- `tests/`: executable numerical regression suites.
-- `tools/blender/`: editable asset-generation/export calibration scripts.
-- `tools/validate_glb.py`: independent exported-file checks.
-- `docs/`: decisions, evidence, limitations, character contract and next steps.
-- `assets/reference/manifest.json`: exact original/secondary image hashes and authority rules. Full-resolution reference image bytes have not been committed through this connector workflow.
+## Architecture and provenance
 
-[YokaiDominionTesting](https://github.com/andro951/YokaiDominionTesting) checks an immutable production SHA and contains characterization experiments, not a divergent copy of the solver.
+`src/Yokai.Tissue/` is portable C# without Godot dependencies. `game/` supplies skeletal-pose input and a CPU reference morph/skin/tissue rendering path. `tools/blender/build_character_anatomy.py` creates the current asset using selected CC0 graphical data; older procedural builders remain reproducible rejected baselines. See [THIRD_PARTY_ASSETS.md](docs/THIRD_PARTY_ASSETS.md). No upstream MakeHuman application code is imported.
 
-## Character direction and reference authority
+The numerical assembly is optimized even in editor Debug builds; override `-p:Optimize=false` to step through its internals. The CPU mesh-rebuild path is not the final optimized game renderer. The companion YokaiDominionTesting repository tests a pinned production revision instead of copying the solver.
 
-The original illustration governs proportions, especially breast size and hip shape, silhouette, outfit, skin and material colors. The generated turnaround is secondary guidance for hair, horns, face and missing viewpoints. It must not overwrite the original's sizes or palette. The generated sheet's Astra label is not an approved character name.
+## Next quality work
 
-Preserve the stylized design while pursuing convincing physical behavior. Author the character, deformation rig, skinning, corrective shapes, internal tissue regions and runtime integration together. The major soft regions are breasts and buttocks, supported by firmer underlying anatomy. See [CHARACTER_CONTRACT.md](docs/CHARACTER_CONTRACT.md).
-
-## What is still missing
-
-Original-reference character geometry and deformation rig; graded/multi-bone anatomical attachments; calibrated material/skin layers and damping; robust surface/self/continuous collision; clothing restraint; hair/tail simulation; full-body animations/ragdoll; target-PC performance measurements; gameplay and production packaging.
-
-The current solver is a uniform isotropic research baseline with discrete particle contacts. It is not a complete flesh/cloth system. See [SOLVER.md](docs/SOLVER.md).
+Refine face, hair, horns, silhouette and clothing against the original; fix shoulder deformation with anatomical weights and real corrective shapes; fit tissue volumes and supported equilibrium rather than treating bounding cages as anatomical mass; implement body/garment contact and restraint; then validate dynamic actions and target-machine performance. The anatomical revision's two named corrective shapes are currently zero placeholders. Hair and free clothing are skinned, not physically simulated.
 
 ## Checkpoints
 
-Commit and push small, coherent milestones during active work. Keep tested, submitted and unfinished work distinct. Record failures and fixes without weakening tests to hide defects. Preserve exact source/run IDs and a resumable next step. Do not commit credentials, licensed tools, or unapproved third-party assets.
+Push small coherent milestones during active work, including before risky operations. Preserve exact revisions, test evidence, failures and next actions. Do not weaken tests to hide defects. Do not commit credentials or licensed toolchain binaries. No development continues asynchronously after a response ends.

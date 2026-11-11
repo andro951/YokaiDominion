@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "milestone": "002 character prototype",
+  "status": "functional integration passed; final art/deformation/realism acceptance not passed",
+  "assetSourceCommit": "95af2eb3f902dac56705f4b6d51f16589a8d8787",
+  "assetWorkflowRun": 42971187686,
+  "assetArtifactId": 13834262001,
+  "glbSha256": "f66da485c5d5fe62f02ecc7b905cfd6baffff055fd299d8a5935eb288cc17850",
+  "runtimeSourceCommit": "409ae5f39de720bb12e36cb82050825975f596a9",
+  "runtimeWorkflowRun": 42973867993,
+  "runtimeArtifactId": 13833919166,
+  "coreWorkflowRun": 42973868017,
+  "generalNumericalChecks": {"count": 27, "windows": "passed", "linux": "passed"},
+  "asset": {"sourceBodyVertices": 13380, "exportBodyVertices": 14517, "bodyTriangles": 26756, "exportJoints": 176, "baseDataLicense": "CC0-1.0", "baseDataCommit": "a8bc2d54ff0ac92e78ff71431b1023eda42bf482"},
+  "runtime": {"engine": "Godot 4.7.2 .NET", "renderer": "gl_compatibility / software", "boundSurfaceVertices": 5984, "maxRestSkinErrorMetres": 0.00008494834, "peakBreastLocalVolumeChange": 0.0419463101271611, "peakGluteLocalVolumeChange": 0.025083539037585423, "invertedElements": 0, "peakSurfaceDisplacementMetres": 0.105386466, "nativeSkinFallbackVerified": true, "poseSampleCount": 8},
+  "renderedColourCalibration": {"passed": true, "maximumChannelError": 0.007843137, "tolerance": 0.011764706, "skinSwatchChannelError": 0},
+  "independentPoseAudit": {"structuralPassed": true, "overheadEdgeStretchP999": 3.2183506864580704, "overheadMaxEdgeStretch": 7.8226653442892164, "overheadEdgeEntriesOver4x": 48, "crouchEdgeStretchP999": 1.8314051742587996, "highKickEdgeStretchP999": 1.5458057444767292, "shoulderQualityAccepted": false},
+  "installerChecks": {"install": true, "idempotence": true, "refuseDifferentOverwrite": true, "explicitForce": true},
+  "notValidated": ["Final reference likeness", "Anatomical material/mass calibration", "Functional corrective shapes on anatomical mesh", "Full body and garment contact", "IK/locomotion/ragdoll controller", "Hair and cloth physics", "Target Windows/GPU performance", "Compatibility with all other engines"]
+}

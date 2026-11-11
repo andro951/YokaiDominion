@@ -1,9 +1,8 @@
-# Milestone 002: character proportions, rig and tissue integration
+# Milestone 002: rigged character and tissue integration
 
-Work in progress. The first checkpoint introduces the actual character authoring script, not another generic calibration fixture. No success or visual-quality claim is made until the workflow output is inspected.
+The next engineering milestone is delivered as an editable and executable **prototype**, not a final character-quality release. See PROGRESS.md for exact observed results, rejected attempts, known issues and next actions; see RUN_CHARACTER.md for setup.
 
-Original reference is authoritative for bust/hip proportions, silhouette, costume and gray-blue palette. The secondary sheet supplies fine detail only. The internal name is Character01; the user has not chosen a name.
+Asset build: 95af2eb3f902dac56705f4b6d51f16589a8d8787.
+Validated renderer/runtime: 409ae5f39de720bb12e36cb82050825975f596a9.
 
-The authoring baseline includes a continuous voxel-union body, separate face/hair/horn/garment/tail meshes, an export skeleton with spine/clavicles/twist/hand/finger/foot/tail/hair bones, normalized skin weights, two provisional corrective shapes, and a sampled full-body pose study. Four localized tetrahedral cages and graded attachments are authored in matching glTF coordinates alongside the body.
-
-These are starting geometry and data, not final retopology, anatomically fitted materials, or completed soft-body integration. Surface transfer and runtime tests are the next checkpoint. Keep the non-simulated skinned fallback intact. Inspect front/side/back and demanding poses before claiming likeness or deformation quality. Do not confuse a high bone count with a validated rig.
+Preserve the original illustration's priority over both the secondary sheet and this prototype. The complete package comprises the asset, C# core, Godot adapter, simulation data, tests and editable authoring sources. Advanced physics does not transfer automatically to unrelated engines.
