@@ -70,14 +70,14 @@ Check("free fall preserves rest shape",()=>{
 });
 Check("pinned boundary follows moving support exactly",()=>{
     var b=Make(); for(int i=0;i<b.Mesh.VertexCount;i++) if(b.Mesh.RestPositions[i].Y>0.699) b.Attach(i);
-    for(int i=0;i<120;i++) b.Step(1.0/120,new(0.01*Math.Sin(i/30.0),0,0));
+    for(int i=0;i<120;i++) b.Step(1.0/120,new V3(0.01*Math.Sin(i/30.0),0,0));
     for(int i=0;i<b.Mesh.VertexCount;i++) if(b.Mesh.RestPositions[i].Y>0.699)
         Near((b.Positions[i]-b.Mesh.RestPositions[i]-b.AnchorOffset).Length,0,1e-12);
     var d=b.Inspect(); Require(d.Finite&&d.InvertedElements==0); Require(d.MaxVolumeError<0.08,$"volume error {d.MaxVolumeError}");
 });
 Check("soft attachment transmits support without NaNs",()=>{
     var b=Make(); for(int i=0;i<b.Mesh.VertexCount;i++) if(b.Mesh.RestPositions[i].Y>0.699) b.Attach(i,1e-5);
-    for(int i=0;i<120;i++) b.Step(1.0/120,new(0,0.02,0));
+    for(int i=0;i<120;i++) b.Step(1.0/120,new V3(0,0.02,0));
     Require(b.Inspect().Finite&&b.Inspect().InvertedElements==0);
 });
 Check("floor drop produces finite nonpenetrating contact",()=>{
@@ -112,6 +112,6 @@ Check("invalid timesteps and duplicate attachments rejected",()=>{
 });
 
 Directory.CreateDirectory("artifacts");
-File.WriteAllText("artifacts/core-results.json",JsonSerializer.Serialize(new { schemaVersion=1,utc=DateTime.UtcNow,revision=Environment.GetEnvironmentVariable("GITHUB_SHA")??"local",runtime=System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription,os=System.Runtime.InteropServices.RuntimeInformation.OSDescription,total=results.Count,failed,results },new JsonSerializerOptions {WriteIndented=true}));
+File.WriteAllText("artifacts/core-results.json",JsonSerializer.Serialize(new { schemaVersion=1,utc=DateTime.UtcNow,revision=Environment.GetEnvironmentVariable("YOKAI_SOURCE_REVISION")??Environment.GetEnvironmentVariable("GITHUB_SHA")??"local",runtime=System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription,os=System.Runtime.InteropServices.RuntimeInformation.OSDescription,total=results.Count,failed,results },new JsonSerializerOptions {WriteIndented=true}));
 Console.WriteLine($"{results.Count-failed}/{results.Count} checks passed. Numerical checks do not establish anatomical realism or game readiness.");
 return failed==0 ? 0:1;
