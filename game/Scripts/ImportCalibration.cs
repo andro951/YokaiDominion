@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace YokaiDominion;
 
-/// <summary>Actual native .glb import, skin/rig/morph checks, animation sampling and optional screenshot.</summary>
+/// <summary>Native .glb import, skin/rig/morph checks, animation sampling and optional screenshot.</summary>
 public partial class ImportCalibration : Node3D
 {
     private static IEnumerable<Node> Descendants(Node node)
@@ -12,7 +12,7 @@ public partial class ImportCalibration : Node3D
         foreach(Node child in node.GetChildren()) foreach(Node nested in Descendants(child)) yield return nested;
     }
     private static void Require(bool condition,string message)
-    { if(!condition) throw new InvalidOperationException(message); }
+    {if(!condition) throw new InvalidOperationException(message);}
     public override async void _Ready()
     {
         try
@@ -35,13 +35,15 @@ public partial class ImportCalibration : Node3D
             Require(player!=null,"AnimationPlayer missing.");
             int lower=skeleton!.FindBone("Lower"); Require(lower>=0,"Lower joint name missing.");
             int morph=skinned!.FindBlendShapeByName("JointVolumeCorrective"); Require(morph>=0,"Corrective morph name missing.");
-            var resolved=skinned.GetNodeOrNull<Skeleton3D>(skinned.Skeleton);
-            Require(resolved==skeleton,"Mesh skeleton path does not resolve to imported rig.");
-            string? clip=player!.GetAnimationList().FirstOrDefault(n=>n!="RESET"); Require(clip!=null,"No usable animation clip.");
-            var animation=player.GetAnimation(clip!);
+            Require(skinned.GetNodeOrNull<Skeleton3D>(skinned.Skeleton)==skeleton,"Mesh skeleton path does not resolve to imported rig.");
+            string[] clips=player!.GetAnimationList().Where(n=>n!="RESET").ToArray();
+            Require(clips.Length==1,$"Expected one combined clip, got {string.Join(",",clips)}");
+            string clip=clips[0]; var animation=player.GetAnimation(clip);
             Require(animation.Length>0.8&&animation.Length<1.2,$"Unexpected animation duration {animation.Length}");
-            player.ProcessMode=ProcessModeEnum.Disabled;
-            player.Play(clip!); player.Seek(0,true); player.Advance(0);
+            GD.Print($"Imported clip {clip}, length={animation.Length}, tracks={animation.GetTrackCount()}");
+            for(int i=0;i<animation.GetTrackCount();i++) GD.Print($"  {animation.TrackGetType(i)}: {animation.TrackGetPath(i)}");
+            player.CallbackModeProcess=AnimationMixer.AnimationCallbackModeProcess.Manual;
+            player.Play(clip); player.Seek(0,true); player.Advance(0);
             await ToSignal(GetTree(),SceneTree.SignalName.ProcessFrame);
             Quaternion restRotation=skeleton.GetBonePoseRotation(lower);
             float restMorph=skinned.GetBlendShapeValue(morph);
@@ -50,6 +52,7 @@ public partial class ImportCalibration : Node3D
             Quaternion bentRotation=skeleton.GetBonePoseRotation(lower);
             float bentMorph=skinned.GetBlendShapeValue(morph);
             float bendRadians=restRotation.AngleTo(bentRotation);
+            GD.Print($"Sampled bend={bendRadians} radians, morph={restMorph}->{bentMorph}");
             Require(bendRadians>1.1f&&bendRadians<1.5f,$"Expected approximately 75 degree bend, got {bendRadians} radians.");
             Require(restMorph<0.05f&&bentMorph>0.9f,$"Corrective animation not applied: {restMorph} -> {bentMorph}");
             BuildStage();
@@ -68,13 +71,11 @@ public partial class ImportCalibration : Node3D
                 bendRadians,restMorph,bentMorph,renderedCapture=capturePath!=null,
                 limitation="Calibration fixture only. Not character anatomy, full-body motion, cloth contact, or target-GPU performance."
             };
-            string json=JsonSerializer.Serialize(report,new JsonSerializerOptions {WriteIndented=true});
-            GD.Print(json);
+            string json=JsonSerializer.Serialize(report,new JsonSerializerOptions {WriteIndented=true}); GD.Print(json);
             if(reportPath!=null)
             {
                 string full=System.IO.Path.GetFullPath(reportPath);
-                System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(full)!);
-                System.IO.File.WriteAllText(full,json);
+                System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(full)!); System.IO.File.WriteAllText(full,json);
             }
             GD.Print("YOKAI_NATIVE_ASSET_IMPORT_PASS"); GetTree().Quit();
         }
@@ -82,10 +83,9 @@ public partial class ImportCalibration : Node3D
     }
     private void BuildStage()
     {
-        var env=new WorldEnvironment {Environment=new Godot.Environment {
+        AddChild(new WorldEnvironment {Environment=new Godot.Environment {
             BackgroundMode=Godot.Environment.BGMode.Color,BackgroundColor=new(0.045f,0.055f,0.075f),
-            AmbientLightSource=Godot.Environment.AmbientSource.Color,AmbientLightColor=new(0.7f,0.8f,1),AmbientLightEnergy=0.5f}};
-        AddChild(env);
+            AmbientLightSource=Godot.Environment.AmbientSource.Color,AmbientLightColor=new(0.7f,0.8f,1),AmbientLightEnergy=0.5f}});
         AddChild(new DirectionalLight3D {RotationDegrees=new(-35,-25,0),LightEnergy=1.1f});
         var camera=new Camera3D {Current=true,Projection=Camera3D.ProjectionType.Orthogonal,Size=1.3f,Position=new(0.9f,0.85f,2.2f)};
         AddChild(camera); camera.LookAt(new Vector3(-0.12f,0.38f,0));

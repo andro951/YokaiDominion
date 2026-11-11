@@ -1,5 +1,5 @@
-"""Dependency-free structural validation of the project's calibration GLB.
-This does not replace engine import or rendered deformation inspection.
+"""Independent structural and animation validation of the calibration GLB.
+This does not replace native engine import and rendered deformation inspection.
 """
 from __future__ import annotations
 import argparse
@@ -18,6 +18,8 @@ def validate(path: Path) -> dict:
         raise ValueError('Invalid GLB header')
     offset, document, binary = 12, None, None
     while offset < size:
+        if offset + 8 > size:
+            raise ValueError('Truncated chunk header')
         length, kind = struct.unpack_from('<II', raw, offset)
         offset += 8
         if offset + length > size:
@@ -60,6 +62,8 @@ def validate(path: Path) -> dict:
     for mesh in document.get('meshes', []):
         for primitive in mesh.get('primitives', []):
             attributes = primitive['attributes']
+            if not {'POSITION', 'NORMAL', 'TANGENT', 'TEXCOORD_0'} <= attributes.keys():
+                raise ValueError('Missing geometry, normal, tangent or UV stream')
             for p in accessor(attributes['POSITION']):
                 if not all(math.isfinite(v) for v in p):
                     raise ValueError('Non-finite geometry')
@@ -72,10 +76,24 @@ def validate(path: Path) -> dict:
             morphs += len(primitive.get('targets', []))
     if not skinned or not morphs:
         raise ValueError('Skin or corrective morph targets lost during export')
-    channels = {c['target']['path'] for a in document.get('animations', []) for c in a['channels']}
-    if not {'rotation', 'weights'} <= channels:
-        raise ValueError(f'Bone/morph animation missing: {channels}')
-    return {'passed': True, 'vertices': vertices, 'skins': len(skins), 'morphTargets': morphs, 'animationChannels': sorted(channels)}
+    animations = document.get('animations', [])
+    combined = [a for a in animations if {'rotation', 'weights'} <= {c['target']['path'] for c in a['channels']}]
+    if len(combined) != 1:
+        raise ValueError('Expected one combined bone/morph clip; separate object clips are not accepted')
+    motion = correction = False
+    for channel in combined[0]['channels']:
+        target = channel['target']
+        node = document['nodes'][target['node']]
+        samples = list(accessor(combined[0]['samplers'][channel['sampler']]['output']))
+        if target['path'] == 'rotation' and node.get('name') == 'Lower':
+            motion = any(sum((a-b)**2 for a, b in zip(v, samples[0])) > 0.1 for v in samples)
+        if target['path'] == 'weights':
+            correction = max(v[0] for v in samples) > 0.9 and min(v[0] for v in samples) < 0.05
+    if not motion or not correction:
+        raise ValueError('Combined clip does not actually bend the joint and animate its corrective')
+    return {'passed': True, 'vertices': vertices, 'skins': len(skins), 'morphTargets': morphs,
+            'combinedAnimation': combined[0].get('name'), 'actualJointMotion': motion,
+            'actualCorrectiveMotion': correction, 'uvAndTangentsPresent': True}
 
 
 if __name__ == '__main__':

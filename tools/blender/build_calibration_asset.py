@@ -25,7 +25,6 @@ def main() -> None:
     scene.unit_settings.scale_length = 1.0
     scene.frame_start, scene.frame_end = 1, 25
     scene.render.fps = 24
-
     segments, rings = 24, 17
     vertices = []
     for ring in range(rings):
@@ -49,6 +48,14 @@ def main() -> None:
     bpy.context.collection.objects.link(mesh)
     for face in data.polygons:
         face.use_smooth = len(face.vertices) == 4
+    # Even the calibration fixture needs UVs so importers can generate tangent frames.
+    bpy.context.view_layer.objects.active = mesh
+    mesh.select_set(True)
+    bpy.ops.object.mode_set(mode='EDIT')
+    bpy.ops.mesh.select_all(action='SELECT')
+    bpy.ops.uv.smart_project(island_margin=0.03)
+    bpy.ops.object.mode_set(mode='OBJECT')
+    mesh.select_set(False)
     mat = bpy.data.materials.new('CalibrationMatte')
     mat.diffuse_color = (0.16, 0.43, 0.5, 1)
     mat.use_nodes = True
@@ -56,7 +63,6 @@ def main() -> None:
     shader.inputs['Base Color'].default_value = mat.diffuse_color
     shader.inputs['Roughness'].default_value = 0.6
     data.materials.append(mat)
-
     arm_data = bpy.data.armatures.new('CalibrationRig')
     rig = bpy.data.objects.new('CalibrationRig', arm_data)
     bpy.context.collection.objects.link(rig)
@@ -96,8 +102,6 @@ def main() -> None:
         pose.keyframe_insert(data_path='rotation_euler', frame=frame, group='Lower')
         correction.value = value
         correction.keyframe_insert(data_path='value', frame=frame)
-
-    # Cameras and lights remain in the editable Blender source, not the GLB selection.
     bpy.ops.object.camera_add(location=(1.25, -2.4, 1.15))
     camera = bpy.context.object
     camera.name = 'PreviewCamera'
@@ -121,7 +125,6 @@ def main() -> None:
     scene.render.resolution_percentage = 100
     scene.render.image_settings.file_format = 'PNG'
     scene.render.film_transparent = True
-
     scene.frame_set(1)
     bpy.ops.wm.save_as_mainfile(filepath=str(out / 'calibration.blend'))
     bpy.ops.object.select_all(action='DESELECT')
@@ -131,7 +134,10 @@ def main() -> None:
     bpy.ops.export_scene.gltf(
         filepath=str(out / 'calibration.glb'), export_format='GLB',
         use_selection=True, export_yup=True, export_apply=False,
+        export_texcoords=True, export_normals=True, export_tangents=True,
         export_animations=True, export_animation_mode='SCENE',
+        export_anim_scene_split_object=False,
+        export_nla_strips_merged_animation_name='CalibrationBend',
         export_frame_range=True, export_force_sampling=True,
         export_skins=True, export_morph=True, export_morph_animation=True,
         export_cameras=False, export_lights=False,
