@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+**/.godot/
+.vs/
+.idea/
+artifacts/
+.cache/
+*.blend1
+*.blend2
+*.user
+*.suo
+.DS_Store
+__pycache__/

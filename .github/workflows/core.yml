@@ -1,0 +1,29 @@
+name: CSharp core checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: core-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  checks:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Record toolchain
+        run: dotnet --info
+      - name: Compile with warnings as errors
+        run: dotnet build tests/Yokai.Tissue.Checks -c Release
+      - name: Execute numerical checks
+        run: dotnet run --project tests/Yokai.Tissue.Checks -c Release --no-build
