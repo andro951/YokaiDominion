@@ -1,31 +1,36 @@
-# Run the current development milestone
+# Run milestone 001
 
-This is a physics laboratory, NOT the finished game or character.
+This is an executable physics/asset pipeline, NOT the finished game or character.
 
-## Requirements
-- .NET 10 SDK (global.json accepts the newest stable feature band).
-- Godot 4.7.2 .NET. The standard/non-.NET editor will not run C#.
-- Windows x64 or Linux x64 for the initial validation targets.
+## Toolchain
+.NET 10 SDK; Godot 4.7.2 **.NET** edition; Blender 4.5.3 LTS only for asset generation. The pure C# tests do not require Godot or Blender. Windows and Linux numerical builds have passed; engine/render workflows currently run on Linux hosted runners.
 
-## Numerical checks (no Godot required)
-From the repository root: `dotnet run --project tests/Yokai.Tissue.Checks -c Release`.
-The executable exits nonzero for any failure and writes artifacts/core-results.json. No test framework packages are required.
+## C# tests
+From the repository root, run `dotnet run --project tests/Yokai.Tissue.Checks -c Release`, then `dotnet run --project tests/Yokai.Tissue.AdvancedChecks -c Release`. There are 18 core and 9 advanced checks. Any failure exits nonzero. Reports go to `artifacts/core-results.json` and `artifacts/advanced-results.json`.
 
-## Interactive lab
-Run `dotnet build game/YokaiDominion.csproj -c Debug`, then open game/project.godot in the matching .NET editor and press F6/F5, or launch the Godot executable with `--path game` from the repository root.
+## Interactive Godot lab
+Run `dotnet build game/YokaiDominion.csproj -c Debug`. Open `game/project.godot` with Godot 4.7.2 .NET and run the main scene, or invoke its executable with `--path game` from the repository root.
 
-Space: move the support through a jump-shaped trajectory. D: reset as a free falling block. R: reset to attached. P: pause. Right-drag and mouse wheel: orbit/zoom. Escape: exit.
+Space: jump-shaped support trajectory. T: turn support. D: free-drop fixture. R: reset attached fixture. P: pause. Right-drag/wheel: orbit/zoom. Escape: exit. The teal plate is an attachment reference, not simulated cloth. The purple block is an engineering fixture, not character anatomy.
 
-The teal plate is a kinematic attachment reference, not a simulated garment. The purple block is a numerical fixture, not character anatomy. The lab is deliberately small so failed deformation is easy to inspect.
+Headless check: `godot --headless --path game -- --smoke`.
+Rendered check: `godot --path game --audio-driver Dummy -- --smoke --capture=/absolute/path/lab.png`.
+Linux software render: prefix the rendered command with `LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a`.
 
-## Automated scene checks
-- Headless numerical/engine integration: `godot --headless --path game -- --smoke`.
-- Rendered check on a display: `godot --path game -- --smoke --capture=/absolute/path/lab.png`.
-- Linux software render: prefix the latter command with `LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a`.
+Replace `godot` with the actual .NET binary path. Success requires the `YOKAI_GODOT_SMOKE_PASS` marker and acceptable diagnostics, not exit zero alone. The smoke test runs 600 physics ticks.
 
-Use your actual .NET Godot binary path in place of `godot`. The runner must see YOKAI_GODOT_SMOKE_PASS, not merely process exit zero.
+## Editable Blender calibration asset
+Run `blender --background --python-exit-code 1 --python tools/blender/build_calibration_asset.py -- --out artifacts/calibration` from the root. This produces editable `calibration.blend`, exported `calibration.glb`, rest/bend previews and a hash manifest. It is a three-bone test limb, not the character.
 
-## Evidence levels
-Core checks prove only their stated invariants. Headless Godot execution proves the C# scene can run. A captured frame proves an image was rendered, but must still be visually inspected. Software rendering says nothing about actual GTX 1080 performance, production mesh skinning, or anatomical realism.
+Run `python tools/validate_glb.py artifacts/calibration/calibration.glb --report artifacts/calibration/glb-validation.json` to check geometry streams, normalized skinning and a combined bone/morph clip with actual changing values.
 
-Generated reports and screenshots are workflow artifacts, not checked-in generated noise. Persistent progress, exact run IDs, and limitations belong in docs/PROGRESS.md.
+To check the native engine import, copy the GLB to `game/Assets/Calibration/calibration.glb`, build the Godot C# project, then import with `godot --headless --editor --path game --import`. Run `godot --headless --path game res://Scenes/ImportCalibration.tscn -- --report=/absolute/path/import.json`. For a rendered check, omit `--headless` and add `--capture=/absolute/path/import.png` after the argument separator. The marker must be `YOKAI_NATIVE_ASSET_IMPORT_PASS`.
+
+## GitHub validation
+The `CSharp core checks`, `Godot integration and rendered smoke`, and `Blender to Godot asset calibration` workflows reproduce these paths. Runs retain JSON, logs, renders and generated calibration assets for 14 days. Code and evidence summaries remain versioned. The testing repository independently runs against `production.ref` and archives the exact source pair.
+
+## Reference images
+`assets/reference/manifest.json` identifies the exact original/secondary uploads by hash and role. They are not silently replaced by a different image or by the calibration fixture. Full-resolution bytes have not been committed through this connector workflow; the handoff archive includes them. They are needed before character likeness work.
+
+## Evidence boundaries
+Headless checks prove execution, not appearance. A rendered screenshot must be inspected. Hosted CPU/software-render timing does not establish GTX 1080 performance. Passing calibration import is not proof that a future full-body rig, tissue, cloth, hair or tail meets the project's quality goals.

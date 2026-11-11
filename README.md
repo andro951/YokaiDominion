@@ -1,52 +1,57 @@
 # YokaiDominion
 
-A C#-first 3D game project and reusable character/soft-tissue simulation package.
+C#-first game and reusable character/deformation project. Initial host: **Godot 4.7.2 .NET**, with **Blender 4.5.3 LTS** authoring and an engine-independent .NET 10 tissue core.
 
-## Current status
+## Current milestone: executable foundation
 
-Repository initialization and technical planning only. No character model, game implementation, or tissue simulator is delivered or validated yet. This README records the project requirements; it is not a claim that those features already exist.
+The build/test/asset pipeline now runs, rather than being only a design proposal. There is a working volumetric tissue laboratory, 27 numerical checks, and an actual Blender-to-Godot rig/morph animation calibration test.
 
-## Character reference priority
+**There is not yet a finished game or character model.** The block and bent limb in test screenshots are engineering fixtures, not the character or the intended visual-quality target. Passing these tests does not establish anatomical realism or production readiness.
 
-The original single character illustration is the primary visual reference. Preserve its body proportions and silhouette, especially breast size and hip shape, its outfit, and its skin and material colors. Do not substitute the altered proportions or palette from the generated turnaround sheet.
+## Verified results
 
-The generated character sheet is a secondary reference for fine details such as hair, horns, face, and additional viewpoints. When the references disagree, the original image wins. Missing details may be designed as needed while staying consistent with the original.
+- The 18 core and 9 advanced C# checks passed on Windows and Linux at `e9705b8bb049975cf3e4fe2b4b019938ebbe232e`, Actions run [42958865072](https://github.com/andro951/YokaiDominion/actions/runs/42958865072).
+- The Godot tissue scene compiled, ran headlessly, and produced an inspected software-rendered frame at `adaaf334b7a0d623857fd3dac4a4ae2db35c1fa7`, run [42958219773](https://github.com/andro951/YokaiDominion/actions/runs/42958219773). In its fixed jump fixture, maximum local volume change was about 2.91%, ending at 1.16%, with no inverted elements.
+- Blender authored an editable rigged calibration asset, exported its skin/morph animation, and Godot successfully sampled and rendered it at `e9705b8bb049975cf3e4fe2b4b019938ebbe232e`, run [42958864946](https://github.com/andro951/YokaiDominion/actions/runs/42958864946). The imported corrective and bone motion were checked, not merely the presence of an animation file.
 
-The intended result is a stylized character with highly convincing physical movement, not a conversion to photorealistic human proportions.
+See [development progress](docs/PROGRESS.md) and [retained milestone evidence](docs/evidence/milestone-001.json). Generated .blend/.glb files, screenshots and full logs are available as workflow artifacts with 14-day retention. The source needed to regenerate them and durable result summaries stay in Git.
 
-## Technical direction
+## Run the current laboratory
 
-- Prefer C# for gameplay, runtime integration, and the portable simulation core.
-- Recommended initial host under evaluation: Godot 4 .NET. The engine/setup is being settled before character implementation; no engine project has been created yet.
-- Author editable character geometry, rigging, skinning, textures, and corrective shapes in Blender. Blender automation may use Python; that does not change the C# game/runtime requirement. GPU shaders, if needed, use the host's shader language.
-- Develop the character and runtime simulation together. The deliverable is the model, simulation data, code, engine integration, tests, and documentation, not an unsupported mesh or a rendered image alone.
-- Keep the numerical simulation independent of engine-specific node, scene, rendering, and physics types. Use a thin engine integration layer.
-- Preserve a usable skinned-character fallback when advanced simulation is disabled. Reuse in another engine requires an adapter; runtime physics is not assumed to transfer automatically in a model file.
+Install .NET 10 SDK and **Godot 4.7.2 .NET**, not the non-C# edition. From the repository root:
 
-## Deformation and movement requirements
+`dotnet run --project tests/Yokai.Tissue.Checks -c Release`
 
-Prioritize localized volumetric soft tissue for the breasts and buttocks, with appropriate structural support, graded attachments, volume resistance, damping, and collision response. Preserve the firmer muscular foundation elsewhere. XPBD-style volumetric elasticity is a candidate, not a quality guarantee or a finalized implementation.
+`dotnet run --project tests/Yokai.Tissue.AdvancedChecks -c Release`
 
-The mesh, deformation rig, corrective shapes, collision setup, and runtime must be tested together for running and stopping, jumping, running jumps, hard landings, ground slams, deep crouches, torso twists, high kicks and martial-arts poses, knockdowns, lying on the ground, and getting up. Evaluate clothing, hair, tail, and body contact separately and together. An attractive rest pose alone does not establish game readiness.
+`dotnet build game/YokaiDominion.csproj -c Debug`
 
-## Development order
+Open `game/project.godot` in the matching .NET editor and run the main scene. Space: jump; T: turn; D: drop; R: reset; P: pause; right-drag/wheel: camera. Full headless/render/export reproduction is in [GETTING_STARTED.md](docs/GETTING_STARTED.md).
 
-1. Verify the development toolchain and a minimal engine integration.
-2. Establish original-reference proportions and an early rigged body.
-3. Validate difficult poses and localized tissue deformation in-engine.
-4. Refine anatomy, topology, materials, clothing, hair, tail, and animations iteratively.
-5. Package source assets, runtime data, reproducible builds, quality/performance settings, and documented validation results.
+## Repository layout
 
-Do not finish a polished unrigged character before proving the deformation approach.
+- `src/Yokai.Tissue/`: portable, double-precision tetrahedral elasticity and support/contact code; no Godot dependency.
+- `game/`: C# Godot laboratory and native asset-import checks.
+- `tests/`: executable numerical regression suites.
+- `tools/blender/`: editable asset-generation/export calibration scripts.
+- `tools/validate_glb.py`: independent exported-file checks.
+- `docs/`: decisions, evidence, limitations, character contract and next steps.
+- `assets/reference/manifest.json`: exact original/secondary image hashes and authority rules. Full-resolution reference image bytes have not been committed through this connector workflow.
 
-## Repository responsibilities
+[YokaiDominionTesting](https://github.com/andro951/YokaiDominionTesting) checks an immutable production SHA and contains characterization experiments, not a divergent copy of the solver.
 
-This repository is the source of truth for the game, reusable C# runtime, engine adapters, production assets, and project documentation.
+## Character direction and reference authority
 
-[YokaiDominionTesting](https://github.com/andro951/YokaiDominionTesting) is the companion validation workspace. It should test a pinned revision of this repository rather than maintain a divergent copy of production simulation code.
+The original illustration governs proportions, especially breast size and hip shape, silhouette, outfit, skin and material colors. The generated turnaround is secondary guidance for hair, horns, face and missing viewpoints. It must not overwrite the original's sizes or palette. The generated sheet's Astra label is not an approved character name.
 
-## Checkpoint policy
+Preserve the stylized design while pursuing convincing physical behavior. Author the character, deformation rig, skinning, corrective shapes, internal tissue regions and runtime integration together. The major soft regions are breasts and buttocks, supported by firmer underlying anatomy. See [CHARACTER_CONTRACT.md](docs/CHARACTER_CONTRACT.md).
 
-Commit and push small, coherent milestones during active development, including before risky or lengthy operations. Record what changed, what was actually tested, what remains untested, known failures, and the next step. Mark incomplete checkpoints explicitly. Do not rely on the chat session or temporary working files as the only record of progress.
+## What is still missing
 
-Do not add credentials, licenses, downloaded proprietary dependencies, or unapproved third-party assets to version control.
+Original-reference character geometry and deformation rig; graded/multi-bone anatomical attachments; calibrated material/skin layers and damping; robust surface/self/continuous collision; clothing restraint; hair/tail simulation; full-body animations/ragdoll; target-PC performance measurements; gameplay and production packaging.
+
+The current solver is a uniform isotropic research baseline with discrete particle contacts. It is not a complete flesh/cloth system. See [SOLVER.md](docs/SOLVER.md).
+
+## Checkpoints
+
+Commit and push small, coherent milestones during active work. Keep tested, submitted and unfinished work distinct. Record failures and fixes without weakening tests to hide defects. Preserve exact source/run IDs and a resumable next step. Do not commit credentials, licensed tools, or unapproved third-party assets.

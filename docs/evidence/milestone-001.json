@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "milestone": "Executable CSharp, Godot and Blender foundation",
+  "notDelivered": ["character model", "finished game", "anatomical calibration", "production contact or cloth", "target GPU benchmark"],
+  "core": {
+    "sourceCommit": "e9705b8bb049975cf3e4fe2b4b019938ebbe232e",
+    "workflowRun": 42958865072,
+    "platforms": ["windows-latest", "ubuntu-latest"],
+    "coreChecks": 18,
+    "advancedChecks": 9,
+    "bothJobsSucceeded": true
+  },
+  "godotLaboratory": {
+    "sourceCommit": "adaaf334b7a0d623857fd3dac4a4ae2db35c1fa7",
+    "workflowRun": 42958219773,
+    "artifactId": 13827243761,
+    "headlessPassed": true,
+    "renderedPassed": true,
+    "renderInspected": true,
+    "particles": 64,
+    "tetrahedra": 162,
+    "ticks": 600,
+    "reportedPeakLocalVolumeError": 0.0290681,
+    "reportedFinalLocalVolumeError": 0.011593,
+    "reportedFinalMinJacobian": 0.994242,
+    "renderer": "Mesa llvmpipe software OpenGL"
+  },
+  "blenderToGodot": {
+    "sourceCommit": "e9705b8bb049975cf3e4fe2b4b019938ebbe232e",
+    "workflowRun": 42958864946,
+    "artifactId": 13828845085,
+    "blenderVersion": "4.5.3 LTS",
+    "godotVersion": "4.7.2-stable (official)",
+    "structuralGLBCheckPassed": true,
+    "headlessImportAnimationCheckPassed": true,
+    "renderedImportAnimationCheckPassed": true,
+    "renderInspected": true,
+    "bones": ["Root", "Upper", "Lower"],
+    "skinBindCount": 3,
+    "blendShapes": 1,
+    "clip": "Scene",
+    "durationSeconds": 1.0416666269302368,
+    "sampledBendRadians": 1.2961192,
+    "restMorph": 0,
+    "sampledBentMorph": 0.9901621
+  }
+}
