@@ -11,7 +11,6 @@ import bpy
 from mathutils import Vector
 import build_character as b
 
-original_ellipsoid=b.ellipsoid
 original_limb=b.limb
 original_body=b.make_body
 original_stage=b.build_stage
@@ -75,7 +74,6 @@ def torso(p):
 def skin_weights(o,p):
     if o.name!='Body':return nearby(p,b.candidates(o,p))
     base=torso(p)
-    # Front chest volume is supported by chest, not the nearby upper-arm segment.
     chest=smooth(1.16,1.32,p.z)*(1-smooth(1.64,1.73,p.z))*(1-smooth(-.20,-.08,p.y))
     base=blend(base,{'Chest':1},chest)
     side='L' if p.x>=0 else 'R';ax=abs(p.x)
@@ -90,9 +88,7 @@ def skin_weights(o,p):
         leg_names=lambda s:['Thigh.'+s,'ThighTwist.'+s,'Shin.'+s,'Foot.'+s,'Toe.'+s]
         legs=blend(nearby(p,leg_names('R')),nearby(p,leg_names('L')),smooth(-.06,.06,p.x))
         base=blend(base,legs,leg)
-    chosen=sorted(base.items(),key=lambda kv:kv[1],reverse=True)[:4]
-    total=sum(w for n,w in chosen)
-    return {n:w/total for n,w in chosen if w>0}
+    return base
 
 
 def bind(o):
@@ -100,15 +96,16 @@ def bind(o):
     bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT');bpy.ops.mesh.quads_convert_to_tris();bpy.ops.uv.smart_project(island_margin=.01);bpy.ops.object.mode_set(mode='OBJECT')
     groups={n:o.vertex_groups.new(name=n) for n in b.BONES if b.BONES[n][3]}
     for v in o.data.vertices:
-        for n,w in skin_weights(o,v.co).items():groups[n].add([v.index],w,'REPLACE')
+        pairs=sorted(skin_weights(o,v.co).items(),key=lambda pair:pair[1],reverse=True)[:4]
+        total=sum(w for n,w in pairs)
+        if total<=0:raise ValueError('No skin support for '+o.name)
+        for n,w in pairs:
+            if w>0:groups[n].add([v.index],w/total,'REPLACE')
     o.parent=b.RIG;mod=o.modifiers.new('DeformationSkin','ARMATURE');mod.object=b.RIG
 
 
 def build_stage():
-    camera=original_stage()
-    bpy.context.scene.view_settings.exposure=-.65
-    # Give extreme arm poses enough space in the validation camera.
-    camera.data.ortho_scale=2.70
+    camera=original_stage();bpy.context.scene.view_settings.exposure=-.65;camera.data.ortho_scale=2.70
     return camera
 
 
