@@ -1,0 +1,51 @@
+name: Verified authoring tools and CC0 base data
+on:
+  push:
+    paths: ['.github/workflows/authoring-toolchain.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  authoring:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: makehumancommunity/makehuman
+          ref: a8bc2d54ff0ac92e78ff71431b1023eda42bf482
+          path: upstream
+          sparse-checkout: |
+            makehuman/data/3dobjs
+            makehuman/data/rigs
+            makehuman/data/targets
+      - name: Preserve CC0 graphical data and its upstream license
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets
+          tar -czf assets/makehuman-assets.tar.gz -C upstream LICENSE.md LICENSE.ASSETS.md makehuman/data/3dobjs makehuman/data/rigs makehuman/data/targets
+          echo a8bc2d54ff0ac92e78ff71431b1023eda42bf482 > assets/upstream.ref
+          sha256sum assets/makehuman-assets.tar.gz > assets/archive.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cc0-character-base-data
+          path: assets/
+          retention-days: 14
+      - name: Download checksum-verified Blender authoring runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p toolchain
+          cd toolchain
+          archive=blender-4.5.3-linux-x64.tar.xz
+          base=https://download.blender.org/release/Blender4.5
+          curl --fail --location --retry 3 "$base/$archive" -o "$archive"
+          curl --fail --location --retry 3 "$base/blender-4.5.3.sha256" -o checksums.txt
+          grep -F "$archive" checksums.txt | sha256sum --check -
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-blender-authoring-runtime
+          path: toolchain/
+          compression-level: 0
+          retention-days: 3
