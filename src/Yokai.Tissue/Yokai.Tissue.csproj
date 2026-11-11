@@ -2,5 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Description>Engine-independent deformable tissue research runtime.</Description>
+    <!-- Keep numerical kernels optimized when the Godot editor loads a Debug build.
+         Override with -p:Optimize=false when stepping through solver internals. -->
+    <Optimize>true</Optimize>
   </PropertyGroup>
 </Project>

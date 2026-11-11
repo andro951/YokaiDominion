@@ -1,0 +1,65 @@
+name: Character rendered colour and runtime regression
+on:
+  push:
+    paths: ['game/Scripts/Character*.cs', 'game/Scripts/ColorCalibration.cs', 'game/Shaders/Character*.gdshader', '.github/workflows/character-runtime.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      LIBGL_ALWAYS_SOFTWARE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reuse immutable already-authorized character build
+        uses: actions/download-artifact@v4
+        with:
+          name: character-blockout
+          run-id: 42971187686
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: authored
+      - name: Verify asset identity and install
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo 'f66da485c5d5fe62f02ecc7b905cfd6baffff055fd299d8a5935eb288cc17850  authored/character/character-blockout.glb' | sha256sum --check -
+          mkdir -p game/Assets/Character01 artifacts
+          cp authored/character/character-blockout.glb authored/character/tissue-regions.json game/Assets/Character01/
+          printf '%s\n' '95af2eb3f902dac56705f4b6d51f16589a8d8787' > artifacts/asset-source.ref
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: ./.github/actions/setup-godot
+      - name: Build optimized editor-compatible assemblies
+        run: |
+          dotnet build game/YokaiDominion.csproj -c Debug -p:Optimize=true
+          timeout 120s "$GODOT_BIN" --headless --editor --path game --import > artifacts/import.log 2>&1
+      - name: Install software renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends xvfb libgl1-mesa-dri libglx-mesa0 ffmpeg
+      - name: Compare rendered colour pixels against material swatches
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 60s xvfb-run -a "$GODOT_BIN" --path game --audio-driver Dummy res://Scenes/ColorCalibration.tscn -- --output="$GITHUB_WORKSPACE/artifacts" 2>&1 | tee artifacts/colour.log
+          grep -q YOKAI_RENDERED_COLOUR_PASS artifacts/colour.log
+      - name: Render and test corrected actual character
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 480s xvfb-run -a "$GODOT_BIN" --path game --audio-driver Dummy res://Scenes/CharacterLab.tscn -- --validate --report="$GITHUB_WORKSPACE/artifacts/character-rendered.json" --capture-dir="$GITHUB_WORKSPACE/artifacts/godot-character" 2>&1 | tee artifacts/character-rendered.log
+          grep -q YOKAI_CHARACTER_RUNTIME_PASS artifacts/character-rendered.log
+          ffmpeg -y -framerate 15 -i artifacts/godot-character/motion/frame-%04d.png -c:v libx264 -pix_fmt yuv420p -crf 22 artifacts/character-motion.mp4
+      - name: Preserve exact runtime source
+        if: always()
+        run: mkdir -p artifacts && git archive --format=zip --output=artifacts/production-source.zip HEAD
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: character-runtime-verified
+          path: artifacts/
+          retention-days: 30
