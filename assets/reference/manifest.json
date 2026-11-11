@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "characterName": null,
+  "original": {
+    "conversationFilename": "image(20261111-031728).png",
+    "sha256": "5671b95a5ad2d2c6feb825c8592b89a27fb9e17a02a69e963efa3a483e264818",
+    "width": 768,
+    "height": 768,
+    "authority": ["body proportions", "breast size", "hip shape", "silhouette", "outfit", "skin and material colors"]
+  },
+  "secondary": {
+    "conversationFilename": "image(20261111-031807).png",
+    "sha256": "428ddcee79c034406e76b6df451fa658716fbaa06b95d4ec7b00a61c584ebe36",
+    "width": 1536,
+    "height": 1024,
+    "authority": ["hair details", "horn details", "face details", "proposed unseen views"],
+    "warning": "Do not inherit its changed chest/hip proportions or palette. Its Astra heading is not an approved character name."
+  },
+  "binaryStatus": "Hashes verified from actual conversation uploads. Full-resolution image bytes have not been committed through the text-only repository write workflow."
+}

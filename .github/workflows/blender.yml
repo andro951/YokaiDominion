@@ -1,0 +1,48 @@
+name: Blender asset export calibration
+on:
+  push:
+    paths: ['tools/blender/**', 'tools/validate_glb.py', '.github/workflows/blender.yml']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: blender-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  asset:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      BLENDER_VERSION: '4.5.3'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download verified Blender LTS baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/blender"
+          cd "$RUNNER_TEMP/blender"
+          archive="blender-${BLENDER_VERSION}-linux-x64.tar.xz"
+          base="https://download.blender.org/release/Blender4.5"
+          curl --fail --location --retry 3 "$base/$archive" -o "$archive"
+          curl --fail --location --retry 3 "$base/blender-${BLENDER_VERSION}.sha256" -o checksums.txt
+          grep -F "$archive" checksums.txt | sha256sum --check -
+          tar -xf "$archive"
+          echo "BLENDER_BIN=$RUNNER_TEMP/blender/blender-${BLENDER_VERSION}-linux-x64/blender" >> "$GITHUB_ENV"
+      - name: Author editable rig, morph and animations and render previews
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          timeout 480s "$BLENDER_BIN" --background --python-exit-code 1 --python tools/blender/build_calibration_asset.py -- --out artifacts/calibration 2>&1 | tee artifacts/blender.log
+          grep -q YOKAI_BLENDER_CALIBRATION_PASS artifacts/blender.log
+      - name: Independently validate exported GLB
+        run: python tools/validate_glb.py artifacts/calibration/calibration.glb --report artifacts/calibration/glb-validation.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: blender-calibration
+          path: artifacts/
+          if-no-files-found: warn
+          retention-days: 14
