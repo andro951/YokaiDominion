@@ -39,8 +39,12 @@ def main() -> None:
             a = ring * segments + j
             b = ring * segments + (j + 1) % segments
             faces.append((a, b, b + segments, a + segments))
-    faces.append(tuple(reversed(range(segments))))
-    faces.append(tuple((rings - 1) * segments + j for j in range(segments)))
+    # Explicit convex cap fans: Blender tangent generation rejects n-gons.
+    # Establish topology before skin weights and morphs, not as a destructive export modifier.
+    top = (rings - 1) * segments
+    for j in range(1, segments - 1):
+        faces.append((0, j + 1, j))
+        faces.append((top, top + j, top + j + 1))
     data = bpy.data.meshes.new('CalibrationSurface')
     data.from_pydata(vertices, [], faces)
     data.update()
@@ -48,7 +52,6 @@ def main() -> None:
     bpy.context.collection.objects.link(mesh)
     for face in data.polygons:
         face.use_smooth = len(face.vertices) == 4
-    # Even the calibration fixture needs UVs so importers can generate tangent frames.
     bpy.context.view_layer.objects.active = mesh
     mesh.select_set(True)
     bpy.ops.object.mode_set(mode='EDIT')
