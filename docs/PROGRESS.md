@@ -1,17 +1,19 @@
 # Development checkpoints
 
 ## 001 - verified execution path
-Production commit 809fef153337701459485c4c4c968060c91610b0 compiled and passed the initial volume check on Linux and Windows in Actions run 42955416399. This proves a basic C# build path, not the tissue solver.
+Production 809fef153337701459485c4c4c968060c91610b0 compiled and passed the bootstrap check on Linux and Windows in Actions run 42955416399.
 
-The companion testing repository has an independent workflow checking an immutable production SHA.
+## 002 - numerical core verified
+Production 9437302ce6353d6a3006d73e4ad0c9feaa473e59 passed its 18-check suite on Linux and Windows in Actions run 42955998709. JSON reports are attached to that run. Implemented tetrahedral Neo-Hookean elasticity, coupled XPBD local solves, masses, hard/compliant translational attachments, analytic contacts, reset/teleport, diagnostics, and barycentric embedding. See SOLVER.md for limitations.
 
-## 002 - volumetric numerical baseline
-Implemented engine-independent double-precision tetrahedral elasticity, coupled XPBD local solves, density-derived masses, hard/compliant translational attachments, plane/capsule contacts, reset/teleport, diagnostics, and barycentric surface binding. Added 18 executable checks plus JSON results. This checkpoint has not yet been executed at the moment of writing; inspect its actual CI result.
-
-See SOLVER.md for mathematical conventions and explicit limitations. No claim of anatomical accuracy, game readiness, or GPU performance.
+## 003 - engine laboratory submitted
+Added a Godot 4.7.2 .NET scene, interactive attachment/drop controls, diagnostic HUD, headless smoke mode, and rendered PNG capture. The engine workflow verifies the editor download checksum, compiles C#, imports the project, runs the scene, and attempts a software-rendered screenshot. Execution of this checkpoint is not yet confirmed at authoring time.
 
 ## Next
-Resolve any failed numerical checks, add a Godot .NET laboratory and rendered smoke test, then add rotational skeletal attachments before beginning character deformation.
+Verify Godot compilation, headless execution and rendered screenshot. Then add rotational support and character-specific authoring/deformation tests. No final character mesh or animations have been produced.
 
 ## Visual authority
-Original illustration governs body proportions, silhouette, outfit and colors. The generated turnaround is secondary for detail. The character remains unnamed; its generated Astra label is not an approved naming decision.
+Original illustration governs body proportions, silhouette, outfit and colors. The generated turnaround is secondary detail guidance. Its Astra heading does not establish the character's name.
+
+## Environment
+Local chat container lacks .NET/Godot/Blender and download DNS access. Active development is using GitHub Actions plus the GitHub connector. Do not describe this as local interactive testing or claim results without checking the corresponding run.

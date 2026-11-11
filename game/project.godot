@@ -1,0 +1,23 @@
+; Open this file in Godot 4.7.2 .NET (not the standard build).
+config_version=5
+
+[application]
+config/name="Yokai Dominion - Tissue Laboratory"
+run/main_scene="res://Scenes/Lab.tscn"
+config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[dotnet]
+project/assembly_name="YokaiDominion"
+
+[physics]
+common/physics_ticks_per_second=120
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.032, 0.039, 0.06, 1)
