@@ -4,7 +4,7 @@ using Yokai.Tissue;
 
 namespace YokaiDominion;
 
-/// <summary>First actual-character deformation laboratory. Not the finished game/controller.</summary>
+/// <summary>Actual-character deformation laboratory. Not the finished game/controller.</summary>
 public partial class CharacterLab : Node3D
 {
     private Skeleton3D rig=null!;
@@ -32,8 +32,7 @@ public partial class CharacterLab : Node3D
     {
         try
         {
-            var args=OS.GetCmdlineUserArgs();validating=args.Contains("--validate");
-            BuildStage();
+            var args=OS.GetCmdlineUserArgs();validating=args.Contains("--validate");BuildStage();
             var packed=GD.Load<PackedScene>("res://Assets/Character01/character-blockout.glb");Require(packed!=null,"Generate/copy the character asset first (see milestone 002 instructions).");
             var model=packed!.Instantiate<Node3D>();AddChild(model);await ToSignal(GetTree(),SceneTree.SignalName.ProcessFrame);
             var all=Walk(model).ToArray();rig=all.OfType<Skeleton3D>().Single();player=all.OfType<AnimationPlayer>().Single();
@@ -48,8 +47,7 @@ public partial class CharacterLab : Node3D
             surfaces=selected.Select(m=>new CharacterSurface(this,m,rig,regions)).ToArray();
             Require(surfaces.Sum(s=>s.BoundVertices)>300,"Too few actual skin vertices embedded in tissue cages.");
             for(int i=0;i<regions.Length;i++)regions[i].Body.ResetPose(Support(i));
-            ready=true;UpdateVisual();
-            if(validating)await Validate(args);
+            ready=true;UpdateVisual();if(validating)await Validate(args);
         }
         catch(Exception e){GD.PushError(e.ToString());GetTree().Quit(1);}
     }
@@ -58,15 +56,13 @@ public partial class CharacterLab : Node3D
     private void Step(double dt)
     {
         clock+=dt;
-        if(play){clipTime=(clipTime+dt)%7;Sample(clipTime);}
-        else Sample(poseIndex);
+        if(play){clipTime=(clipTime+dt)%7;Sample(clipTime);}else Sample(poseIndex);
         if(jumpTime>=0)
         {
             jumpTime+=dt;double p=jumpTime/.9;float height=p<1?(float)(1.2*p*(1-p)):0;
             int root=rig.FindBone("Root");rig.SetBonePosePosition(root,rig.GetBonePosePosition(root)+new Vector3(0,height,0));if(p>=1)jumpTime=-1;
         }
-        if(physics)for(int i=0;i<regions.Length;i++)regions[i].Body.Step(dt,Support(i));
-        else ResetRegions();
+        if(physics)for(int i=0;i<regions.Length;i++)regions[i].Body.Step(dt,Support(i));else ResetRegions();
     }
     public override void _PhysicsProcess(double delta)
     {
@@ -76,7 +72,7 @@ public partial class CharacterLab : Node3D
     private void UpdateVisual()
     {
         foreach(var s in surfaces){s.SetPhysics(physics);if(physics)s.Update(true);}
-        float motion=surfaces.Length>0?surfaces.Max(s=>s.MaxDisplacement):0;
+        float motion=physics&&surfaces.Length>0?surfaces.Max(s=>s.MaxDisplacement):0;
         label.Text=$"YOKAI DOMINION / CHARACTER BLOCKOUT\n{PoseNames[poseIndex]} | Tissue {(physics?"ON":"OFF")} | Surface displacement {motion*100:0.0} cm\n1-8 poses   Space jump   P physics   Tab pose study   R reset\nDrag to orbit / wheel zoom. Early topology, weights and materials.";
     }
     public override void _UnhandledInput(InputEvent e)
@@ -103,23 +99,23 @@ public partial class CharacterLab : Node3D
         string? reportPath=args.FirstOrDefault(s=>s.StartsWith("--report=",StringComparison.Ordinal))?[9..];
         string? capture=args.FirstOrDefault(s=>s.StartsWith("--capture-dir=",StringComparison.Ordinal))?[14..];
         Require(capture==null||DisplayServer.GetName()!="headless","Captures require rendered execution.");
+        Sample(0);var neutralRotations=Enumerable.Range(0,rig.GetBoneCount()).Select(rig.GetBonePoseRotation).ToArray();
         var poseResults=new List<object>();
         foreach(int i in new[]{0,1,2,3,4,5,6,7})
         {
             poseIndex=i;Sample(i);ResetRegions();UpdateVisual();
             int joint=rig.FindBone(i==1?"UpperArm.L":i==2||i==3||i==5?"Thigh.L":i==4?"Chest":i==6?"Root":"Head");
-            float angle=Quaternion.Identity.AngleTo(rig.GetBonePoseRotation(joint));
-            if(i is >0 and <7)Require(angle>.12f,$"Pose {i} did not animate the expected joint.");
+            float angle=neutralRotations[joint].AngleTo(rig.GetBonePoseRotation(joint));
+            if(i is >0 and <7)Require(angle>.12f,$"Pose {i} did not animate the expected joint relative to neutral.");
             foreach(var s in surfaces)Require(s.MaxDisplacement<.001f,"Reset support applied double displacement.");
-            poseResults.Add(new {pose=PoseNames[i],bone=rig.GetBoneName(joint),angleRadians=angle});
+            poseResults.Add(new {pose=PoseNames[i],bone=rig.GetBoneName(joint),angleRelativeToNeutralRadians=angle});
             if(capture!=null)await Capture(System.IO.Path.Combine(capture,$"pose-{i}.png"));
         }
         poseIndex=0;Sample(0);ResetRegions();
         double[] peakVolume=new double[regions.Length];float peakSurface=0;int inverted=0;
         for(int tick=0;tick<240;tick++)
         {
-            if(tick==60)jumpTime=0;
-            Step(1.0/60);
+            if(tick==60)jumpTime=0;Step(1.0/60);
             for(int r=0;r<regions.Length;r++)
             {
                 var d=regions[r].Body.Inspect();Require(d.Finite,"Nonfinite character tissue state.");inverted+=d.InvertedElements;peakVolume[r]=Math.Max(peakVolume[r],d.MaxVolumeError);
@@ -132,8 +128,10 @@ public partial class CharacterLab : Node3D
         }
         Require(inverted==0,"Character jump inverted tetrahedra.");Require(peakSurface>.0001f,"Simulation never reached the visible body.");
         physics=false;UpdateVisual();Require(surfaces.All(s=>s.Source.Visible&&!s.Display.Visible),"Physics-disabled skinned fallback failed.");
+        var bodySurface=surfaces.Single(s=>s.Source.Name.ToString()=="Body");
+        Require(bodySurface.Source.GetActiveMaterial(0) is StandardMaterial3D mat&&mat.VertexColorUseAsAlbedo&&!mat.VertexColorIsSrgb,"Body linear vertex-colour material policy was lost.");
         if(capture!=null)await Capture(System.IO.Path.Combine(capture,"fallback.png"));
-        var report=new {passed=true,sourceCommit=System.Environment.GetEnvironmentVariable("GITHUB_SHA"),engine=Engine.GetVersionInfo()["string"].AsString(),headless=DisplayServer.GetName()=="headless",boneCount=rig.GetBoneCount(),boundSurfaceVertices=surfaces.Sum(s=>s.BoundVertices),maxRestSkinErrorM=surfaces.Max(s=>s.RestSkinError),poseSamples=poseResults,regions=regions.Select((r,i)=>new{name=r.Definition.Name,peakLocalVolumeChange=peakVolume[i],final=r.Body.Inspect(),provisionalFivePercentTarget=peakVolume[i]<=.05}),peakSurfaceDisplacementM=peakSurface,invertedElements=inverted,fallbackVerified=true,limitations="Early character prototype. Pose import and isolated jump integrity checked; collision realism, skinning quality, likeness, cloth restraint, and target-PC performance are not certified."};
+        var report=new {passed=true,sourceCommit=System.Environment.GetEnvironmentVariable("GITHUB_SHA"),engine=Engine.GetVersionInfo()["string"].AsString(),headless=DisplayServer.GetName()=="headless",boneCount=rig.GetBoneCount(),boundSurfaceVertices=surfaces.Sum(s=>s.BoundVertices),maxRestSkinErrorM=surfaces.Max(s=>s.RestSkinError),poseSamples=poseResults,regions=regions.Select((r,i)=>new{name=r.Definition.Name,peakLocalVolumeChange=peakVolume[i],final=r.Body.Inspect(),provisionalFivePercentTarget=peakVolume[i]<=.05}),peakSurfaceDisplacementM=peakSurface,invertedElements=inverted,fallbackVerified=true,linearVertexColorPolicyVerified=true,limitations="Early character prototype. Pose import and isolated jump integrity checked; collision realism, skinning quality, likeness, cloth restraint, and target-PC performance are not certified."};
         string json=JsonSerializer.Serialize(report,new JsonSerializerOptions{WriteIndented=true});GD.Print(json);if(reportPath!=null)System.IO.File.WriteAllText(reportPath,json);
         GD.Print("YOKAI_CHARACTER_RUNTIME_PASS");GetTree().Quit();
     }

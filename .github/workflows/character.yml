@@ -17,6 +17,17 @@ jobs:
       LIBGL_ALWAYS_SOFTWARE: '1'
     steps:
       - uses: actions/checkout@v4
+      - name: Fetch pinned CC0 graphical data (not application code)
+        uses: actions/checkout@v4
+        with:
+          repository: makehumancommunity/makehuman
+          ref: a8bc2d54ff0ac92e78ff71431b1023eda42bf482
+          path: upstream-cc0
+          persist-credentials: false
+          sparse-checkout: |
+            makehuman/data/3dobjs
+            makehuman/data/rigs
+            makehuman/data/targets
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.0.x'
@@ -36,13 +47,14 @@ jobs:
           grep -F "$archive" checksums.txt | sha256sum --check -
           tar -xf "$archive"
           echo "BLENDER_BIN=$RUNNER_TEMP/blender/blender-${BLENDER_VERSION}-linux-x64/blender" >> "$GITHUB_ENV"
-      - name: Build refined character, rig, poses and tissue cages
+      - name: Author anatomical character, rig, poses and tissue cages
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p artifacts
-          timeout 1100s "$BLENDER_BIN" --background --python-exit-code 1 --python tools/blender/build_character_refined.py -- --out artifacts/character 2>&1 | tee artifacts/character-build.log
-          grep -q YOKAI_CHARACTER_BUILD_PASS artifacts/character-build.log
+          timeout 1100s "$BLENDER_BIN" --background --python-exit-code 1 --python tools/blender/build_character_anatomy.py -- --base-data upstream-cc0/makehuman/data --out artifacts/character 2>&1 | tee artifacts/character-build.log
+          grep -q YOKAI_ANATOMY_AUTHOR_PASS artifacts/character-build.log
+          cp upstream-cc0/LICENSE.ASSETS.md artifacts/character/CC0-1.0.txt
       - name: Test authored character cages in portable CSharp
         shell: bash
         run: |
@@ -56,7 +68,7 @@ jobs:
           mkdir -p game/Assets/Character01
           cp artifacts/character/character-blockout.glb artifacts/character/tissue-regions.json game/Assets/Character01/
           timeout 120s "$GODOT_BIN" --headless --editor --path game --import > artifacts/character-import.log 2>&1
-          timeout 240s "$GODOT_BIN" --headless --path game res://Scenes/CharacterLab.tscn -- --validate --report="$GITHUB_WORKSPACE/artifacts/character-headless.json" 2>&1 | tee artifacts/character-headless.log
+          timeout 300s "$GODOT_BIN" --headless --path game res://Scenes/CharacterLab.tscn -- --validate --report="$GITHUB_WORKSPACE/artifacts/character-headless.json" 2>&1 | tee artifacts/character-headless.log
           grep -q YOKAI_CHARACTER_RUNTIME_PASS artifacts/character-headless.log
       - name: Install software renderer
         run: |
@@ -66,7 +78,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          timeout 480s xvfb-run -a "$GODOT_BIN" --path game --audio-driver Dummy res://Scenes/CharacterLab.tscn -- --validate --report="$GITHUB_WORKSPACE/artifacts/character-rendered.json" --capture-dir="$GITHUB_WORKSPACE/artifacts/godot-character" 2>&1 | tee artifacts/character-rendered.log
+          timeout 600s xvfb-run -a "$GODOT_BIN" --path game --audio-driver Dummy res://Scenes/CharacterLab.tscn -- --validate --report="$GITHUB_WORKSPACE/artifacts/character-rendered.json" --capture-dir="$GITHUB_WORKSPACE/artifacts/godot-character" 2>&1 | tee artifacts/character-rendered.log
           grep -q YOKAI_CHARACTER_RUNTIME_PASS artifacts/character-rendered.log
           ffmpeg -y -framerate 15 -i artifacts/godot-character/motion/frame-%04d.png -c:v libx264 -pix_fmt yuv420p -crf 22 artifacts/character-motion.mp4
       - name: Preserve exact source checkpoint

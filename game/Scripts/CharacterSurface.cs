@@ -4,10 +4,7 @@ using GArray=Godot.Collections.Array;
 
 namespace YokaiDominion;
 
-/// <summary>
-/// CPU reference path for morph -> skin -> tissue displacement. Deliberately inspectable;
-/// rebuilds mesh surfaces and is not the final optimized GPU deformation backend.
-/// </summary>
+/// <summary>CPU reference morph -> skin -> tissue path. Mesh rebuilds are not the final GPU backend.</summary>
 internal sealed class CharacterSurface
 {
     public MeshInstance3D Source {get;}
@@ -56,12 +53,11 @@ internal sealed class CharacterSurface
             if(a[(int)Mesh.ArrayType.TexUV].VariantType!=Variant.Type.Nil)s.UV=a[(int)Mesh.ArrayType.TexUV].AsVector2Array();
             if(a[(int)Mesh.ArrayType.Color].VariantType!=Variant.Type.Nil)s.Colors=a[(int)Mesh.ArrayType.Color].AsColorArray();
             if(s.Joints.Length!=4*s.Rest.Length||s.Weights.Length!=s.Joints.Length)throw new InvalidOperationException("Expected four skin influences.");
-            s.Material=source.GetActiveMaterial(k); s.Position=new Vector3[s.Rest.Length]; s.Delta=new V3[s.Rest.Length];s.Coverage=new double[s.Rest.Length];
+            s.Material=CharacterMaterials.ForSurface(source,k); s.Position=new Vector3[s.Rest.Length]; s.Delta=new V3[s.Rest.Length];s.Coverage=new double[s.Rest.Length];
             var shapeArrays=mesh.SurfaceGetBlendShapeArrays(k); s.MorphDeltas=new Vector3[shapeArrays.Count][];
             for(int m=0;m<shapeArrays.Count;m++)
             {
                 var p=shapeArrays[m][(int)Mesh.ArrayType.Vertex].AsVector3Array();
-                // Godot's normalized morph streams hold complete positions; relative streams are offsets.
                 s.MorphDeltas[m]=p.Select((v,i)=>mesh.BlendShapeMode==Mesh.BlendShapeMode.Normalized?v-s.Rest[i]:v).ToArray();
             }
             var bindWorld=s.Rest.Select(p=>ToCore(source.GlobalTransform*p)).ToArray();
@@ -91,7 +87,6 @@ internal sealed class CharacterSurface
                 MaxDisplacement=Math.Max(MaxDisplacement,delta.Length());s.Position[i]=skinned+delta;
                 if(!s.Position[i].IsFinite())throw new InvalidOperationException("Nonfinite rendered vertex.");
             }
-            // Godot uses clockwise front faces. Generate smooth normals after the complete deformation.
             Vector3[] normals=new Vector3[s.Position.Length];
             for(int i=0;i<s.Indices.Length;i+=3)
             {
