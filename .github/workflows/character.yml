@@ -1,7 +1,7 @@
 name: Character blockout and deformation
 on:
   push:
-    paths: ['tools/blender/build_character.py', 'tools/validate_character.py', 'game/Scripts/Character*.cs', 'game/Scenes/Character*.tscn', 'src/Yokai.Tissue/**', '.github/workflows/character.yml']
+    paths: ['tools/blender/build_character*.py', 'tools/validate_character.py', 'game/Scripts/Character*.cs', 'game/Scenes/Character*.tscn', 'src/Yokai.Tissue/**', 'tests/Yokai.Character.Checks/**', '.github/workflows/character.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -17,6 +17,12 @@ jobs:
       LIBGL_ALWAYS_SOFTWARE: '1'
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: ./.github/actions/setup-godot
+      - name: Compile CSharp character integration
+        run: dotnet build game/YokaiDominion.csproj -c Debug
       - name: Download verified Blender
         shell: bash
         run: |
@@ -30,16 +36,42 @@ jobs:
           grep -F "$archive" checksums.txt | sha256sum --check -
           tar -xf "$archive"
           echo "BLENDER_BIN=$RUNNER_TEMP/blender/blender-${BLENDER_VERSION}-linux-x64/blender" >> "$GITHUB_ENV"
-      - name: Build character, rig, poses and tissue cages
+      - name: Build refined character, rig, poses and tissue cages
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p artifacts
-          timeout 1100s "$BLENDER_BIN" --background --python-exit-code 1 --python tools/blender/build_character.py -- --out artifacts/character 2>&1 | tee artifacts/character-build.log
+          timeout 1100s "$BLENDER_BIN" --background --python-exit-code 1 --python tools/blender/build_character_refined.py -- --out artifacts/character 2>&1 | tee artifacts/character-build.log
           grep -q YOKAI_CHARACTER_BUILD_PASS artifacts/character-build.log
+      - name: Test authored character cages in portable CSharp
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet run --project tests/Yokai.Character.Checks -c Release -- artifacts/character/tissue-regions.json artifacts/character-numerical.json 2>&1 | tee artifacts/character-numerical.log
+          grep -q YOKAI_CHARACTER_NUMERICAL_PASS artifacts/character-numerical.log
+      - name: Import and test actual character in Godot
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p game/Assets/Character01
+          cp artifacts/character/character-blockout.glb artifacts/character/tissue-regions.json game/Assets/Character01/
+          timeout 120s "$GODOT_BIN" --headless --editor --path game --import > artifacts/character-import.log 2>&1
+          timeout 240s "$GODOT_BIN" --headless --path game res://Scenes/CharacterLab.tscn -- --validate --report="$GITHUB_WORKSPACE/artifacts/character-headless.json" 2>&1 | tee artifacts/character-headless.log
+          grep -q YOKAI_CHARACTER_RUNTIME_PASS artifacts/character-headless.log
+      - name: Install software renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends xvfb libgl1-mesa-dri libglx-mesa0 ffmpeg
+      - name: Render poses and dynamic tissue motion in Godot
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 480s xvfb-run -a "$GODOT_BIN" --path game --audio-driver Dummy res://Scenes/CharacterLab.tscn -- --validate --report="$GITHUB_WORKSPACE/artifacts/character-rendered.json" --capture-dir="$GITHUB_WORKSPACE/artifacts/godot-character" 2>&1 | tee artifacts/character-rendered.log
+          grep -q YOKAI_CHARACTER_RUNTIME_PASS artifacts/character-rendered.log
+          ffmpeg -y -framerate 15 -i artifacts/godot-character/motion/frame-%04d.png -c:v libx264 -pix_fmt yuv420p -crf 22 artifacts/character-motion.mp4
       - name: Preserve exact source checkpoint
         if: always()
-        run: git archive --format=zip --output=artifacts/production-source.zip HEAD
+        run: mkdir -p artifacts && git archive --format=zip --output=artifacts/production-source.zip HEAD
       - uses: actions/upload-artifact@v4
         if: always()
         with:
