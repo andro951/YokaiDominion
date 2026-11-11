@@ -1,0 +1,23 @@
+name: Art source checkpoint
+on:
+  push:
+    paths: ['tools/art/**', '.github/workflows/art-source-checkpoint.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Archive exact committed source
+        run: |
+          mkdir -p checkpoint
+          git archive --format=zip HEAD > checkpoint/source.zip
+          git rev-parse HEAD > checkpoint/source.ref
+      - uses: actions/upload-artifact@v4
+        with:
+          name: art-source-checkpoint
+          path: checkpoint/
+          retention-days: 30
