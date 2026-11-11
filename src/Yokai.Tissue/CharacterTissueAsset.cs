@@ -36,6 +36,10 @@ public sealed class RegionDefinition
     public double YoungModulus { get; set; }
     public double PoissonRatio { get; set; }
     public double Density { get; set; }
+    public int SolverSubsteps { get; set; }=8;
+    public int SolverIterations { get; set; }=8;
+    public double VelocityDrag { get; set; }=4;
+    public SolverSettings CreateSettings()=>new() {Substeps=SolverSubsteps,Iterations=SolverIterations,VelocityDrag=VelocityDrag,ParticleRadius=.003};
     public static V3 Vector(double[] a)
     {
         if(a.Length!=3 || a.Any(x=>!double.IsFinite(x))) throw new ArgumentException("Expected a finite 3-vector.");
@@ -46,7 +50,7 @@ public sealed class RegionDefinition
         ArgumentException.ThrowIfNullOrWhiteSpace(Name); ArgumentException.ThrowIfNullOrWhiteSpace(Bone);
         _=Vector(Center); var r=Vector(Radii);
         if(r.X<=0||r.Y<=0||r.Z<=0||Math.Abs(OutwardZ)!=1) throw new ArgumentException("Invalid region envelope.");
-        _=new TissueMaterial(YoungModulus,PoissonRatio,Density);
+        _=new TissueMaterial(YoungModulus,PoissonRatio,Density);CreateSettings().Validate();
         _=CreateMesh();
         if(Attachments.Length==0||!Attachments.Any(a=>a.Compliance==0)||Attachments.Select(a=>a.Vertex).Distinct().Count()!=Attachments.Length) throw new ArgumentException("Region needs unique attachments and a kinematic support.");
         foreach(var a in Attachments) if(a.Vertex<0||a.Vertex>=Nodes.Length||!double.IsFinite(a.Compliance)||a.Compliance<0) throw new ArgumentException("Invalid attachment.");
@@ -55,10 +59,7 @@ public sealed class RegionDefinition
     public CharacterTissueRegion CreateRuntime()=>new(this);
 }
 
-/// <summary>
-/// Fitted-region prototype: real volumetric solve, graded supports, one bone delta per region.
-/// Material values are engineering starting values, not anatomically validated measurements.
-/// </summary>
+/// <summary>Volumetric prototype, graded supports, one bone delta per region; material values are not biological measurements.</summary>
 public sealed class CharacterTissueRegion
 {
     public RegionDefinition Definition { get; }
@@ -66,7 +67,7 @@ public sealed class CharacterTissueRegion
     public CharacterTissueRegion(RegionDefinition definition)
     {
         definition.Validate(); Definition=definition;
-        Body=new(definition.CreateMesh(),new TissueMaterial(definition.YoungModulus,definition.PoissonRatio,definition.Density),new SolverSettings {Substeps=6,Iterations=5,VelocityDrag=2.5,ParticleRadius=.003});
+        Body=new(definition.CreateMesh(),new TissueMaterial(definition.YoungModulus,definition.PoissonRatio,definition.Density),definition.CreateSettings());
         foreach(var a in definition.Attachments) Body.Attach(a.Vertex,a.Compliance);
         Body.Contacts.Add(new ContactPlane(V3.UnitY,0));
     }
@@ -75,10 +76,7 @@ public sealed class CharacterTissueRegion
 
 public readonly record struct RegionalVertex(int SurfaceIndex,BoundVertex Embedding,V3 Rest,double Weight);
 
-/// <summary>
-/// Barycentric displacement overlay on top of already-skinned vertices. Zero simulated delta
-/// leaves the base animation unchanged. Unsupported points are not extrapolated.
-/// </summary>
+/// <summary>Barycentric displacement over already-skinned vertices. Zero delta preserves base animation; no outside extrapolation.</summary>
 public sealed class TissueSurfaceMap
 {
     private readonly RegionalVertex[] vertices;

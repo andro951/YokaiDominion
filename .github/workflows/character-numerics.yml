@@ -1,0 +1,25 @@
+name: Portable character numerical runner
+on:
+  push:
+    paths: ['.github/workflows/character-numerics.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Build self-contained numerical runner for repeatable parameter experiments
+        run: |
+          dotnet publish tests/Yokai.Character.Checks -c Release -r linux-x64 --self-contained true -o artifacts/runner
+          echo '${{ github.sha }}' > artifacts/source-commit.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: character-numerical-runner-linux
+          path: artifacts/
+          retention-days: 14
