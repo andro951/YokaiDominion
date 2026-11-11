@@ -26,8 +26,8 @@ def physique(src, eyelids=True):
                         [1.04,1.08,1.10,1.14,1.27,1.22,1.13,1.12,1.12,1.09,1.20,1.04,1.04,1.04])
     torso = 1-smooth(.17,.23,ax)
     q[:,0] = x*(1+(width-1)*torso)
-    glute = gauss(z,.827,.114)*smooth(-.015,.075,y)
-    q[:,1] += .044*glute
+    glute = gauss(z,.815,.135)*smooth(-.015,.075,y)
+    q[:,1] += .033*glute
     q[:,0] += sg*.015*gauss(z,.815,.125)*gauss(ax,.135,.10)
     for side in (-1.,1.):
         sidegate = smooth(.04,.10,side*x)
@@ -48,15 +48,17 @@ def physique(src, eyelids=True):
     neck=gauss(z,1.375,.066)*(1-smooth(.065,.11,ax))
     q[:,0] += x*.16*neck
     q[:,1] += (y+.014)*.14*neck
-    # Scale the existing rounded breast patch, not the entire pectoral silhouette.
     front=1-smooth(-.072,-.025,y)
     rho=np.sqrt(((ax-.076)/.079)**2+((z-1.185)/.090)**2)
     region=(1-smooth(.52,1.12,rho))*front*smooth(.010,.025,ax)*smooth(1.102,1.124,z)
     target=p.copy()
-    target[:,0]=sg*(.113+(ax-.076)*1.46)
-    target[:,1]=-.085+(y+.085)*2.12
-    target[:,2]=1.224+(z-1.224)*1.46-.040
-    q += (target-p)*region[:,None]
+    target[:,0]=sg*(.127+(ax-.076)*1.36)
+    target[:,1]=-.085+(y+.085)*1.88
+    target[:,2]=1.224+(z-1.224)*1.40-.047
+    delta=target-p
+    # Upper-pole fullness is reduced; the lower pole carries the unsupported mass.
+    delta[:,1] *= .55+.45*(1-smooth(1.17,1.25,z))
+    q += delta*region[:,None]
     shoulder_top=gauss(z,1.335,.052)*gauss(ax,.176,.047)
     q[:,2] -= .018*shoulder_top
     traps=gauss(z,1.351,.041)*gauss(ax,.081,.036)*smooth(-.06,-.015,y)
@@ -77,9 +79,9 @@ def physique(src, eyelids=True):
     q[:,1] += .007*gauss(z,.984,.08)*front*(1-smooth(.09,.15,ax))
     for side in (-1.,1.):
         bicep=gauss(x,side*.218,.046)*gauss(z,1.179,.083)*(1-smooth(-.016,.012,y))
-        q[:,1] -= .012*bicep
+        q[:,1] -= .015*bicep
         tricep=gauss(x,side*.208,.049)*gauss(z,1.188,.091)*smooth(.018,.045,y)
-        q[:,1] += .010*tricep
+        q[:,1] += .014*tricep
         quad=gauss(x,side*.099,.060)*gauss(z,.640,.137)*(1-smooth(-.055,-.010,y))
         q[:,1] -= .014*quad
         vastus=gauss(x,side*.063,.032)*gauss(z,.505,.063)*(1-smooth(-.045,-.005,y))
