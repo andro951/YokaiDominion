@@ -1,7 +1,7 @@
-name: Blender asset export calibration
+name: Blender to Godot asset calibration
 on:
   push:
-    paths: ['tools/blender/**', 'tools/validate_glb.py', '.github/workflows/blender.yml']
+    paths: ['tools/blender/**', 'tools/validate_glb.py', 'game/Scripts/ImportCalibration.cs', 'game/Scenes/ImportCalibration.tscn', '.github/workflows/blender.yml', '.github/actions/setup-godot/**']
   pull_request:
   workflow_dispatch:
 permissions:
@@ -15,8 +15,13 @@ jobs:
     timeout-minutes: 20
     env:
       BLENDER_VERSION: '4.5.3'
+      LIBGL_ALWAYS_SOFTWARE: '1'
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: ./.github/actions/setup-godot
       - name: Download verified Blender LTS baseline
         shell: bash
         run: |
@@ -39,6 +44,30 @@ jobs:
           grep -q YOKAI_BLENDER_CALIBRATION_PASS artifacts/blender.log
       - name: Independently validate exported GLB
         run: python tools/validate_glb.py artifacts/calibration/calibration.glb --report artifacts/calibration/glb-validation.json
+      - name: Build native Godot import test
+        shell: bash
+        run: |
+          mkdir -p game/Assets/Calibration
+          cp artifacts/calibration/calibration.glb game/Assets/Calibration/
+          dotnet build game/YokaiDominion.csproj -c Debug
+          timeout 90s "$GODOT_BIN" --headless --editor --path game --import
+      - name: Exercise imported bones and corrective animation
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 60s "$GODOT_BIN" --headless --path game res://Scenes/ImportCalibration.tscn -- --report="$GITHUB_WORKSPACE/artifacts/import-headless.json" 2>&1 | tee artifacts/import-headless.log
+          grep -q YOKAI_NATIVE_ASSET_IMPORT_PASS artifacts/import-headless.log
+      - name: Install software renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends xvfb libgl1-mesa-dri libglx-mesa0
+      - name: Render imported animated asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 90s xvfb-run -a "$GODOT_BIN" --path game --audio-driver Dummy res://Scenes/ImportCalibration.tscn -- --report="$GITHUB_WORKSPACE/artifacts/import-rendered.json" --capture="$GITHUB_WORKSPACE/artifacts/imported-bend.png" 2>&1 | tee artifacts/import-rendered.log
+          grep -q YOKAI_NATIVE_ASSET_IMPORT_PASS artifacts/import-rendered.log
+          test -s artifacts/imported-bend.png
       - uses: actions/upload-artifact@v4
         if: always()
         with:

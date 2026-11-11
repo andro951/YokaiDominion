@@ -1,0 +1,34 @@
+name: Verified Godot .NET toolchain
+description: Install an exact official Linux x64 editor release and verify its SHA512 manifest.
+inputs:
+  version:
+    description: Stable Godot release matching the project SDK
+    required: false
+    default: '4.7.2'
+outputs:
+  executable:
+    description: Absolute editor executable path
+    value: ${{ steps.install.outputs.executable }}
+runs:
+  using: composite
+  steps:
+    - id: install
+      shell: bash
+      env:
+        GODOT_VERSION: ${{ inputs.version }}
+      run: |
+        set -euo pipefail
+        [[ "$GODOT_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+        mkdir -p "$RUNNER_TEMP/godot"
+        cd "$RUNNER_TEMP/godot"
+        archive="Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64.zip"
+        base="https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}-stable"
+        curl --fail --location --retry 3 "$base/$archive" -o "$archive"
+        curl --fail --location --retry 3 "$base/SHA512-SUMS.txt" -o SHA512-SUMS.txt
+        grep -F "$archive" SHA512-SUMS.txt | sha512sum --check -
+        unzip -oq "$archive"
+        exe="$(find "$RUNNER_TEMP/godot" -type f -name 'Godot_v*_mono_linux.x86_64' | head -n 1)"
+        test -n "$exe"
+        chmod +x "$exe"
+        echo "GODOT_BIN=$exe" >> "$GITHUB_ENV"
+        echo "executable=$exe" >> "$GITHUB_OUTPUT"

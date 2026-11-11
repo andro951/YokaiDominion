@@ -5,6 +5,7 @@
 .idea/
 artifacts/
 .cache/
+game/Assets/Calibration/
 *.blend1
 *.blend2
 *.user
