@@ -1,0 +1,24 @@
+name: Likeness source checkpoint
+on:
+  push:
+    branches: [art/likeness-003]
+    paths: ['.github/workflows/likeness-delivery.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  checkpoint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Archive exact source
+        run: |
+          mkdir -p artifacts
+          git archive --format=zip -o artifacts/likeness-source.zip HEAD
+          git rev-parse HEAD > artifacts/source.ref
+      - uses: actions/upload-artifact@v4
+        with:
+          name: likeness-source-checkpoint
+          path: artifacts/
+          retention-days: 30
