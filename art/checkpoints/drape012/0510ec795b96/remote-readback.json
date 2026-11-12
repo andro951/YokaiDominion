@@ -1,0 +1,12 @@
+{
+  "assetCommit": "ff9c69ec8273009e3009b92dde02e0a7f72262bd",
+  "assetPath": "art/checkpoints/drape012/0510ec795b96",
+  "allMatched": true,
+  "files": {
+    "Character01_Art012.blend": {
+      "bytes": 69904359,
+      "sha256": "deec460a59fd2b6149ed4ffb5498a285fe9b0eb5da9bd0003cd848e06239238b",
+      "matched": true
+    }
+  }
+}

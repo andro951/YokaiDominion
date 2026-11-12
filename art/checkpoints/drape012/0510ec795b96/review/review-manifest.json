@@ -1,0 +1,106 @@
+{
+  "sourceSha256": "deec460a59fd2b6149ed4ffb5498a285fe9b0eb5da9bd0003cd848e06239238b",
+  "blender": "4.5.3 LTS",
+  "fixedReviewVersion": 1,
+  "width": 800,
+  "samples": 32,
+  "images": {
+    "front.png": {
+      "sha256": "7ac3838fa6e4074114b24a334e895589506c565698de5bc7c18d96b9eb229086",
+      "bytes": 830023
+    },
+    "quarter.png": {
+      "sha256": "9034441ea3cfa85f67470edbe06a3e5471df24c07cb1894ceb99b2c6552c9fe0",
+      "bytes": 862398
+    },
+    "side.png": {
+      "sha256": "afbe6590916a63221cebe17c7c9b8523d3ce2a2998b31c73d2c73637e15fe11e",
+      "bytes": 820528
+    },
+    "shoulder.png": {
+      "sha256": "fb2e54de41bbbe695cf4185bb890eb27ee317d867ff53c0b4a15643cf5acbc17",
+      "bytes": 855100
+    },
+    "full.png": {
+      "sha256": "754c5bd3532aded167ee29be16c4d42668d12fb6a3c7316499e2507c17c2d722",
+      "bytes": 923841
+    }
+  },
+  "shots": {
+    "front": {
+      "location": [
+        0,
+        -4,
+        1.45
+      ],
+      "target": [
+        0,
+        -0.06,
+        1.45
+      ],
+      "orthoScale": 0.88,
+      "aspect": 1.08,
+      "bodyOnly": false
+    },
+    "quarter": {
+      "location": [
+        2,
+        -4,
+        1.5
+      ],
+      "target": [
+        0,
+        -0.06,
+        1.45
+      ],
+      "orthoScale": 0.88,
+      "aspect": 1.08,
+      "bodyOnly": false
+    },
+    "side": {
+      "location": [
+        4,
+        0,
+        1.45
+      ],
+      "target": [
+        0,
+        -0.07,
+        1.45
+      ],
+      "orthoScale": 0.88,
+      "aspect": 1.08,
+      "bodyOnly": false
+    },
+    "shoulder": {
+      "location": [
+        1,
+        -2,
+        2.05
+      ],
+      "target": [
+        0,
+        -0.015,
+        1.635
+      ],
+      "orthoScale": 0.58,
+      "aspect": 1.0,
+      "bodyOnly": false
+    },
+    "full": {
+      "location": [
+        2.6,
+        -5.8,
+        1.85
+      ],
+      "target": [
+        0,
+        -0.015,
+        1.08
+      ],
+      "orthoScale": 2.35,
+      "aspect": 1.32,
+      "bodyOnly": false
+    }
+  }
+}
