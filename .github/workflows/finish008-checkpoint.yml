@@ -6,7 +6,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: editable-art-checkpoint
+  group: visual-master-checkpoint
   cancel-in-progress: false
 jobs:
   save-and-review:
@@ -49,10 +49,17 @@ jobs:
           git worktree add --detach "$dst" FETCH_HEAD
           mkdir -p "$dst/$ASSET_PATH"
           cp output/Character01_Finish008.blend output/manifest.json output/source.ref "$dst/$ASSET_PATH/"
+          cp output/*.py "$dst/$ASSET_PATH/"
           cd "$dst"
           git add "$ASSET_PATH"
           git commit -m "Save editable Art008 before renders ${GITHUB_SHA:0:12} [skip ci]"
-          git push origin HEAD:refs/heads/art-checkpoints
+          saved=false
+          for attempt in 1 2 3; do
+            if git push origin HEAD:refs/heads/art-checkpoints; then saved=true; break; fi
+            git fetch origin art-checkpoints
+            git rebase FETCH_HEAD
+          done
+          test "$saved" = true
           echo "ASSET_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - name: Verify uploaded model bytes and reopen
         run: |
@@ -88,7 +95,13 @@ jobs:
           git add "$ASSET_PATH"
           if ! git diff --cached --quiet; then
             git commit -m "Save Art008 review evidence ${GITHUB_SHA:0:12} [skip ci]"
-            git push origin HEAD:refs/heads/art-checkpoints
+            saved=false
+            for attempt in 1 2 3; do
+              if git push origin HEAD:refs/heads/art-checkpoints; then saved=true; break; fi
+              git fetch origin art-checkpoints
+              git rebase FETCH_HEAD
+            done
+            test "$saved" = true
           fi
       - uses: actions/upload-artifact@v4
         if: always()
