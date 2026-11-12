@@ -1,0 +1,84 @@
+name: Visual master presentation and audit
+on:
+  push:
+    paths: ['tools/art/present009.py', '.github/workflows/art009-presentation.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: visual-master-presentation
+  cancel-in-progress: false
+jobs:
+  present:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore exact saved visual master
+        run: |
+          set -euo pipefail
+          git fetch origin 980b464ba9ade3f4d72e279c981f38729e68490b
+          git worktree add --detach "$RUNNER_TEMP/master" FETCH_HEAD
+          base="$RUNNER_TEMP/master/art/checkpoints/finish008/9c869a359e9b/Character01_Finish008.blend"
+          echo "3344fd9706024a8ee5f903472de93333191d78a8ec32c5759dc53467cf3a07e3  $base" | sha256sum -c -
+          echo "BASE=$base" >> "$GITHUB_ENV"
+          echo "ASSET_PATH=art/checkpoints/presentation009/${GITHUB_SHA:0:12}" >> "$GITHUB_ENV"
+          mkdir -p output
+          printf '%s\n' "$GITHUB_SHA" > output/source.ref
+      - name: Install verified Blender
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -fL --retry 3 https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz -o blender.tar.xz
+          echo '975c58fcb244273838534bba771e64ad87739216b0f9b39a888531a49a72d845  blender.tar.xz' | sha256sum -c -
+          tar -xf blender.tar.xz
+          echo "BLENDER=$RUNNER_TEMP/blender-4.5.3-linux-x64/blender" >> "$GITHUB_ENV"
+      - name: Audit dependencies and render actual model views
+        env:
+          OPENBLAS_NUM_THREADS: 4
+        run: |
+          set -euo pipefail
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/present009.py -- --source "$BASE" --out output --orbit 24 > output/render.log 2>&1
+          grep -q VISUAL_MASTER_PRESENTATION_PASS output/render.log
+      - name: Encode static turntable
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          ffmpeg -y -framerate 3 -i output/orbit-%03d.png -c:v libx264 -pix_fmt yuv420p -crf 18 output/Character01_Static_Turntable.mp4
+      - name: Save presentation files and hashes to GitHub
+        if: always()
+        run: |
+          set -euo pipefail
+          test -s output/asset-audit.json
+          python - <<'PY'
+          import pathlib,hashlib,json
+          out=pathlib.Path('output')
+          files={str(p.relative_to(out)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in out.iterdir() if p.suffix in ('.png','.mp4','.json')}
+          (out/'manifest.json').write_text(json.dumps({'staticVisualReview':True,'files':files},indent=2))
+          PY
+          git config user.name 'Yokai checkpoint bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin art-checkpoints
+          dst="$RUNNER_TEMP/presentation-save"
+          git worktree add --detach "$dst" FETCH_HEAD
+          mkdir -p "$dst/$ASSET_PATH"
+          cp -r output/. "$dst/$ASSET_PATH/"
+          cd "$dst"
+          git add "$ASSET_PATH"
+          git commit -m "Save actual visual master presentation ${GITHUB_SHA:0:12} [skip ci]"
+          saved=false
+          for attempt in 1 2 3; do
+            if git push origin HEAD:refs/heads/art-checkpoints; then saved=true; break; fi
+            git fetch origin art-checkpoints
+            git rebase FETCH_HEAD
+          done
+          test "$saved" = true
+          printf '%s\n' "$(git rev-parse HEAD)" > "$GITHUB_WORKSPACE/output/asset-commit.txt"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: character-visual-master-presentation
+          path: output/
+          retention-days: 30
+          if-no-files-found: error
