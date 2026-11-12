@@ -1,4 +1,4 @@
-"""Repair actual back-view art defects; preserve old components hidden for edit history."""
+"""Repair back-view art defects; preserve old components hidden for edit history."""
 import math
 import bpy,bmesh
 import numpy as np
@@ -36,41 +36,44 @@ def fill_mane():
  mat=bpy.data.materials.get('Hair | Art008 strand-aligned ivory') or bpy.data.materials['Hair | ivory silver']
  for j in range(-7,8):
   phase=.63*j;t=np.linspace(0,1,74);f=j/7
-  # Attached to scalp at the root; broad overlapping locks cover the old diamond plate.
   x=f*(.065+.105*smooth(0,.38,t))+.012*np.sin(3*math.pi*t+phase)*np.sin(math.pi*t)
   y=.076+.170*smooth(0,.46,t)+.012*np.sin(3.3*math.pi*t+phase)*np.sin(math.pi*t)
-  end=1.025+.11*abs(f)+.024*math.sin(phase+1)
+  end=1.040+.115*abs(f)+.043*math.sin(phase+1)
   z=1.86+(end-1.86)*t
-  taper=np.maximum(.008,(1-smooth(.68,1,t)))
+  taper=np.maximum(.008,(1-smooth(.55,1,t)))
   width=(.014+.012*np.sin(math.pi*t))*taper
   depth=(.010+.004*np.sin(math.pi*t))*taper
   tube('Art008 inner flowing lock %02d'%(j+7),np.c_[x,y,z],width,depth,mat)
 
-
 def finish_tail_opening():
  cloth=bpy.data.objects.get('Gathered rear skirt');tail=bpy.data.objects.get('Tail')
- if not cloth or not tail:return
+ if not cloth or not tail:raise RuntimeError('Missing expected garment/tail')
  bm=bmesh.new();bm.from_mesh(cloth.data)
  boundary=[v for v in bm.verts if v.is_boundary and abs(v.co.x-.031)<.065 and .92<v.co.z<1.07]
- if len(boundary)<6:bm.free();return
- mean_y=sum(v.co.y for v in boundary)/len(boundary)
+ if len(boundary)<6:bm.free();raise RuntimeError('Tail aperture boundary not identified')
+ old=np.mean([tuple(v.co) for v in boundary],axis=0);mean_y=old[1]
  p=np.array([v.co[:] for v in tail.data.vertices]);count=(len(p)-2)//20
- if count*20+2!=len(p):bm.free();return
+ if count*20+2!=len(p):bm.free();raise RuntimeError('Unexpected tail topology')
  rings=p[:count*20].reshape(count,20,3);centers=rings.mean(1)
- # Find the actual intersection with the garment's rear plane.
- i=int(np.argmin(abs(centers[:,1]-mean_y)));center=centers[i]
- radius=float(np.mean(np.linalg.norm(rings[i]-center,axis=1)))
+ # Use the FIRST crossing leaving the body. The distal upward loop crosses the
+ # same Y plane again and must never drag cloth 40 cm sideways to that crossing.
+ root=centers[:count//3]
+ candidates=[i for i in range(len(root)-1) if (root[i,1]-mean_y)*(root[i+1,1]-mean_y)<=0]
+ if not candidates:bm.free();raise RuntimeError('No root-side tail crossing')
+ i=candidates[0];u=float(np.clip((mean_y-root[i,1])/(root[i+1,1]-root[i,1]),0,1))
+ center=root[i]*(1-u)+root[i+1]*u
+ radius=float(np.mean(np.linalg.norm(rings[i]-centers[i],axis=1)))
  rx=max(.018,radius+.004);rz=rx*1.30
- old=np.mean([tuple(v.co) for v in boundary],axis=0)
+ if np.linalg.norm(center-old)>.055:bm.free();raise RuntimeError('Tail aperture displacement is implausible')
  for v in boundary:
   theta=math.atan2((v.co.z-old[2])/.039,(v.co.x-old[0])/.034)
   v.co.x=center[0]+rx*math.cos(theta);v.co.z=center[2]+rz*math.sin(theta)
  bm.to_mesh(cloth.data);bm.free();cloth.data.update()
+ assert max(abs(v.co.x) for v in cloth.data.vertices)<.18,'Garment lateral spike'
  material=cloth.data.materials[0]
  t=np.linspace(0,2*math.pi,65);pts=np.c_[center[0]+rx*np.cos(t),np.full(len(t),mean_y+.0010),center[2]+rz*np.sin(t)]
  tube('Art008 tailored tail opening hem',pts,.0011,.0011,material,sides=8)
- cloth['tail_opening']='Rounded to actual tail intersection, with cloth hem; not a punched polygon hole'
-
+ cloth['tail_opening']='Root-side intersection with bounded displacement and rounded cloth hem'
 
 def markings():
  mat=bpy.data.materials.get('Skin | cool slate')
@@ -97,7 +100,6 @@ def markings():
   mask=op('MAXIMUM',mask,op('MULTIPLY',leaf,gate))
  l.new(mask,mix.inputs[0])
 
-
 def apply(body):
  fill_mane();finish_tail_opening();markings()
- body['silhouette008']='Back hair filler replaced; rounded and fitted tail opening; pointed markings'
+ body['silhouette008']='Back filler replaced; bounded root-side tail opening; pointed markings'
