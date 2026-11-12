@@ -1,43 +1,60 @@
-# Progress: milestone 002 handoff
+# Progress — Art008 visual asset handoff
 
-## Delivered
+## Current asset and scope
 
-Actual editable Character01 .blend and animated GLB; anatomical body with separate fantasy details and clothing; 176-joint deformation skeleton including fingers; eight diagnostic poses; four tetrahedral tissue regions with graded supports; portable C# region-data loading and surface binding; a Godot morph/skin/tissue reference path and physics-disabled native-skin fallback; rendered pose/motion evidence; a safe asset installer and Windows launch script.
+The active replacement character is the Art008 static visual master, source `9c869a359e9b0ac9fa91f984b5fd97e38f44984a`, derived from the official Blender CC0 realistic female base. The earlier milestone002 mannequin and its rig are not the active art foundation. The user's anatomy-first corrections supersede old literal-silhouette instructions.
 
-This is an engineering/modeling prototype, not final art or game-ready acceptance. The original illustration remains authoritative. Do not treat the current face, hair, costume edges or silhouette as approved.
+Work now covers the actual body/neck/shoulder surface, muscle definition, face/eyes/brows/teeth, separated unsupported chest form, continuous loose neck-directed halter, front/back cloth, braided cord, long wavy hair and fibre detail, horns, ears, tail opening, markings, nails and material variation. Source changes and actual .blend bytes were checkpointed repeatedly. The old Cord007 cord edits survive in the replacement.
 
-## Verified checkpoints
+This handoff is a complete static visual revision, not a claim of user-approved final likeness, a production MOBA LOD, or a newly rigged/physically simulated character. The current exported GLB has zero skins and zero animation clips. Full art/game acceptance must not be inferred from structural export success.
 
-- Asset: `95af2eb3f902dac56705f4b6d51f16589a8d8787`, run 42971187686. Blender authored source assets and renders. Portable C# cage checks passed. Godot headless and rendered pose/jump/fallback checks passed.
-- Runtime/colour: `409ae5f39de720bb12e36cb82050825975f596a9`, run 42973867993. Reused the exact asset (GLB SHA256 f66da485c5d5fe62f02ecc7b905cfd6baffff055fd299d8a5935eb288cc17850), compiled optimized assemblies, passed pixel-based colour calibration and actual-character rendered checks.
-- Core checks: same runtime revision, run 42973868017; 18 core plus 9 advanced checks passed on both Windows and Linux.
-- Local installer checks: valid artifact installed; identical reinstall was idempotent; differing local content was preserved and overwrite refused; explicit force restored the artifact.
+## Resume from these exact files
 
-The final jump fixture reports 5,984 bound surface vertices, maximum rest-skin transform discrepancy 0.00008495 m, peak local volume error 4.1946% breast / 2.5084% glute, zero inversions, and peak surface displacement 0.1054 m. These quantities characterize this fixture only. Numerical boundedness does not imply believable tissue motion.
+All binary files below are normal Git commits on `art-checkpoints`, not merely expiring Actions artifacts.
 
-## Rejected attempts and corrections
+Editable master:
+- Commit: `980b464ba9ade3f4d72e279c981f38729e68490b`.
+- File: `art/checkpoints/finish008/9c869a359e9b/Character01_Finish008.blend`.
+- SHA-256: `3344fd9706024a8ee5f903472de93333191d78a8ec32c5759dc53467cf3a07e3`.
+- Size: 17,358,317 bytes.
+- Successful authoring/save/readback/render run: `43159974137`.
 
-The initial fused primitive body had severe overhead spikes. Independent GLB sampling showed 99.9th-percentile edge stretch above 100x. Smooth masks helped but retained unrelated pelvis/spine weights on distal arms. Anatomically limited chains improved that baseline, but fused fingers and joint topology still made it a poor final foundation.
+Portable PBR files:
+- Source: `e8a6f76486e9222b30e158823aee7f80da30b6a9`.
+- Asset commit: `4bec672d1e7836dec2d0db141ff6236e3c722395`.
+- Directory: `art/checkpoints/portable008/e8a6f76486e9/`.
+- GLB: `Character01_Visual008.glb`, SHA-256 `bf422fa4e363f9eb4a04fbc2bb9cb306469fdcbba60123bccdd365203e0856f9`, 40,972,612 bytes.
+- Baked Blender copy: `Character01_PBR008.blend`, SHA-256 `08239fda16dcc8ae3b82523ba28e806b3b3bd3535140e96dc0e3047cab8a1fd5`, 44,944,349 bytes.
+- Successful export/readback/reimport/render run: `43160875654`.
 
-The accepted *development foundation* now uses pinned CC0 MakeHuman graphical mesh/morph/rig/weight data, reshaped by our own authoring code. This is not an artistic acceptance. Independent sampled GLB audit now measures overhead p99.9 stretch 3.218x, crouch 1.831x, high kick 1.546x. The overhead maximum is still 7.823x and has 48 counted triangle-edge entries over 4x. Do not claim shoulder deformation is solved. No audit threshold was relaxed to hide this.
+Full measured evidence and known limitations: `CHARACTER_ART008.md`. Source modules are under `tools/art/`. The authoring driver `finish008.py` applies the committed visual changes to the pinned complete Cord007 asset. Do not accidentally start from the older `art/current` file and lose later work.
 
-Initial tissue settings reached roughly 25% local volume error. Exposing solver iteration/substep settings, fitting the new cages and retuning material settings brought the controlled fixture below the provisional 5% volume-change goal. This was not a biological material calibration or a single-variable experiment across different geometry revisions.
+## Observed verification
 
-Actual Godot renders exposed two colour bugs missed by structural checks: first an unused vertex-colour stream, then linear glTF colours displayed too dark by Compatibility rendering. The shared shader now handles OUTPUT_IS_SRGB explicitly. Rendered unshaded palette samples match the reference material within 2/255 per channel (skin exactly in that test). Do not substitute material-flag checks for pixel inspection.
+- Actual master saved, committed before rendering, downloaded at immutable commit, hash/size matched and reopened in Blender.
+- Six view renders downloaded and inspected: front, side, back, three-quarter, portrait, torso.
+- Actual GLB, PBR .blend and all texture files committed, downloaded back and hash/size checked.
+- GLB reimported and rendered; the current export retains slate skin color and separate markings rather than the black patches or smeared colors of rejected intermediate exports.
+- Independent binary audit: finite positions/normals/UVs, all mesh indices in bounds, all normals within 1% of unit length, embedded images/buffer without external URIs, alpha-masked strand material.
+- High-resolution master body: 169,362 vertices. Portable body: 67,746 vertices / 135,488 triangles. Complete export: 511,676 triangles, 14 materials, 289 meshes, 16 embedded images. This remains a high-detail presentation asset, not a measured production runtime budget.
+- The final atlas is within 0–1. Source summed UV triangle area 0.605854, portable 0.599258. Color-coverage test samples 135,488 faces with zero unbaked black samples under the defined threshold. This is not a likeness score.
 
-## Unfinished / known failures
+## Rejected intermediate work
 
-- Visual likeness, face/hair design, body sculpt detail, garment contour and reference proportion matching need refinement.
-- Shoulder skinning/correctives are not accepted. The anatomical revision's named corrective keys contain zero offsets.
-- Eight static pose imports are not a capable animation/controller suite. Crouch feet float and the diagnostic knockdown intersects the floor. No full-body IK or ragdoll controller.
-- The four simulation meshes are coarse bounding volumes, not anatomical tissue layers. Their volume/mass, material values, support geometry and stress-free rest state are not biologically calibrated.
-- The current model does not solve full body, garment, self or continuous collision; free garments and hair are only skinned. A chest patch following tissue is not garment restraint.
-- CPU mesh rebuilding and solver quality settings have not been benchmarked on the user's Windows/GPU hardware. The launch script exists but has not been executed on that PC.
+The ccb035f720d2 contour model had a rear garment spike caused by selecting a distal tail crossing. The final code uses the first root-side crossing, bounds displacement and adds a rounded hem.
 
-## Resume here
+The first single-image export failed visually because the source body uses UDIMs. Repacking resolved black regions, but a subsequent UNSUBDIV reduction corrupted UVs: summed UV area reached 16.63 in one tile. That output was also rejected despite passing a simplistic nonblack-coverage check. The final exporter uses UV/seam/material-preserving collapse, verifies UV area, has a full-resolution fallback, and transfers all maps from the intact sculpt. Do not deliver those earlier portable directories as current.
 
-Read this file, CHARACTER_CONTRACT.md, ANATOMICAL_BASE_REVIEW.md and milestone-002.json. Inspect the actual .blend/GLB and previews before editing. Focus next on reference likeness and shoulder/hip deformation corrections, followed by fitted tissue volumes/support and contact. Do not add more unrelated infrastructure or label this prototype production-ready.
+Earlier hair/brow revisions were also superseded. The latest model has continuous long rooted back waves rather than the old flat filler/stepped fringe; ivory brows retain a low-profile undercoat plus individual hairs, rather than disappearing when the old raised strips were hidden.
 
-Recover generated assets from authoring run 42971187686 or the milestone bundle. The fast runtime regression pins that run and therefore requires its artifact while retained; after expiry regenerate with the full character authoring workflow and update the pin/hash explicitly. Full reproduction uses selected CC0 data at the immutable revision in THIRD_PARTY_ASSETS.md.
+## Remaining separate game/physics work
 
-Source and measured summaries are on GitHub; the handoff archive includes both exact source repositories, source model, exported model, runtime data, selected authoring data with license, original references, previews and results. No asynchronous work is implied.
+The replacement needs its own deformation rig, skin weights, pose corrections, motion set, tissue region fitting, supported rest-state calibration, garment/body contact, hair/cloth runtime behavior and performance/LOD work. These are not silently completed by importing the visual GLB.
+
+The existing engine-independent C# solver and Godot laboratory remain. Historical milestone002 results are retained in `docs/evidence/milestone-002.json` and `docs/MILESTONE_002.md`: 27 numerical checks passed on Windows/Linux; the old character's controlled jump had approximately 4.19% breast-cage and 2.51% glute-cage local volume change with zero inversions. Those fixture results are not anatomical realism and do not validate this rebuilt mesh. Historical shoulder stretching, contact failures, empty corrective placeholders and lack of production performance remain documented there.
+
+## Saving protocol and recovery
+
+Root `AGENTS.md` now permanently records the proven project workflow: small text via direct Contents API with current SHA/readback; actual binaries via normal Git in Actions; save model BEFORE rendering; verify immutable remote bytes and reopen. Checkpoint unfinished active work every 5–10 minutes, targeting five. Unique paths and fetch/rebase/retry protect concurrent asset saves without force pushes.
+
+The user's latest instructions and asset/license provenance are in `AGENTS.md`, `CHARACTER_REBUILD_003.md`, `CHARACTER_ART008.md` and `THIRD_PARTY_ASSETS.md`. The original art sheet's Astra label is not an approved character name. Never claim account-wide permanent memory or ongoing background modeling merely because these project instructions are saved.
