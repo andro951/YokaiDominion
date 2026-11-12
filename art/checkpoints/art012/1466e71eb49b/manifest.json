@@ -1,0 +1,18 @@
+{
+  "revision": "012-continuous-volume-9",
+  "bodyVertices": 825304,
+  "method": "Volumetric union, smooth attachment, projection back to native anatomy outside chest",
+  "newTopology": true,
+  "staticVisualAsset": true,
+  "rigUpdated": false,
+  "physicsUpdated": false,
+  "userApproved": false,
+  "sourceSha256": "54ab5f8d2cc71160c12522d046c396db19604b6ef7c2c1bc130ebba18032b948",
+  "files": {
+    "Character01_Art012.blend": {
+      "bytes": 69748550,
+      "sha256": "18a73d7471ade91f3cd51ca09d05ee74ff7d8939992a54fd33cee0f703bf01d2"
+    }
+  },
+  "savedBlendReopened": true
+}
