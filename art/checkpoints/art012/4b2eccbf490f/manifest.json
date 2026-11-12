@@ -1,0 +1,22 @@
+{
+  "revision": "012-native-root-reconstruction-3",
+  "bodyVertices": 169362,
+  "changedVertices": 7459,
+  "protectedVerticesUnchanged": 160888,
+  "maxDisplacementMetres": 0.11461187656422678,
+  "clothPanels": [
+    "Loose over-trapezius panel L",
+    "Loose over-trapezius panel R"
+  ],
+  "rigUpdated": false,
+  "physicsUpdated": false,
+  "userApproved": false,
+  "sourceSha256": "54ab5f8d2cc71160c12522d046c396db19604b6ef7c2c1bc130ebba18032b948",
+  "savedBlendReopened": true,
+  "files": {
+    "Character01_Art012.blend": {
+      "bytes": 23465967,
+      "sha256": "ee0753bf84c30a7d4a252ae9139022051e4e90ba410571242f566e14dff2d916"
+    }
+  }
+}
