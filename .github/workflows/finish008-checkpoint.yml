@@ -1,0 +1,99 @@
+name: Art008 editable model checkpoint
+on:
+  push:
+    paths: ['tools/art/finish008.py', '.github/workflows/finish008-checkpoint.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: editable-art-checkpoint
+  cancel-in-progress: false
+jobs:
+  save-and-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore verified Cord007 binary
+        run: |
+          set -euo pipefail
+          git fetch origin 1f2e230192c93b3a9084ba759e023b34faa0476c
+          git worktree add --detach "$RUNNER_TEMP/baseline" FETCH_HEAD
+          echo "BASE=$RUNNER_TEMP/baseline/art/checkpoints/cord007/Character01_Cord007.blend" >> "$GITHUB_ENV"
+          echo "ASSET_PATH=art/checkpoints/finish008/${GITHUB_SHA:0:12}" >> "$GITHUB_ENV"
+          mkdir -p output
+          printf '%s\n' "$GITHUB_SHA" > output/source.ref
+      - name: Install verified Blender
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -fL --retry 3 https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz -o blender.tar.xz
+          echo '975c58fcb244273838534bba771e64ad87739216b0f9b39a888531a49a72d845  blender.tar.xz' | sha256sum -c -
+          tar -xf blender.tar.xz
+          echo "BLENDER=$RUNNER_TEMP/blender-4.5.3-linux-x64/blender" >> "$GITHUB_ENV"
+      - name: Edit and save model before any rendering
+        env:
+          OPENBLAS_NUM_THREADS: 4
+        run: |
+          set -euo pipefail
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/finish008.py -- --source "$BASE" --out output 2>&1 | tee output/edit.log
+          grep -q ART008_EDIT_SAVE_REOPEN_PASS output/edit.log
+      - name: Push actual editable bytes immediately
+        id: save
+        run: |
+          set -euo pipefail
+          git config user.name 'Yokai checkpoint bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin art-checkpoints
+          dst="$RUNNER_TEMP/asset-save"
+          git worktree add --detach "$dst" FETCH_HEAD
+          mkdir -p "$dst/$ASSET_PATH"
+          cp output/Character01_Finish008.blend output/manifest.json output/source.ref "$dst/$ASSET_PATH/"
+          cd "$dst"
+          git add "$ASSET_PATH"
+          git commit -m "Save editable Art008 before renders ${GITHUB_SHA:0:12} [skip ci]"
+          git push origin HEAD:refs/heads/art-checkpoints
+          echo "ASSET_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Verify uploaded model bytes and reopen
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,pathlib,urllib.request
+          manifest=json.loads(pathlib.Path('output/manifest.json').read_text());results={}
+          for name,expected in manifest['files'].items():
+              url=f"https://raw.githubusercontent.com/{os.environ['GITHUB_REPOSITORY']}/{os.environ['ASSET_COMMIT']}/{os.environ['ASSET_PATH']}/{name}"
+              with urllib.request.urlopen(url,timeout=90) as r:data=r.read()
+              assert hashlib.sha256(data).hexdigest()==expected['sha256']
+              assert len(data)==expected['bytes']
+              pathlib.Path(os.environ['RUNNER_TEMP'],'readback.blend').write_bytes(data)
+              results[name]={'bytes':len(data),'sha256':expected['sha256'],'matches':True}
+          pathlib.Path('output/remote-readback.json').write_text(json.dumps({'assetCommit':os.environ['ASSET_COMMIT'],'assetPath':os.environ['ASSET_PATH'],'files':results},indent=2))
+          PY
+          "$BLENDER" -b "$RUNNER_TEMP/readback.blend" --python-exit-code 1 --python-expr "import bpy; assert bpy.data.objects['Body'].get('finish008_applied'); assert any(o.modifiers.get('Art007 cord rounding') for o in bpy.data.objects); print('REMOTE_ART008_REOPEN_PASS')" | tee output/reopen.log
+      - name: Render the already-backed-up model
+        env:
+          OPENBLAS_NUM_THREADS: 4
+        run: |
+          set -euo pipefail
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/finish008.py -- --source output/Character01_Finish008.blend --out output --render-only --views portrait,three-quarter,front,side,back,torso --width 850 --samples 24 > output/render.log 2>&1
+      - name: Persist rendered review and readback evidence
+        if: always() && steps.save.outcome == 'success'
+        run: |
+          set -euo pipefail
+          dst="$RUNNER_TEMP/preview-save"
+          git fetch origin art-checkpoints
+          git worktree add --detach "$dst" FETCH_HEAD
+          cp output/*.png output/remote-readback.json output/reopen.log "$dst/$ASSET_PATH/" 2>/dev/null || true
+          cd "$dst"
+          git add "$ASSET_PATH"
+          if ! git diff --cached --quiet; then
+            git commit -m "Save Art008 review evidence ${GITHUB_SHA:0:12} [skip ci]"
+            git push origin HEAD:refs/heads/art-checkpoints
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: art008-editable-and-review
+          path: output/
+          retention-days: 30
+          if-no-files-found: error
