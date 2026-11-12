@@ -8,8 +8,8 @@ import bpy
 import numpy as np
 from mathutils import Vector
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-MODULES=[importlib.import_module(n) for n in ('surface008','portrait008','silhouette008','finishing008','beauty008','skin008','garment008','hair008','face009')]
-REVISION='008-facial-fibres-10'
+MODULES=[importlib.import_module(n) for n in ('surface008','portrait008','silhouette008','finishing008','beauty008','skin008','garment008','groom009','hair008','face009','detail009')]
+REVISION='008-complete-visual-pass-11'
 
 def smooth(a,b,x):
  t=np.clip((x-a)/(b-a),0,1);return t*t*(3-2*t)
@@ -47,7 +47,7 @@ def edit():
   if bs:
    bs.inputs['Specular IOR Level'].default_value=.24;bs.inputs['Subsurface Weight'].default_value=.075;bs.inputs['Subsurface Scale'].default_value=.0015
  for m in MODULES:m.apply(body)
- body['finish008_applied']=REVISION;body['asset_kind']='Visual art refinement; rig and physics refit remain separate';bpy.context.scene['art_checkpoint']=REVISION
+ body['finish008_applied']=REVISION;body['asset_kind']='Visual art master; rig and physics refit remain separate';bpy.context.scene['art_checkpoint']=REVISION
 
 def render(out,views,width,samples):
  scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=samples;scene.cycles.use_denoising=True
