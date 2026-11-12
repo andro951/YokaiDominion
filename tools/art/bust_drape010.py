@@ -7,7 +7,7 @@ import bpy
 import numpy as np
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
-REVISION='010-bust-trapezius-1'
+REVISION='010-bust-trapezius-3'
 
 def smooth(a,b,x):
  t=np.clip((x-a)/(b-a),0,1);return t*t*(3-2*t)
@@ -20,12 +20,19 @@ def edit():
  body=bpy.data.objects['Body']
  if body.get('art010'):raise ValueError('Refusing to apply chest enlargement twice')
  p=read(body);q=p.copy();x,y,z=p.T;ax=np.abs(x)
- rho=np.sqrt(((ax-.123)/.126)**2+((z-1.405)/.158)**2)
- mask=(1-smooth(.12,1.15,rho))*(1-smooth(-.095,-.055,y))*smooth(.015,.037,ax)*smooth(1.292,1.333,z)
- q[:,1]-=.130*mask
- q[:,0]+=np.sign(x)*(.010+.35*ax)*mask
- q[:,2]-=.012*mask*(1-smooth(1.405,1.53,z))
- unchanged=mask==0
+ changed=np.zeros(len(q),dtype=bool)
+ attached=smooth(1.307,1.340,z)*(1-smooth(1.505,1.565,z))*(1-smooth(.185,.228,ax))*smooth(.020,.044,ax)
+ # Integrate local expansion instead of extruding a hard patch. The abdomen and
+ # breast-root attachment boundaries remain fixed, independently of clothing.
+ for step in range(60):
+  t=(step+.5)/60;xx,yy,zz=q.T;au=np.abs(xx);cx=.123+.020*t;cz=1.405+.010*t
+  rho=np.sqrt(((au-cx)/(.117*(1+.28*t)))**2+((zz-cz)/(.145*(1+.25*t)))**2)
+  mask=(1-smooth(.42,1.38,rho))*(1-smooth(-.102,-.060,yy))*smooth(.016,.040,au)*smooth(1.215,1.300,zz)*attached
+  changed|=mask>0
+  q[:,0]+=np.sign(xx)*(.025+.40*(au-cx))*mask/60
+  q[:,1]+=(math.log(1.95)*(yy+.115)-.009)*mask/60
+  q[:,2]+=(math.log(1.45)*(zz-1.370)+.009)*mask/60
+ unchanged=~changed
  assert np.array_equal(p[unchanged],q[unchanged])
  attr=body.data.attributes.new('art010_previous_position','FLOAT_VECTOR','POINT');attr.data.foreach_set('vector',p.ravel())
  write(body,q);body['art010']=REVISION;body['clothing_shapes_body']=False
@@ -47,10 +54,13 @@ def edit():
  for side in (-1,1):
   zs=np.array([1.197,1.235,1.285,1.33,1.40,1.48,1.55,1.598])
   centers=np.array([.085,.105,.153,.183,.193,.169,.132,.107])
-  widths=np.array([.064,.059,.065,.068,.060,.048,.032,.025])
-  front=[]
+  widths=np.array([.064,.055,.049,.048,.047,.041,.027,.024])
+  front=[];guide=np.column_stack([zs,centers,widths])
   for t in np.linspace(0,1,100):
-   z0=zs[0]+t*(zs[-1]-zs[0]);cx=np.interp(z0,zs,centers);w=np.interp(z0,zs,widths);row=[]
+   tt=t*(len(guide)-1);k=min(int(tt),len(guide)-2);u0=tt-k
+   a0=guide[max(0,k-1)];a1=guide[k];a2=guide[k+1];a3=guide[min(k+2,len(guide)-1)]
+   z0,cx,w=.5*((2*a1)+(-a0+a2)*u0+(2*a0-5*a1+4*a2-a3)*u0*u0+(-a0+3*a1-3*a2+a3)*u0**3)
+   row=[]
    for u in np.linspace(-1,1,33):
     xx=side*(cx+w*u);zz=z0+.0025*math.sin(math.pi*t)*u;yy=surf(xx,zz)
     if yy is None:
@@ -58,7 +68,12 @@ def edit():
     fold=(.001+.0018*math.sin(math.pi*t)**2)*(1+math.sin(2.3*math.pi*u+2*t+.3*side))
     row.append([xx,yy-.006-fold,zz])
    front.append(row)
-  a=np.array(front)
+  a=np.array(front);obstacle=-a[:,:,1];depth=obstacle.copy()
+  for _ in range(180):
+   avg=depth.copy();avg[1:-1,1:-1]=.25*(depth[:-2,1:-1]+depth[2:,1:-1]+depth[1:-1,:-2]+depth[1:-1,2:])
+   avg[1:-1,0]=.5*depth[1:-1,1]+.25*(depth[:-2,0]+depth[2:,0]);avg[1:-1,-1]=.5*depth[1:-1,-2]+.25*(depth[:-2,-1]+depth[2:,-1])
+   depth=np.maximum(obstacle,avg)
+  a[:,:,1]=-depth
   for j in range(33):
    k=int(np.argmin(a[:,j,1]));t=np.linspace(0,1,k+1)
    bridge=a[0,j,1]*(1-t)+a[k,j,1]*t-.005*np.sin(math.pi*t)
@@ -102,7 +117,7 @@ def edit():
   obj['construction']='Continuous front-to-back loose strip over upper trapezius. No transverse neck collar, cups, underband, or breast lift.'
   obj['role']='separate_character_detail';panels.append(obj.name)
  bpy.context.scene['art_checkpoint']=REVISION
- return {'revision':REVISION,'bodyVertices':len(q),'changedVertices':int(np.count_nonzero(mask)),'otherBodyVerticesUnchanged':True,'maxAddedProjectionMetres':float((p[:,1]-q[:,1]).max()),'newPanels':panels,'rigOrPhysicsUpdated':False}
+ return {'revision':REVISION,'bodyVertices':len(q),'changedVertices':int(np.count_nonzero(changed)),'otherBodyVerticesUnchanged':True,'maxAddedProjectionMetres':float((p[:,1]-q[:,1]).max()),'newPanels':panels,'rigOrPhysicsUpdated':False}
 
 def render(out,views,width,samples):
  scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=samples;scene.cycles.use_denoising=True;scene.cycles.device='CPU';scene.render.threads_mode='FIXED';scene.render.threads=4;scene.render.resolution_percentage=100;scene.render.image_settings.file_format='PNG'
