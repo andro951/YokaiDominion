@@ -8,7 +8,7 @@ import numpy as np
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-REVISION='010-bust-trapezius-6'
+from bust_shape010 import REVISION
 
 def smooth(a,b,x):
  t=np.clip((x-a)/(b-a),0,1);return t*t*(3-2*t)
@@ -25,6 +25,8 @@ def edit():
  edges=np.empty(len(body.data.edges)*2,dtype=np.int32);body.data.edges.foreach_get('vertices',edges)
  q=fair_surface(deform(p),p,edges.reshape(-1,2));changed=np.any(q!=p,axis=1);unchanged=~changed
  assert np.array_equal(p[unchanged],q[unchanged])
+ protected=(p[:,2]>1.60)|(p[:,2]<1.25)|(np.abs(p[:,0])>.27)|(p[:,1]>.02)
+ assert np.array_equal(p[protected],q[protected]),'Unrelated anatomy was modified'
  attr=body.data.attributes.new('art010_previous_position','FLOAT_VECTOR','POINT');attr.data.foreach_set('vector',p.ravel())
  write(body,q);body['art010']=REVISION;body['clothing_shapes_body']=False
  body['asset_kind']='Visual master: enlarged bust and corrected drape; animation/physics not refitted'
@@ -69,6 +71,12 @@ def edit():
    k=int(np.argmin(a[:,j,1]));t=np.linspace(0,1,k+1)
    v0=t*t*(3-2*t);bridge=a[0,j,1]*(1-v0)+a[k,j,1]*v0-.004*np.sin(math.pi*t)**2
    a[:k+1,j,1]=np.minimum(a[:k+1,j,1],bridge)
+  # Apply soft folds after envelope relaxation so the relaxation cannot erase them.
+  for i,t in enumerate(np.linspace(0,1,len(a))):
+   for j,u in enumerate(np.linspace(-1,1,33)):
+    wave=(.0014+.0038*math.sin(math.pi*t)**2)*(1+math.sin(2.4*math.pi*u+1.4*t+.25*side))
+    gather=.0015*(math.exp(-t*10)+math.exp(-(1-t)*10))*(1+math.sin(5*math.pi*u+.8*t))
+    a[i,j,1]-=(wave+gather)*math.sin(math.pi*t)**.45
   rear=[]
   for t in np.linspace(0,1,96):
    zz=1.598-(1.598-1.197)*t;cx=.107-.022*t;w=.025+.039*t**2;row=[]
@@ -107,12 +115,11 @@ def edit():
   m=obj.modifiers.new('Fabric thickness','SOLIDIFY');m.thickness=.0011;m.offset=0
   obj['construction']='Continuous front-to-back loose strip over upper trapezius. No transverse neck collar, cups, underband, or breast lift.'
   obj['role']='separate_character_detail';panels.append(obj.name)
- # Broad low frontal studio fill makes underside and abdominal forms inspectable.
  light=bpy.data.lights.new('STUDIO lower front fill','AREA');light.energy=65;light.shape='DISK';light.size=2.0
  lamp=bpy.data.objects.new('STUDIO lower front fill',light);bpy.data.collections['90_STUDIO'].objects.link(lamp)
  lamp.location=(0,-3,1.35);lamp.rotation_euler=(Vector((0,0,1.40))-lamp.location).to_track_quat('-Z','Y').to_euler()
  bpy.context.scene['art_checkpoint']=REVISION
- return {'revision':REVISION,'bodyVertices':len(q),'changedVertices':int(np.count_nonzero(changed)),'otherBodyVerticesUnchanged':True,'maxAddedProjectionMetres':float((p[:,1]-q[:,1]).max()),'newPanels':panels,'rigOrPhysicsUpdated':False}
+ return {'revision':REVISION,'bodyVertices':len(q),'changedVertices':int(np.count_nonzero(changed)),'otherBodyVerticesUnchanged':True,'protectedBodyVerticesUnchanged':int(np.count_nonzero(protected)),'maxAddedProjectionMetres':float((p[:,1]-q[:,1]).max()),'newPanels':panels,'rigOrPhysicsUpdated':False}
 
 def render(out,views,width,samples):
  scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=samples;scene.cycles.use_denoising=True;scene.cycles.device='CPU';scene.render.threads_mode='FIXED';scene.render.threads=4;scene.render.resolution_percentage=100;scene.render.image_settings.file_format='PNG'
