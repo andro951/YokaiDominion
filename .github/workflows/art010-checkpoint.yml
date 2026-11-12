@@ -1,0 +1,107 @@
+name: Art010 breast and trapezius drape checkpoint
+on:
+  push:
+    paths: ['tools/art/bust_drape010.py', '.github/workflows/art010-checkpoint.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: art010-checkpoint
+  cancel-in-progress: false
+jobs:
+  edit-save-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore the exact delivered Art008 master
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          curl -fL --retry 3 https://raw.githubusercontent.com/andro951/YokaiDominion/98ada9f495fc754a2b8f20823dc38cce85ca9d17/art/checkpoints/finish008/9c869a359e9b/Character01_Finish008.blend -o "$RUNNER_TEMP/base.blend"
+          echo "3344fd9706024a8ee5f903472de93333191d78a8ec32c5759dc53467cf3a07e3  $RUNNER_TEMP/base.blend" | sha256sum -c -
+          echo "ASSET_PATH=art/checkpoints/art010/${GITHUB_SHA:0:12}" >> "$GITHUB_ENV"
+          printf '%s\n' "$GITHUB_SHA" > output/source.ref
+          cp tools/art/bust_drape010.py output/
+      - name: Install checksum verified Blender
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -fL --retry 3 https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz -o blender.tar.xz
+          echo '975c58fcb244273838534bba771e64ad87739216b0f9b39a888531a49a72d845  blender.tar.xz' | sha256sum -c -
+          tar -xf blender.tar.xz
+          echo "BLENDER=$RUNNER_TEMP/blender-4.5.3-linux-x64/blender" >> "$GITHUB_ENV"
+      - name: Edit and reopen the saved model before rendering
+        env:
+          OPENBLAS_NUM_THREADS: 4
+        run: |
+          set -euo pipefail
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/bust_drape010.py -- --source "$RUNNER_TEMP/base.blend" --out output 2>&1 | tee output/edit.log
+          grep -q ART010_SAVED_REOPENED output/edit.log
+      - name: Commit and push actual editable model bytes immediately
+        id: save
+        run: |
+          set -euo pipefail
+          test -s output/Character01_Art010.blend
+          git config user.name 'Yokai checkpoint bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch --depth=1 origin art-checkpoints
+          dst="$RUNNER_TEMP/persistent-art"
+          git worktree add --detach "$dst" FETCH_HEAD
+          mkdir -p "$dst/$ASSET_PATH"
+          cp output/Character01_Art010.blend output/manifest.json output/source.ref output/bust_drape010.py "$dst/$ASSET_PATH/"
+          cd "$dst"
+          git add "$ASSET_PATH"
+          git commit -m "Save actual Art010 model before render ${GITHUB_SHA:0:12} [skip ci]"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:refs/heads/art-checkpoints; then break; fi
+            git fetch origin art-checkpoints
+            git rebase FETCH_HEAD
+          done
+          remote=$(git ls-remote origin refs/heads/art-checkpoints | cut -f1)
+          test "$remote" = "$(git rev-parse HEAD)"
+          echo "ASSET_COMMIT=$remote" >> "$GITHUB_ENV"
+          echo "asset_commit=$remote" >> "$GITHUB_OUTPUT"
+      - name: Download saved bytes and reopen the remote model
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,pathlib,urllib.request
+          out=pathlib.Path('output');m=json.loads((out/'manifest.json').read_text());checks={}
+          for name,expected in m['files'].items():
+              url=f"https://raw.githubusercontent.com/{os.environ['GITHUB_REPOSITORY']}/{os.environ['ASSET_COMMIT']}/{os.environ['ASSET_PATH']}/{name}"
+              with urllib.request.urlopen(url,timeout=120) as r:data=r.read()
+              assert len(data)==expected['bytes']
+              assert hashlib.sha256(data).hexdigest()==expected['sha256']
+              checks[name]=expected|{'matched':True}
+              if name.endswith('.blend'):pathlib.Path(os.environ['RUNNER_TEMP'],'remote.blend').write_bytes(data)
+          (out/'remote-readback.json').write_text(json.dumps({'assetCommit':os.environ['ASSET_COMMIT'],'assetPath':os.environ['ASSET_PATH'],'files':checks},indent=2))
+          PY
+          "$BLENDER" -b "$RUNNER_TEMP/remote.blend" --python-exit-code 1 --python-expr "import bpy; assert bpy.data.objects['Body'].get('art010'); assert bpy.data.objects['Continuous loose neck-to-waist halter'].hide_render; assert bpy.data.objects.get('Loose over-trapezius panel L'); print('ART010_REMOTE_REOPEN_PASS')" | tee output/reopen.log
+      - name: Render the remotely backed up model
+        run: |
+          set -euo pipefail
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/bust_drape010.py -- --source "$RUNNER_TEMP/remote.blend" --out output --render-only --views front,three-quarter,torso,side,shoulder --width 900 --samples 32 > output/render.log 2>&1
+      - name: Persist rendered views and readback evidence
+        if: always() && steps.save.outcome == 'success'
+        run: |
+          set -euo pipefail
+          dst="$RUNNER_TEMP/persistent-art"
+          cp output/*.png output/*.json output/*.log "$dst/$ASSET_PATH/" 2>/dev/null || true
+          cd "$dst"
+          git add "$ASSET_PATH"
+          if ! git diff --cached --quiet; then
+            git commit -m "Save Art010 actual model renders and remote verification ${GITHUB_SHA:0:12} [skip ci]"
+            for attempt in 1 2 3; do
+              if git push origin HEAD:refs/heads/art-checkpoints; then break; fi
+              git fetch origin art-checkpoints
+              git rebase FETCH_HEAD
+            done
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: art010-model-and-review
+          path: output/
+          retention-days: 30
+          if-no-files-found: error
