@@ -9,8 +9,9 @@ import numpy as np
 from mathutils import Vector
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import surface008
+import portrait008
 
-REVISION = '008-surface-2'
+REVISION = '008-portrait-3'
 
 def smooth(a,b,x):
     t=np.clip((x-a)/(b-a),0,1); return t*t*(3-2*t)
@@ -61,6 +62,7 @@ def edit():
             bs.inputs['Subsurface Weight'].default_value=.075
             bs.inputs['Subsurface Scale'].default_value=.0015
     surface008.apply(body)
+    portrait008.apply(body)
     body['finish008_applied']=REVISION
     body['asset_kind']='Visual art refinement; rig and physics refit remain separate'
     bpy.context.scene['art_checkpoint']=REVISION
@@ -84,7 +86,7 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('--source',type=Path,required=True);ap.add_argument('--out',type=Path,required=True)
     ap.add_argument('--render-only',action='store_true');ap.add_argument('--views',default='');ap.add_argument('--width',type=int,default=850);ap.add_argument('--samples',type=int,default=24)
     a=ap.parse_args(sys.argv[sys.argv.index('--')+1:]);out=a.out.resolve();out.mkdir(parents=True,exist_ok=True)
-    for f in (Path(__file__),Path(surface008.__file__)):
+    for f in (Path(__file__),Path(surface008.__file__),Path(portrait008.__file__)):
         target=out/f.name
         if target.resolve()!=f.resolve():shutil.copy2(f,target)
     bpy.ops.wm.open_mainfile(filepath=str(a.source.resolve()))
