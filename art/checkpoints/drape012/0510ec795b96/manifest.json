@@ -1,0 +1,30 @@
+{
+  "revision": "012-volume-and-relaxed-cloth-10",
+  "frames": 40,
+  "seconds": 26.944806575775146,
+  "bodyUnchanged": true,
+  "cloth": [
+    {
+      "name": "Loose over-trapezius panel L",
+      "maxMovementMetres": 0.09169169582505428,
+      "meanMovementMetres": 0.013631017892426493
+    },
+    {
+      "name": "Loose over-trapezius panel R",
+      "maxMovementMetres": 0.061080930682058054,
+      "meanMovementMetres": 0.01216213452840217
+    }
+  ],
+  "staticVisualAsset": true,
+  "rigUpdated": false,
+  "runtimePhysicsUpdated": false,
+  "userApproved": false,
+  "sourceSha256": "18a73d7471ade91f3cd51ca09d05ee74ff7d8939992a54fd33cee0f703bf01d2",
+  "files": {
+    "Character01_Art012.blend": {
+      "bytes": 69904359,
+      "sha256": "deec460a59fd2b6149ed4ffb5498a285fe9b0eb5da9bd0003cd848e06239238b"
+    }
+  },
+  "savedBlendReopened": true
+}
