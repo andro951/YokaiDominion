@@ -1,0 +1,20 @@
+{
+  "revision": "011-fullness-drape-1",
+  "changedBodyVertices": 3036,
+  "protectedVerticesUnchanged": 159606,
+  "maxAddedProjectionMetres": 0.02461657617284141,
+  "maxLoweringMetres": 0.010251950900920903,
+  "panels": [
+    "Loose over-trapezius panel L",
+    "Loose over-trapezius panel R"
+  ],
+  "rigOrPhysicsUpdated": false,
+  "savedBlendReopened": true,
+  "sourceSha256": "ffb67040af36dbd7063892fed8a25b76dfe7710ea52a6c1d2ccc1ed8632e5b66",
+  "files": {
+    "Character01_Art011.blend": {
+      "bytes": 21498165,
+      "sha256": "8ab6359642322bdd1441f5d30b85996f675cc2c951892186386cbc0871272d66"
+    }
+  }
+}
