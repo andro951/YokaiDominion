@@ -1,0 +1,22 @@
+{
+  "revision": "012-anatomical-stretch-7",
+  "bodyVertices": 169362,
+  "changedVertices": 7699,
+  "protectedVerticesUnchanged": 160888,
+  "maxDisplacementMetres": 0.06646935868640336,
+  "clothPanels": [
+    "Loose over-trapezius panel L",
+    "Loose over-trapezius panel R"
+  ],
+  "rigUpdated": false,
+  "physicsUpdated": false,
+  "userApproved": false,
+  "sourceSha256": "54ab5f8d2cc71160c12522d046c396db19604b6ef7c2c1bc130ebba18032b948",
+  "savedBlendReopened": true,
+  "files": {
+    "Character01_Art012.blend": {
+      "bytes": 23466861,
+      "sha256": "75705044c800bd1cdfec1a63ec9843b3a5a2884ecca4f4eabac151d1e403db02"
+    }
+  }
+}
