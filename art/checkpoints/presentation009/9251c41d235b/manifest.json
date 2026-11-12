@@ -1,0 +1,117 @@
+{
+  "staticVisualReview": true,
+  "files": {
+    "asset-audit.json": {
+      "bytes": 50984,
+      "sha256": "d48d437e627677f2724d4c9e2c68a942d8177a552550990b39f36a1eb2cf8a7e"
+    },
+    "orbit-009.png": {
+      "bytes": 358242,
+      "sha256": "c73dbbba80a8a111b4059669f90ba938fbccfec7498d6f3428b38c1d5e6a7f3a"
+    },
+    "orbit-003.png": {
+      "bytes": 358618,
+      "sha256": "114f0c15a8783325f00e7822e0be489517bbc8c96c67d0bed32355a9c684194d"
+    },
+    "orbit-006.png": {
+      "bytes": 354175,
+      "sha256": "75e39e0782940f644bfc4e91f8ba65b66024b5f12c109f03092777deec4086f2"
+    },
+    "orbit-011.png": {
+      "bytes": 357073,
+      "sha256": "7ad995d928f79e2e469b32782a2310d648f3956df62a293d005a44fa8e540569"
+    },
+    "orbit-019.png": {
+      "bytes": 353266,
+      "sha256": "cb02f017490a658f7cba470b98d4e863e501cf785554caa4b723dfdac4a41968"
+    },
+    "orbit-010.png": {
+      "bytes": 357596,
+      "sha256": "052d6e1b7dd9983fd26dd507f61de3baf53ed2f0eefea958e05c6630dc982f6b"
+    },
+    "portrait.png": {
+      "bytes": 2185105,
+      "sha256": "e0f60b761a3f19981b35cbeafe9e604c80405862426693788c2d4122ea1c330d"
+    },
+    "orbit-018.png": {
+      "bytes": 354584,
+      "sha256": "f6c662f428951afbe6861df5a197d5ab2262aad4a0acc164d2ae6c6ed5b84bbc"
+    },
+    "hero.png": {
+      "bytes": 1997642,
+      "sha256": "f79beefca6a3fcb0e14696fb0bdfe0150aa8c227fe5eec1d5e90657b842011d6"
+    },
+    "Character01_Static_Turntable.mp4": {
+      "bytes": 403236,
+      "sha256": "82268a7cdf03d33eb5af6cd93daabeffe6cc8468e975e792290dc683ef6684e8"
+    },
+    "orbit-000.png": {
+      "bytes": 352932,
+      "sha256": "0dd152aa186cbc28e34444465573dec45a1107ad2c91a3c3c9997629612be46e"
+    },
+    "orbit-016.png": {
+      "bytes": 362208,
+      "sha256": "0e8558f177403f2ed47b731f6cb873ce6fb3065298984f8c06b48717aa8bb44e"
+    },
+    "orbit-020.png": {
+      "bytes": 353550,
+      "sha256": "e9f50677121094739566205dbdca5b67e9a95dde1a503409a66603daec0ac81a"
+    },
+    "orbit-012.png": {
+      "bytes": 356932,
+      "sha256": "6033606a92dc55074d4a219ef39da48fce9636244cf925381ccccd05c687e3ad"
+    },
+    "orbit-021.png": {
+      "bytes": 356502,
+      "sha256": "b3b2232d1f924c7f3739cac9b6c35d148ea10b74e5ab6113de572f7668af6123"
+    },
+    "orbit-013.png": {
+      "bytes": 360869,
+      "sha256": "d53f4ee9b4435f3cee048be80a536615e1d7cb3694b59364fc5e93f2cba48b8d"
+    },
+    "orbit-005.png": {
+      "bytes": 358815,
+      "sha256": "14be371554cd8a57396e9659be3709fe7124e9752e9630adc80b10132496bd9e"
+    },
+    "orbit-001.png": {
+      "bytes": 354721,
+      "sha256": "7fbe36273fb87d16a53e844d5e56f9a68b3cdec5b8faed7297d6d7e5f5b6d672"
+    },
+    "orbit-002.png": {
+      "bytes": 356237,
+      "sha256": "0b13abc8a61e2bbd06682e9ac4c009839585d7d3a3e46b1045b6be6f80a67e45"
+    },
+    "orbit-008.png": {
+      "bytes": 359668,
+      "sha256": "54a64b3a0be995ed32ff6566b4788ce95fb1ef7e3a2e20bc5d6fb08446c878f0"
+    },
+    "orbit-015.png": {
+      "bytes": 365091,
+      "sha256": "f5a7d7364b41cfcc0cecf553f378e2b82b6f7eb3116225a0a1f748267832ca4e"
+    },
+    "orbit-007.png": {
+      "bytes": 358146,
+      "sha256": "77b6fe80c323e02c429d65a4c2f23c2971dd638aa71ed56c592fd7240e4e8a3e"
+    },
+    "orbit-023.png": {
+      "bytes": 354145,
+      "sha256": "7e1b5d458b3057fb7a33b77f697f09964bd5b3880022a0271b1f734fdc77bd30"
+    },
+    "orbit-004.png": {
+      "bytes": 360309,
+      "sha256": "c0692d49ce55fda8164a73e959645331743165cda39f6c4246cf650ec6c736df"
+    },
+    "orbit-017.png": {
+      "bytes": 361278,
+      "sha256": "3d0448f299d352d402243fa01edd41f07d72e0583133d1e7ad4625e1f909ba05"
+    },
+    "orbit-022.png": {
+      "bytes": 356878,
+      "sha256": "7ef6f3067dc637adadeb88b82254f3eef004e9a601f273fd681c59b4ea98b8cf"
+    },
+    "orbit-014.png": {
+      "bytes": 365673,
+      "sha256": "9c4e21e3c5c9d87502997bec6ee57684b867925c674ab3f91abe3a93884a1917"
+    }
+  }
+}

@@ -1,0 +1,2331 @@
+{
+  "modelSha256": "3344fd9706024a8ee5f903472de93333191d78a8ec32c5759dc53467cf3a07e3",
+  "revision": "008-complete-visual-pass-11",
+  "finiteGeometry": true,
+  "visibleMeshObjects": 289,
+  "meshObjects": [
+    {
+      "name": "Body",
+      "vertices": 169362,
+      "polygons": 169360,
+      "materials": [
+        "Skin | cool slate",
+        "Nails | muted violet keratin"
+      ]
+    },
+    {
+      "name": "Eye.R",
+      "vertices": 546,
+      "polygons": 544,
+      "materials": [
+        "Sclera | soft white"
+      ]
+    },
+    {
+      "name": "Eye.L",
+      "vertices": 546,
+      "polygons": 544,
+      "materials": [
+        "Sclera | soft white"
+      ]
+    },
+    {
+      "name": "Brow.-1",
+      "vertices": 482,
+      "polygons": 490,
+      "materials": [
+        "Brow | soft ivory undercoat"
+      ]
+    },
+    {
+      "name": "Upper liner.-1",
+      "vertices": 514,
+      "polygons": 520,
+      "materials": [
+        "Lashes | ink"
+      ]
+    },
+    {
+      "name": "Outer eyelash",
+      "vertices": 62,
+      "polygons": 65,
+      "materials": [
+        "Lashes | ink"
+      ]
+    },
+    {
+      "name": "Outer eyelash.001",
+      "vertices": 62,
+      "polygons": 65,
+      "materials": [
+        "Lashes | ink"
+      ]
+    },
+    {
+      "name": "Outer eyelash.002",
+      "vertices": 62,
+      "polygons": 65,
+      "materials": [
+        "Lashes | ink"
+      ]
+    },
+    {
+      "name": "Outer eyelash.003",
+      "vertices": 62,
+      "polygons": 65,
+      "materials": [
+        "Lashes | ink"
+      ]
+    },
+    {
+      "name": "Outer eyelash.004",
+      "vertices": 62,
+      "polygons": 65,
+      "materials": [
+        "Lashes | ink"
+      ]
+    },
+    {
+      "name": "Brow.1",
+      "vertices": 482,
+      "polygons": 490,
+      "materials": [
+        "Brow | soft ivory undercoat"
+      ]
+    },
+    {
+      "name": "Upper liner.1",
+      "vertices": 514,
+      "polygons": 520,
+      "materials": [
+        "Lashes | ink"
+      ]
+    },
+    {
+      "name": "Outer eyelash.005",
+      "vertices": 62,
+      "polygons": 65,
+      "materials": [
+        "Lashes | ink"
+      ]
+    },
+    {
+      "name": "Outer eyelash.006",
+      "vertices": 62,
+      "polygons": 65,
+      "materials": [
+        "Lashes | ink"
+      ]
+    },
+    {
+      "name": "Outer eyelash.007",
+      "vertices": 62,
+      "polygons": 65,
+      "materials": [
+        "Lashes | ink"
+      ]
+    },
+    {
+      "name": "Outer eyelash.008",
+      "vertices": 62,
+      "polygons": 65,
+      "materials": [
+        "Lashes | ink"
+      ]
+    },
+    {
+      "name": "Outer eyelash.009",
+      "vertices": 62,
+      "polygons": 65,
+      "materials": [
+        "Lashes | ink"
+      ]
+    },
+    {
+      "name": "Canine.-1",
+      "vertices": 120,
+      "polygons": 112,
+      "materials": [
+        "Teeth | ivory"
+      ]
+    },
+    {
+      "name": "Canine.1",
+      "vertices": 120,
+      "polygons": 112,
+      "materials": [
+        "Teeth | ivory"
+      ]
+    },
+    {
+      "name": "Iris.Eye.R",
+      "vertices": 5120,
+      "polygons": 4992,
+      "materials": [
+        "Iris | layered violet Eye.R"
+      ]
+    },
+    {
+      "name": "Iris.Eye.L",
+      "vertices": 5120,
+      "polygons": 4992,
+      "materials": [
+        "Iris | layered violet Eye.L"
+      ]
+    },
+    {
+      "name": "Art009 individual eyebrow hairs",
+      "vertices": 8640,
+      "polygons": 7200,
+      "materials": [
+        "Brow | individual ivory fibres"
+      ]
+    },
+    {
+      "name": "Fitted hair scalp",
+      "vertices": 2448,
+      "polygons": 2376,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Side S wave -1.0-0",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Side S wave -1.0-1",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Side S wave -1.0-2",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Side S wave -1.0-3",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Side S wave -1.0-4",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Side S wave -1.0-5",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Face wave -1.0-0",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Face wave -1.0-1",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep -1.0-0",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep -1.0-1",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep -1.0-2",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep -1.0-3",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep -1.0-4",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep -1.0-5",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep -1.0-6",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Side S wave 1.0-0",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Side S wave 1.0-1",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Side S wave 1.0-2",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Side S wave 1.0-3",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Side S wave 1.0-4",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Side S wave 1.0-5",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Face wave 1.0-0",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Face wave 1.0-1",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep 1.0-0",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep 1.0-1",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep 1.0-2",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep 1.0-3",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep 1.0-4",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep 1.0-5",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Crown sweep 1.0-6",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.001",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.002",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.003",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.004",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.005",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.006",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.007",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.008",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.009",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.010",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.011",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.012",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.013",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.014",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.015",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.016",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.017",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.018",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.019",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.020",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.021",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.022",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.023",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.024",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.025",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.026",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.027",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.028",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.029",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.030",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.031",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.032",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.033",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.034",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.035",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.036",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.037",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.038",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.039",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.040",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.041",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.042",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.043",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.044",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.045",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.046",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Hair fine silhouette.047",
+      "vertices": 234,
+      "polygons": 236,
+      "materials": [
+        "Hair | ivory silver"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.00",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.01",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.02",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.03",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.04",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.05",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.06",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.07",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.08",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.09",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.10",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.11",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.12",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.13",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.14",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.15",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.16",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.17",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.18",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.19",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.20",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.21",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.inner.22",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.00",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.01",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.02",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.03",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.04",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.05",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.06",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.07",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.08",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.09",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.10",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.11",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Back wave 009.outer.12",
+      "vertices": 1218,
+      "polygons": 1232,
+      "materials": [
+        "Hair | Art008 strand-aligned ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.00 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.00 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.01 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.01 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.02 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.02 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.03 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.03 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.04 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.04 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.05 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.05 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.06 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.06 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.07 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.07 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.08 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.08 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.09 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.09 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.10 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.10 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.11 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.11 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.12 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.12 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.13 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.13 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.14 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.14 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.15 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.15 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.16 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.16 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.17 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.17 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.18 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.18 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.19 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.19 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.20 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.20 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.21 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.21 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.22 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.inner.22 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.00 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.00 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.01 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.01 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.02 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.02 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.03 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.03 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.04 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.04 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.05 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.05 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.06 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.06 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.07 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.07 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.08 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.08 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.09 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.09 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.10 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.10 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.11 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.11 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.12 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Back wave 009.outer.12 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-0 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-0 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-1 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-1 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-2 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-2 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-3 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-3 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-4 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-4 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-5 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-5 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-6 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep -1.0-6 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-0 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-0 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-1 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-1 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-2 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-2 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-3 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-3 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-4 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-4 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-5 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-5 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-6 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Crown sweep 1.0-6 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Face wave -1.0-0 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Face wave -1.0-0 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Face wave -1.0-1 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Face wave -1.0-1 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Face wave 1.0-0 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Face wave 1.0-0 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Face wave 1.0-1 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Face wave 1.0-1 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave -1.0-0 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave -1.0-0 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave -1.0-1 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave -1.0-1 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave -1.0-2 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave -1.0-2 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave -1.0-3 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave -1.0-3 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave -1.0-4 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave -1.0-4 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave -1.0-5 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave -1.0-5 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave 1.0-0 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave 1.0-0 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave 1.0-1 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave 1.0-1 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave 1.0-2 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave 1.0-2 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave 1.0-3 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave 1.0-3 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave 1.0-4 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave 1.0-4 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave 1.0-5 front",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Hair008 fibres | Side S wave 1.0-5 back",
+      "vertices": 152,
+      "polygons": 75,
+      "materials": [
+        "Hair008 | strand-opacity ivory"
+      ]
+    },
+    {
+      "name": "Braided waist cord",
+      "vertices": 2762,
+      "polygons": 2772,
+      "materials": [
+        "Cord | charcoal | Art007 woven cord"
+      ]
+    },
+    {
+      "name": "Cord braid",
+      "vertices": 3002,
+      "polygons": 3005,
+      "materials": [
+        "Cord | charcoal | Art007 woven cord"
+      ]
+    },
+    {
+      "name": "Cord braid.001",
+      "vertices": 3002,
+      "polygons": 3005,
+      "materials": [
+        "Cord | charcoal | Art007 woven cord"
+      ]
+    },
+    {
+      "name": "Cord knot",
+      "vertices": 662,
+      "polygons": 672,
+      "materials": [
+        "Cord | charcoal | Art007 woven cord"
+      ]
+    },
+    {
+      "name": "Long cord end",
+      "vertices": 602,
+      "polygons": 610,
+      "materials": [
+        "Cord | charcoal | Art007 woven cord"
+      ]
+    },
+    {
+      "name": "Short cord end",
+      "vertices": 452,
+      "polygons": 460,
+      "materials": [
+        "Cord | charcoal | Art007 woven cord"
+      ]
+    },
+    {
+      "name": "Gathered front skirt",
+      "vertices": 5040,
+      "polygons": 4884,
+      "materials": [
+        "Cloth | warm ivory"
+      ]
+    },
+    {
+      "name": "Gathered skirt edge",
+      "vertices": 562,
+      "polygons": 565,
+      "materials": [
+        "Cloth | warm ivory"
+      ]
+    },
+    {
+      "name": "Gathered skirt edge.001",
+      "vertices": 562,
+      "polygons": 565,
+      "materials": [
+        "Cloth | warm ivory"
+      ]
+    },
+    {
+      "name": "Gathered skirt hem",
+      "vertices": 277,
+      "polygons": 280,
+      "materials": [
+        "Cloth | warm ivory"
+      ]
+    },
+    {
+      "name": "Gathered rear skirt",
+      "vertices": 4969,
+      "polygons": 4792,
+      "materials": [
+        "Cloth | warm ivory"
+      ]
+    },
+    {
+      "name": "Gathered skirt edge.002",
+      "vertices": 562,
+      "polygons": 565,
+      "materials": [
+        "Cloth | warm ivory"
+      ]
+    },
+    {
+      "name": "Gathered skirt edge.003",
+      "vertices": 562,
+      "polygons": 565,
+      "materials": [
+        "Cloth | warm ivory"
+      ]
+    },
+    {
+      "name": "Gathered skirt hem.001",
+      "vertices": 277,
+      "polygons": 280,
+      "materials": [
+        "Cloth | warm ivory"
+      ]
+    },
+    {
+      "name": "Art008 tailored tail opening hem",
+      "vertices": 520,
+      "polygons": 514,
+      "materials": [
+        "Cloth | warm ivory"
+      ]
+    },
+    {
+      "name": "Continuous loose neck-to-waist halter",
+      "vertices": 10571,
+      "polygons": 10200,
+      "materials": [
+        "Cloth | warm ivory"
+      ]
+    },
+    {
+      "name": "Horn.-1",
+      "vertices": 2354,
+      "polygons": 2380,
+      "materials": [
+        "Horns | dark keratin"
+      ]
+    },
+    {
+      "name": "Horn.1",
+      "vertices": 2354,
+      "polygons": 2380,
+      "materials": [
+        "Horns | dark keratin"
+      ]
+    },
+    {
+      "name": "Tail",
+      "vertices": 3002,
+      "polygons": 3020,
+      "materials": [
+        "Horns | dark keratin"
+      ]
+    },
+    {
+      "name": "Tail spade",
+      "vertices": 720,
+      "polygons": 696,
+      "materials": [
+        "Horns | dark keratin"
+      ]
+    }
+  ],
+  "usedImages": [
+    {
+      "name": "Hair008_FibreOpacity",
+      "packed": true,
+      "source": "FILE"
+    }
+  ],
+  "armatures": 0,
+  "animationClaim": "Static visual turntable only; not a motion or physics test",
+  "cordModifiersRetained": 6
+}
