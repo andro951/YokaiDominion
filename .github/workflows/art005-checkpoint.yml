@@ -1,0 +1,74 @@
+name: Editable character art checkpoint
+on:
+  push:
+    paths: ['tools/art/rebuild/**', '.github/workflows/art005-checkpoint.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: editable-art-checkpoint
+  cancel-in-progress: false
+jobs:
+  checkpoint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore the exact inspected CC0 anatomical source
+        uses: actions/download-artifact@v4
+        with:
+          name: official-female-anatomy-source
+          run-id: 43065127516
+          github-token: ${{ github.token }}
+          path: source-base
+      - name: Install verified authoring tool
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -fL --retry 3 https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz -o blender.tar.xz
+          curl -fL --retry 3 https://download.blender.org/release/Blender4.5/blender-4.5.3.sha256 -o sums
+          expected=$(grep 'blender-4.5.3-linux-x64.tar.xz' sums | awk '{print $1}')
+          echo "$expected  blender.tar.xz" | sha256sum -c -
+          tar -xf blender.tar.xz
+          echo "BLENDER=$RUNNER_TEMP/blender-4.5.3-linux-x64/blender" >> "$GITHUB_ENV"
+      - name: Save editable character and render current art
+        shell: bash
+        env:
+          OPENBLAS_NUM_THREADS: 4
+        run: |
+          set -euo pipefail
+          mkdir -p art-checkpoint
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/rebuild/build005.py -- --source source-base/female-human_base_meshes_bundle.blend --out art-checkpoint --views front,three-quarter,portrait --width 850 --samples 24 2>&1 | tee art-checkpoint/build.log
+      - name: Commit recoverable model bytes to the asset branch
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s art-checkpoint/Character01_ArtMaster.blend
+          git config user.name 'Yokai checkpoint bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git fetch origin art-checkpoints; then base=FETCH_HEAD; else base="$GITHUB_SHA"; fi
+          dst="$RUNNER_TEMP/persistent-art"
+          git worktree add --detach "$dst" "$base"
+          mkdir -p "$dst/art/current" "$dst/art/source"
+          cp art-checkpoint/Character01_ArtMaster.blend "$dst/art/current/"
+          cp art-checkpoint/*.png "$dst/art/current/" 2>/dev/null || true
+          cp art-checkpoint/*.glb "$dst/art/current/" 2>/dev/null || true
+          cp art-checkpoint/*.json "$dst/art/current/" 2>/dev/null || true
+          cp source-base/female-human_base_meshes_bundle.blend "$dst/art/source/"
+          printf '%s\n' "$GITHUB_SHA" > "$dst/art/current/source.ref"
+          printf 'Unfinished art checkpoint; not production acceptance. Source commit: %s\n' "$GITHUB_SHA" > "$dst/art/current/STATUS.txt"
+          cd "$dst"
+          git add art
+          if ! git diff --cached --quiet; then
+            git commit -m "Editable art checkpoint from ${GITHUB_SHA:0:12} [skip ci]"
+            git push origin HEAD:refs/heads/art-checkpoints
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: editable-art-${{ github.sha }}
+          path: art-checkpoint/
+          retention-days: 30
