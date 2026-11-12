@@ -1,0 +1,20 @@
+{
+  "revision": "010-bust-trapezius-5",
+  "bodyVertices": 169362,
+  "changedVertices": 7823,
+  "otherBodyVerticesUnchanged": true,
+  "maxAddedProjectionMetres": 0.10549506151210436,
+  "newPanels": [
+    "Loose over-trapezius panel R",
+    "Loose over-trapezius panel L"
+  ],
+  "rigOrPhysicsUpdated": false,
+  "savedBlendReopened": true,
+  "sourceSha256": "3344fd9706024a8ee5f903472de93333191d78a8ec32c5759dc53467cf3a07e3",
+  "files": {
+    "Character01_Art010.blend": {
+      "bytes": 19587668,
+      "sha256": "c5d04bdda23e639f9e192f2134e3b19840d017a3330bfae5c7b6a1c4109d0916"
+    }
+  }
+}
