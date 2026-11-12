@@ -4,7 +4,7 @@ import bpy,numpy as np,math,json,hashlib,sys,argparse
 from pathlib import Path
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
-REVISION='012-native-root-reconstruction-3'
+REVISION='012-anatomical-stretch-7'
 def smooth(a,b,x):
  t=np.clip((x-a)/(b-a),0,1);return t*t*(3-2*t)
 def read(o):
@@ -15,13 +15,14 @@ def deform(p):
  x,y,z=p.T;ax=abs(x);q=p.copy()
  wall=np.interp(z,[1.24,1.30,1.37,1.44,1.50,1.56,1.64],[-.152,-.165,-.165,-.149,-.128,-.098,-.055])+.75*ax*ax
  proj=np.maximum(wall-y,0)
- window=smooth(.012,.040,ax)*(1-smooth(.22,.27,ax))*smooth(1.255,1.30,z)*(1-smooth(1.54,1.62,z))*(1-smooth(-.07,-.035,y))
+ window=smooth(.012,.040,ax)*(1-smooth(.22,.27,ax))*smooth(1.255,1.29,z)*(1-smooth(1.57,1.63,z))*(1-smooth(-.08,-.035,y))
  free=smooth(.003,.052,proj)*window
- q[:,1]-=1.05*proj*window
- q[:,2]-=.062*free*(1-smooth(1.40,1.50,z))
- q[:,0]+=np.sign(x)*((ax-.118)*.48-.008)*free
- root=np.exp(-((z-1.50)/.072)**2)*np.exp(-((ax-.112)/.095)**4)*window
- q[:,1]-=.027*root
+ q[:,1]-=.95*proj*window
+ dz=np.interp(z,[1.24,1.29,1.30,1.32,1.36,1.40,1.46,1.50,1.54,1.60,1.63],[0,0,-.012,-.025,-.025,-.010,.026,.044,.032,.004,0])
+ q[:,2]+=dz*window
+ q[:,0]+=np.sign(x)*((ax-.118)*.35-.010)*free
+ lower=np.exp(-((z-1.325)/.044)**2)*np.exp(-((ax-.118)/.095)**4)*window
+ q[:,1]-=.032*lower
  return q
 
 def edit():
@@ -31,7 +32,7 @@ def edit():
  a=np.r_[e[:,0],e[:,1]];b=np.r_[e[:,1],e[:,0]];count=np.maximum(np.bincount(a,minlength=len(p)),1)
  x,y,z=p.T;ax=abs(x)
  w=smooth(.012,.040,ax)*(1-smooth(.22,.27,ax))*smooth(1.265,1.31,z)*(1-smooth(1.54,1.62,z))*(1-smooth(-.08,-.035,y))
- for _ in range(12):
+ for _ in range(16):
   for factor in (.40,-.405):
    avg=np.column_stack([np.bincount(a,weights=q[b,k],minlength=len(q))/count for k in range(3)])
    q+=factor*w[:,None]*(avg-q)
