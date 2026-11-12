@@ -1,0 +1,484 @@
+04:17:29 | INFO: Data are loaded, start creating Blender stuff
+04:17:29 | INFO: Blender create Mesh node GEO-body_female_realistic
+04:17:30 | INFO: Blender create Mesh node GEO-body_female_realistic.eye.R
+04:17:30 | INFO: Blender create Mesh node GEO-body_female_realistic.eye.L
+04:17:30 | INFO: Blender create Mesh node Brow.-1
+04:17:30 | INFO: Blender create Mesh node Brow hair
+04:17:30 | INFO: Blender create Mesh node Brow hair.001
+04:17:30 | INFO: Blender create Mesh node Brow hair.002
+04:17:30 | INFO: Blender create Mesh node Brow hair.003
+04:17:30 | INFO: Blender create Mesh node Brow hair.004
+04:17:30 | INFO: Blender create Mesh node Brow hair.005
+04:17:30 | INFO: Blender create Mesh node Brow hair.006
+04:17:30 | INFO: Blender create Mesh node Brow hair.007
+04:17:30 | INFO: Blender create Mesh node Brow hair.008
+04:17:30 | INFO: Blender create Mesh node Brow hair.009
+04:17:30 | INFO: Blender create Mesh node Brow hair.010
+04:17:30 | INFO: Blender create Mesh node Brow hair.011
+04:17:30 | INFO: Blender create Mesh node Brow hair.012
+04:17:30 | INFO: Blender create Mesh node Brow hair.013
+04:17:30 | INFO: Blender create Mesh node Brow hair.014
+04:17:30 | INFO: Blender create Mesh node Brow hair.015
+04:17:30 | INFO: Blender create Mesh node Brow hair.016
+04:17:30 | INFO: Blender create Mesh node Brow hair.017
+04:17:30 | INFO: Blender create Mesh node Brow hair.018
+04:17:30 | INFO: Blender create Mesh node Brow hair.019
+04:17:30 | INFO: Blender create Mesh node Brow hair.020
+04:17:30 | INFO: Blender create Mesh node Brow hair.021
+04:17:30 | INFO: Blender create Mesh node Upper liner.-1
+04:17:30 | INFO: Blender create Mesh node Outer eyelash
+04:17:30 | INFO: Blender create Mesh node Outer eyelash.001
+04:17:30 | INFO: Blender create Mesh node Outer eyelash.002
+04:17:30 | INFO: Blender create Mesh node Outer eyelash.003
+04:17:30 | INFO: Blender create Mesh node Outer eyelash.004
+04:17:30 | INFO: Blender create Mesh node Brow.1
+04:17:30 | INFO: Blender create Mesh node Brow hair.022
+04:17:30 | INFO: Blender create Mesh node Brow hair.023
+04:17:30 | INFO: Blender create Mesh node Brow hair.024
+04:17:30 | INFO: Blender create Mesh node Brow hair.025
+04:17:30 | INFO: Blender create Mesh node Brow hair.026
+04:17:30 | INFO: Blender create Mesh node Brow hair.027
+04:17:30 | INFO: Blender create Mesh node Brow hair.028
+04:17:30 | INFO: Blender create Mesh node Brow hair.029
+04:17:30 | INFO: Blender create Mesh node Brow hair.030
+04:17:30 | INFO: Blender create Mesh node Brow hair.031
+04:17:30 | INFO: Blender create Mesh node Brow hair.032
+04:17:30 | INFO: Blender create Mesh node Brow hair.033
+04:17:30 | INFO: Blender create Mesh node Brow hair.034
+04:17:30 | INFO: Blender create Mesh node Brow hair.035
+04:17:30 | INFO: Blender create Mesh node Brow hair.036
+04:17:30 | INFO: Blender create Mesh node Brow hair.037
+04:17:30 | INFO: Blender create Mesh node Brow hair.038
+04:17:30 | INFO: Blender create Mesh node Brow hair.039
+04:17:30 | INFO: Blender create Mesh node Brow hair.040
+04:17:30 | INFO: Blender create Mesh node Brow hair.041
+04:17:30 | INFO: Blender create Mesh node Brow hair.042
+04:17:30 | INFO: Blender create Mesh node Brow hair.043
+04:17:30 | INFO: Blender create Mesh node Upper liner.1
+04:17:30 | INFO: Blender create Mesh node Outer eyelash.005
+04:17:30 | INFO: Blender create Mesh node Outer eyelash.006
+04:17:30 | INFO: Blender create Mesh node Outer eyelash.007
+04:17:30 | INFO: Blender create Mesh node Outer eyelash.008
+04:17:30 | INFO: Blender create Mesh node Outer eyelash.009
+04:17:30 | INFO: Blender create Mesh node Canine.-1
+04:17:30 | INFO: Blender create Mesh node Canine.1
+04:17:30 | INFO: Blender create Mesh node Iris.Eye.R.001
+04:17:30 | INFO: Blender create Mesh node Iris.Eye.L.001
+04:17:30 | INFO: Blender create Mesh node Fitted hair scalp
+04:17:30 | INFO: Blender create Mesh node Back wave 0-0
+04:17:30 | INFO: Blender create Mesh node Back wave 0-1
+04:17:30 | INFO: Blender create Mesh node Back wave 0-2
+04:17:30 | INFO: Blender create Mesh node Back wave 0-3
+04:17:30 | INFO: Blender create Mesh node Back wave 0-4
+04:17:30 | INFO: Blender create Mesh node Back wave 0-5
+04:17:30 | INFO: Blender create Mesh node Back wave 0-6
+04:17:30 | INFO: Blender create Mesh node Back wave 0-7
+04:17:30 | INFO: Blender create Mesh node Back wave 0-8
+04:17:30 | INFO: Blender create Mesh node Back wave 0-9
+04:17:30 | INFO: Blender create Mesh node Back wave 0-10
+04:17:30 | INFO: Blender create Mesh node Back wave 1-0
+04:17:30 | INFO: Blender create Mesh node Back wave 1-1
+04:17:30 | INFO: Blender create Mesh node Back wave 1-2
+04:17:30 | INFO: Blender create Mesh node Back wave 1-3
+04:17:30 | INFO: Blender create Mesh node Back wave 1-4
+04:17:30 | INFO: Blender create Mesh node Back wave 1-5
+04:17:30 | INFO: Blender create Mesh node Back wave 1-6
+04:17:30 | INFO: Blender create Mesh node Back wave 1-7
+04:17:30 | INFO: Blender create Mesh node Back wave 1-8
+04:17:30 | INFO: Blender create Mesh node Back wave 2-0
+04:17:30 | INFO: Blender create Mesh node Back wave 2-1
+04:17:30 | INFO: Blender create Mesh node Back wave 2-2
+04:17:30 | INFO: Blender create Mesh node Back wave 2-3
+04:17:30 | INFO: Blender create Mesh node Back wave 2-4
+04:17:30 | INFO: Blender create Mesh node Back wave 2-5
+04:17:30 | INFO: Blender create Mesh node Back wave 2-6
+04:17:30 | INFO: Blender create Mesh node Side S wave -1.0-0
+04:17:30 | INFO: Blender create Mesh node Side S wave -1.0-1
+04:17:30 | INFO: Blender create Mesh node Side S wave -1.0-2
+04:17:30 | INFO: Blender create Mesh node Side S wave -1.0-3
+04:17:30 | INFO: Blender create Mesh node Side S wave -1.0-4
+04:17:30 | INFO: Blender create Mesh node Side S wave -1.0-5
+04:17:30 | INFO: Blender create Mesh node Face wave -1.0-0
+04:17:30 | INFO: Blender create Mesh node Face wave -1.0-1
+04:17:30 | INFO: Blender create Mesh node Crown sweep -1.0-0
+04:17:30 | INFO: Blender create Mesh node Crown sweep -1.0-1
+04:17:30 | INFO: Blender create Mesh node Crown sweep -1.0-2
+04:17:30 | INFO: Blender create Mesh node Crown sweep -1.0-3
+04:17:30 | INFO: Blender create Mesh node Crown sweep -1.0-4
+04:17:30 | INFO: Blender create Mesh node Crown sweep -1.0-5
+04:17:30 | INFO: Blender create Mesh node Crown sweep -1.0-6
+04:17:31 | INFO: Blender create Mesh node Side S wave 1.0-0
+04:17:31 | INFO: Blender create Mesh node Side S wave 1.0-1
+04:17:31 | INFO: Blender create Mesh node Side S wave 1.0-2
+04:17:31 | INFO: Blender create Mesh node Side S wave 1.0-3
+04:17:31 | INFO: Blender create Mesh node Side S wave 1.0-4
+04:17:31 | INFO: Blender create Mesh node Side S wave 1.0-5
+04:17:31 | INFO: Blender create Mesh node Face wave 1.0-0
+04:17:31 | INFO: Blender create Mesh node Face wave 1.0-1
+04:17:31 | INFO: Blender create Mesh node Crown sweep 1.0-0
+04:17:31 | INFO: Blender create Mesh node Crown sweep 1.0-1
+04:17:31 | INFO: Blender create Mesh node Crown sweep 1.0-2
+04:17:31 | INFO: Blender create Mesh node Crown sweep 1.0-3
+04:17:31 | INFO: Blender create Mesh node Crown sweep 1.0-4
+04:17:31 | INFO: Blender create Mesh node Crown sweep 1.0-5
+04:17:31 | INFO: Blender create Mesh node Crown sweep 1.0-6
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.001
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.002
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.003
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.004
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.005
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.006
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.007
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.008
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.009
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.010
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.011
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.012
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.013
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.014
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.015
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.016
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.017
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.018
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.019
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.020
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.021
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.022
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.023
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.024
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.025
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.026
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.027
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.028
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.029
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.030
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.031
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.032
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.033
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.034
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.035
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.036
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.037
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.038
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.039
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.040
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.041
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.042
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.043
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.044
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.045
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.046
+04:17:31 | INFO: Blender create Mesh node Hair fine silhouette.047
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 00
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 01
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 02
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 03
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 04
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 05
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 06
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 07
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 08
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 09
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 10
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 11
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 12
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 13
+04:17:31 | INFO: Blender create Mesh node Art008 inner flowing lock 14
+04:17:31 | INFO: Blender create Mesh node Braided waist cord
+04:17:31 | INFO: Blender create Mesh node Cord braid
+04:17:31 | INFO: Blender create Mesh node Cord braid.001
+04:17:31 | INFO: Blender create Mesh node Cord knot
+04:17:31 | INFO: Blender create Mesh node Long cord end
+04:17:31 | INFO: Blender create Mesh node Short cord end
+04:17:31 | INFO: Blender create Mesh node Gathered halter -1.0
+04:17:31 | INFO: Blender create Mesh node Gathered soft neck passage -1.0
+04:17:31 | INFO: Blender create Mesh node Gathered halter 1.0
+04:17:32 | INFO: Blender create Mesh node Gathered soft neck passage 1.0
+04:17:32 | INFO: Blender create Mesh node Gathered front skirt
+04:17:32 | INFO: Blender create Mesh node Gathered skirt edge
+04:17:32 | INFO: Blender create Mesh node Gathered skirt edge.001
+04:17:32 | INFO: Blender create Mesh node Gathered skirt hem
+04:17:32 | INFO: Blender create Mesh node Gathered rear skirt
+04:17:32 | INFO: Blender create Mesh node Gathered skirt edge.002
+04:17:32 | INFO: Blender create Mesh node Gathered skirt edge.003
+04:17:32 | INFO: Blender create Mesh node Gathered skirt hem.001
+04:17:32 | INFO: Blender create Mesh node Art008 tailored tail opening hem
+04:17:32 | INFO: Blender create Mesh node Horn.-1
+04:17:32 | INFO: Blender create Mesh node Horn.1
+04:17:32 | INFO: Blender create Mesh node Tail
+04:17:33 | INFO: Blender create Mesh node Tail spade
+04:17:33 | INFO: glTF import finished in 3.32s
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:38:15)
+Read blend: "/home/runner/work/YokaiDominion/YokaiDominion/output/Character01_PBR008.blend"
+Fra:1 Mem:395.46M (Peak 395.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | STUDIO Ground
+Fra:1 Mem:395.46M (Peak 395.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | STUDIO Fill
+Fra:1 Mem:395.46M (Peak 395.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | STUDIO Rim
+Fra:1 Mem:395.47M (Peak 395.47M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Body
+Fra:1 Mem:397.96M (Peak 397.96M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Eye.R
+Fra:1 Mem:398.07M (Peak 398.07M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Eye.L
+Fra:1 Mem:401.57M (Peak 401.57M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow.-1
+Fra:1 Mem:401.67M (Peak 401.67M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Tail spade
+Fra:1 Mem:401.68M (Peak 401.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair
+Fra:1 Mem:413.83M (Peak 413.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Tail
+Fra:1 Mem:413.83M (Peak 413.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.002
+Fra:1 Mem:413.83M (Peak 413.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.003
+Fra:1 Mem:413.83M (Peak 413.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.004
+Fra:1 Mem:413.84M (Peak 413.84M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.005
+Fra:1 Mem:413.84M (Peak 413.84M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.006
+Fra:1 Mem:413.84M (Peak 413.84M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.007
+Fra:1 Mem:413.85M (Peak 413.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.008
+Fra:1 Mem:413.85M (Peak 413.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.009
+Fra:1 Mem:413.85M (Peak 413.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.010
+Fra:1 Mem:413.86M (Peak 413.86M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.011
+Fra:1 Mem:413.86M (Peak 413.86M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.012
+Fra:1 Mem:413.86M (Peak 413.86M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.013
+Fra:1 Mem:413.87M (Peak 413.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.014
+Fra:1 Mem:413.87M (Peak 413.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.015
+Fra:1 Mem:413.87M (Peak 413.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.016
+Fra:1 Mem:413.88M (Peak 413.88M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.017
+Fra:1 Mem:413.88M (Peak 413.88M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.018
+Fra:1 Mem:413.88M (Peak 413.88M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.019
+Fra:1 Mem:413.89M (Peak 413.89M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.020
+Fra:1 Mem:413.89M (Peak 413.89M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.021
+Fra:1 Mem:413.89M (Peak 413.89M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Upper liner.-1
+Fra:1 Mem:413.99M (Peak 413.99M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Outer eyelash
+Fra:1 Mem:414.00M (Peak 414.00M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Outer eyelash.001
+Fra:1 Mem:414.01M (Peak 414.01M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Outer eyelash.002
+Fra:1 Mem:414.03M (Peak 414.03M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Outer eyelash.003
+Fra:1 Mem:414.04M (Peak 414.04M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Outer eyelash.004
+Fra:1 Mem:414.05M (Peak 414.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow.1
+Fra:1 Mem:414.14M (Peak 414.14M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.022
+Fra:1 Mem:414.14M (Peak 414.14M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.023
+Fra:1 Mem:414.15M (Peak 414.15M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.024
+Fra:1 Mem:414.15M (Peak 414.15M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.025
+Fra:1 Mem:414.15M (Peak 414.15M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.026
+Fra:1 Mem:414.16M (Peak 414.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.027
+Fra:1 Mem:414.16M (Peak 414.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.028
+Fra:1 Mem:414.17M (Peak 414.17M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.029
+Fra:1 Mem:414.24M (Peak 414.24M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.030
+Fra:1 Mem:414.45M (Peak 414.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.031
+Fra:1 Mem:414.45M (Peak 414.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.032
+Fra:1 Mem:414.45M (Peak 414.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.033
+Fra:1 Mem:414.46M (Peak 414.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.034
+Fra:1 Mem:414.46M (Peak 414.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.035
+Fra:1 Mem:414.46M (Peak 414.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.036
+Fra:1 Mem:414.47M (Peak 414.47M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.037
+Fra:1 Mem:414.47M (Peak 414.47M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.038
+Fra:1 Mem:414.47M (Peak 414.47M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.039
+Fra:1 Mem:414.48M (Peak 414.48M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.040
+Fra:1 Mem:414.48M (Peak 414.48M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.041
+Fra:1 Mem:414.48M (Peak 414.48M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.042
+Fra:1 Mem:414.49M (Peak 414.49M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Brow hair.043
+Fra:1 Mem:414.49M (Peak 414.49M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Upper liner.1
+Fra:1 Mem:414.59M (Peak 414.59M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Outer eyelash.005
+Fra:1 Mem:414.80M (Peak 414.80M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Outer eyelash.006
+Fra:1 Mem:414.88M (Peak 414.88M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Outer eyelash.007
+Fra:1 Mem:414.94M (Peak 414.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Outer eyelash.008
+Fra:1 Mem:414.90M (Peak 414.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Horn.1
+Fra:1 Mem:414.96M (Peak 414.96M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Outer eyelash.009
+Fra:1 Mem:415.13M (Peak 415.13M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Canine.-1
+Fra:1 Mem:415.16M (Peak 415.16M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Canine.1
+Fra:1 Mem:415.19M (Peak 415.19M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Iris.Eye.R
+Fra:1 Mem:416.38M (Peak 416.39M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Iris.Eye.L
+Fra:1 Mem:416.86M (Peak 416.86M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Horn.-1
+Fra:1 Mem:417.28M (Peak 417.28M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 tailored tail opening hem
+Fra:1 Mem:418.20M (Peak 418.20M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Gathered skirt hem.001
+Fra:1 Mem:418.34M (Peak 418.34M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Fitted hair scalp
+Fra:1 Mem:418.88M (Peak 418.88M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 0-0
+Fra:1 Mem:419.37M (Peak 419.37M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Gathered skirt edge.003
+Fra:1 Mem:419.51M (Peak 419.51M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Gathered skirt edge.002
+Fra:1 Mem:419.64M (Peak 419.64M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Gathered rear skirt
+Fra:1 Mem:424.97M (Peak 424.98M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 0-1
+Fra:1 Mem:426.10M (Peak 426.10M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 0-2
+Fra:1 Mem:427.23M (Peak 427.23M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 0-3
+Fra:1 Mem:428.35M (Peak 428.36M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 0-4
+Fra:1 Mem:429.48M (Peak 429.49M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 0-5
+Fra:1 Mem:431.79M (Peak 431.79M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 0-6
+Fra:1 Mem:432.92M (Peak 432.92M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 0-7
+Fra:1 Mem:439.37M (Peak 439.38M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 0-8
+Fra:1 Mem:440.50M (Peak 440.51M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 0-9
+Fra:1 Mem:441.63M (Peak 441.63M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 0-10
+Fra:1 Mem:442.76M (Peak 442.76M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 1-0
+Fra:1 Mem:443.88M (Peak 443.89M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 1-1
+Fra:1 Mem:446.77M (Peak 446.99M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 1-2
+Fra:1 Mem:451.43M (Peak 451.44M) | Time:00:00.09 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 1-3
+Fra:1 Mem:463.25M (Peak 463.25M) | Time:00:00.09 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 1-4
+Fra:1 Mem:464.41M (Peak 464.41M) | Time:00:00.10 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 1-5
+Fra:1 Mem:462.07M (Peak 468.77M) | Time:00:00.10 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 1-6
+Fra:1 Mem:462.18M (Peak 468.77M) | Time:00:00.10 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 1-7
+Fra:1 Mem:477.81M (Peak 477.81M) | Time:00:00.11 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 1-8
+Fra:1 Mem:478.94M (Peak 478.94M) | Time:00:00.11 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 2-0
+Fra:1 Mem:491.07M (Peak 491.07M) | Time:00:00.11 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 2-1
+Fra:1 Mem:499.45M (Peak 499.46M) | Time:00:00.12 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 2-2
+Fra:1 Mem:500.91M (Peak 500.91M) | Time:00:00.12 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 2-3
+Fra:1 Mem:501.71M (Peak 501.71M) | Time:00:00.12 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 2-4
+Fra:1 Mem:504.20M (Peak 504.20M) | Time:00:00.13 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 2-5
+Fra:1 Mem:504.65M (Peak 504.65M) | Time:00:00.13 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back wave 2-6
+Fra:1 Mem:505.78M (Peak 505.78M) | Time:00:00.13 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Side S wave -1.0-0
+Fra:1 Mem:511.23M (Peak 511.32M) | Time:00:00.13 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Side S wave -1.0-1
+Fra:1 Mem:511.91M (Peak 511.91M) | Time:00:00.13 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Side S wave -1.0-2
+Fra:1 Mem:513.03M (Peak 513.03M) | Time:00:00.14 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Side S wave -1.0-3
+Fra:1 Mem:521.91M (Peak 521.91M) | Time:00:00.14 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Side S wave -1.0-4
+Fra:1 Mem:523.04M (Peak 523.04M) | Time:00:00.14 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Side S wave -1.0-5
+Fra:1 Mem:524.17M (Peak 524.17M) | Time:00:00.14 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Face wave -1.0-0
+Fra:1 Mem:525.30M (Peak 525.30M) | Time:00:00.14 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Face wave -1.0-1
+Fra:1 Mem:529.55M (Peak 529.55M) | Time:00:00.15 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep -1.0-0
+Fra:1 Mem:530.22M (Peak 530.22M) | Time:00:00.15 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep -1.0-1
+Fra:1 Mem:532.11M (Peak 532.11M) | Time:00:00.15 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep -1.0-2
+Fra:1 Mem:532.14M (Peak 532.14M) | Time:00:00.15 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep -1.0-3
+Fra:1 Mem:535.57M (Peak 535.57M) | Time:00:00.15 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep -1.0-4
+Fra:1 Mem:535.93M (Peak 535.93M) | Time:00:00.15 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep -1.0-5
+Fra:1 Mem:541.39M (Peak 541.39M) | Time:00:00.16 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep -1.0-6
+Fra:1 Mem:542.07M (Peak 542.07M) | Time:00:00.16 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Side S wave 1.0-0
+Fra:1 Mem:543.19M (Peak 543.19M) | Time:00:00.16 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Side S wave 1.0-1
+Fra:1 Mem:544.32M (Peak 544.32M) | Time:00:00.16 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Side S wave 1.0-2
+Fra:1 Mem:537.02M (Peak 544.32M) | Time:00:00.16 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Side S wave 1.0-3
+Fra:1 Mem:538.39M (Peak 544.32M) | Time:00:00.16 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Side S wave 1.0-4
+Fra:1 Mem:539.69M (Peak 544.32M) | Time:00:00.17 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Side S wave 1.0-5
+Fra:1 Mem:540.40M (Peak 544.32M) | Time:00:00.17 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Face wave 1.0-0
+Fra:1 Mem:541.86M (Peak 544.32M) | Time:00:00.17 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Face wave 1.0-1
+Fra:1 Mem:543.08M (Peak 544.32M) | Time:00:00.17 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep 1.0-0
+Fra:1 Mem:543.79M (Peak 544.32M) | Time:00:00.17 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep 1.0-1
+Fra:1 Mem:545.37M (Peak 545.37M) | Time:00:00.17 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep 1.0-2
+Fra:1 Mem:546.94M (Peak 546.94M) | Time:00:00.17 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep 1.0-3
+Fra:1 Mem:546.83M (Peak 546.94M) | Time:00:00.17 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep 1.0-4
+Fra:1 Mem:549.74M (Peak 549.74M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep 1.0-5
+Fra:1 Mem:550.18M (Peak 550.18M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crown sweep 1.0-6
+Fra:1 Mem:550.55M (Peak 550.55M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette
+Fra:1 Mem:550.61M (Peak 550.61M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.001
+Fra:1 Mem:550.67M (Peak 550.67M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.002
+Fra:1 Mem:550.72M (Peak 550.72M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.003
+Fra:1 Mem:550.78M (Peak 550.78M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.004
+Fra:1 Mem:550.84M (Peak 550.84M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.005
+Fra:1 Mem:550.89M (Peak 550.89M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.006
+Fra:1 Mem:550.95M (Peak 550.95M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.007
+Fra:1 Mem:551.01M (Peak 551.01M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.008
+Fra:1 Mem:551.07M (Peak 551.07M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.009
+Fra:1 Mem:551.87M (Peak 551.87M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.010
+Fra:1 Mem:552.31M (Peak 552.31M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.011
+Fra:1 Mem:552.68M (Peak 552.68M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.012
+Fra:1 Mem:552.72M (Peak 552.72M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.013
+Fra:1 Mem:552.67M (Peak 552.72M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.015
+Fra:1 Mem:552.73M (Peak 552.73M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.016
+Fra:1 Mem:552.88M (Peak 552.88M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.017
+Fra:1 Mem:552.90M (Peak 552.90M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.018
+Fra:1 Mem:552.90M (Peak 552.90M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.019
+Fra:1 Mem:553.01M (Peak 553.01M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.020
+Fra:1 Mem:553.07M (Peak 553.07M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.021
+Fra:1 Mem:553.10M (Peak 553.10M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.022
+Fra:1 Mem:553.19M (Peak 553.19M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.023
+Fra:1 Mem:553.22M (Peak 553.22M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.024
+Fra:1 Mem:553.27M (Peak 553.27M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.025
+Fra:1 Mem:553.37M (Peak 553.37M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.026
+Fra:1 Mem:553.42M (Peak 553.42M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.027
+Fra:1 Mem:553.42M (Peak 553.42M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.028
+Fra:1 Mem:553.55M (Peak 553.55M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.029
+Fra:1 Mem:553.59M (Peak 553.59M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.030
+Fra:1 Mem:553.61M (Peak 553.61M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.031
+Fra:1 Mem:553.69M (Peak 553.69M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.032
+Fra:1 Mem:553.76M (Peak 553.76M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.033
+Fra:1 Mem:553.78M (Peak 553.78M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.034
+Fra:1 Mem:553.87M (Peak 553.87M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.035
+Fra:1 Mem:553.90M (Peak 553.90M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.036
+Fra:1 Mem:553.95M (Peak 553.95M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.037
+Fra:1 Mem:554.05M (Peak 554.05M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.038
+Fra:1 Mem:554.09M (Peak 554.09M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.039
+Fra:1 Mem:554.12M (Peak 554.12M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.040
+Fra:1 Mem:554.22M (Peak 554.22M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.041
+Fra:1 Mem:554.27M (Peak 554.27M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.042
+Fra:1 Mem:554.27M (Peak 554.27M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.043
+Fra:1 Mem:554.35M (Peak 554.35M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.044
+Fra:1 Mem:554.44M (Peak 554.44M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.045
+Fra:1 Mem:554.45M (Peak 554.45M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.046
+Fra:1 Mem:554.52M (Peak 554.52M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hair fine silhouette.047
+Fra:1 Mem:554.61M (Peak 554.61M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 00
+Fra:1 Mem:554.63M (Peak 554.63M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 01
+Fra:1 Mem:555.30M (Peak 555.30M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 02
+Fra:1 Mem:557.08M (Peak 557.08M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 03
+Fra:1 Mem:557.56M (Peak 557.56M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 04
+Fra:1 Mem:557.73M (Peak 557.73M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 05
+Fra:1 Mem:559.08M (Peak 559.08M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 06
+Fra:1 Mem:559.58M (Peak 559.58M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 07
+Fra:1 Mem:561.34M (Peak 561.34M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 08
+Fra:1 Mem:561.14M (Peak 561.34M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 10
+Fra:1 Mem:562.90M (Peak 562.90M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 11
+Fra:1 Mem:562.74M (Peak 562.90M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 12
+Fra:1 Mem:564.69M (Peak 564.69M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 13
+Fra:1 Mem:565.50M (Peak 565.50M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Art008 inner flowing lock 14
+Fra:1 Mem:565.82M (Peak 565.82M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Braided waist cord
+Fra:1 Mem:567.32M (Peak 567.32M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cord braid
+Fra:1 Mem:568.91M (Peak 568.91M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cord braid.001
+Fra:1 Mem:574.24M (Peak 574.24M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cord knot
+Fra:1 Mem:575.37M (Peak 575.37M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Long cord end
+Fra:1 Mem:575.98M (Peak 575.98M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Short cord end
+Fra:1 Mem:576.53M (Peak 576.53M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Gathered halter -1.0
+Fra:1 Mem:576.80M (Peak 576.80M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Gathered soft neck passage -1.0
+Fra:1 Mem:577.35M (Peak 577.35M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Gathered halter 1.0
+Fra:1 Mem:637.30M (Peak 665.63M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Gathered skirt hem
+Fra:1 Mem:637.37M (Peak 665.63M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Gathered skirt edge.001
+Fra:1 Mem:637.51M (Peak 665.63M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Gathered skirt edge
+Fra:1 Mem:637.22M (Peak 665.63M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Gathered front skirt
+Fra:1 Mem:680.04M (Peak 680.04M) | Time:00:00.32 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Gathered soft neck passage 1.0
+Fra:1 Mem:652.47M (Peak 693.81M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:651.60M (Peak 693.81M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading Cloth_warm_ivory_Normal.001
+Fra:1 Mem:651.60M (Peak 693.81M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading Body_BaseColor.001
+Fra:1 Mem:651.60M (Peak 693.81M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading Body_Roughness.001
+Fra:1 Mem:651.60M (Peak 693.81M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading Body_Normal.001
+Fra:1 Mem:703.62M (Peak 707.62M) | Time:00:00.44 | Mem:4.00M, Peak:4.00M | Scene, ViewLayer | Updating Images | Loading Cloth_warm_ivory_Roughness.001
+Fra:1 Mem:707.62M (Peak 711.63M) | Time:00:00.47 | Mem:8.00M, Peak:8.00M | Scene, ViewLayer | Updating Images | Loading Cloth_warm_ivory_BaseColor.001
+Fra:1 Mem:727.63M (Peak 727.64M) | Time:00:00.47 | Mem:24.00M, Peak:24.00M | Scene, ViewLayer | Updating Images | Loading Hair_ivory_silver_BaseColor.001
+Fra:1 Mem:715.62M (Peak 731.63M) | Time:00:00.47 | Mem:40.00M, Peak:40.00M | Scene, ViewLayer | Updating Images | Loading Hair_ivory_silver_Roughness.001
+Fra:1 Mem:719.62M (Peak 731.63M) | Time:00:00.49 | Mem:44.00M, Peak:44.00M | Scene, ViewLayer | Updating Images | Loading Cord_charcoal_Art007_woven_cord_Normal.001
+Fra:1 Mem:723.62M (Peak 731.63M) | Time:00:00.49 | Mem:52.00M, Peak:52.00M | Scene, ViewLayer | Updating Images | Loading Hair_Art008_strand_aligned_ivory_BaseColor.001
+Fra:1 Mem:731.62M (Peak 747.63M) | Time:00:00.50 | Mem:68.00M, Peak:68.00M | Scene, ViewLayer | Updating Images | Loading Hair_Art008_strand_aligned_ivory_Roughness.001
+Fra:1 Mem:735.62M (Peak 747.63M) | Time:00:00.51 | Mem:72.00M, Peak:72.00M | Scene, ViewLayer | Updating Images | Loading Hair_Art008_strand_aligned_ivory_Normal.001
+Fra:1 Mem:739.62M (Peak 747.63M) | Time:00:00.51 | Mem:76.00M, Peak:76.00M | Scene, ViewLayer | Updating Images | Loading Cord_charcoal_Art007_woven_cord_BaseColor.001
+Fra:1 Mem:743.62M (Peak 747.63M) | Time:00:00.52 | Mem:80.00M, Peak:80.00M | Scene, ViewLayer | Updating Images | Loading Cord_charcoal_Art007_woven_cord_Roughness.001
+Fra:1 Mem:740.88M (Peak 755.64M) | Time:00:00.54 | Mem:96.00M, Peak:96.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:740.88M (Peak 755.64M) | Time:00:00.54 | Mem:96.00M, Peak:96.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:740.88M (Peak 755.64M) | Time:00:00.54 | Mem:96.00M, Peak:96.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:740.88M (Peak 755.64M) | Time:00:00.54 | Mem:96.00M, Peak:96.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:740.97M (Peak 755.64M) | Time:00:00.54 | Mem:96.01M, Peak:96.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:740.97M (Peak 755.64M) | Time:00:00.54 | Mem:96.01M, Peak:96.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:740.97M (Peak 755.64M) | Time:00:00.54 | Mem:96.01M, Peak:96.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:740.97M (Peak 755.64M) | Time:00:00.54 | Mem:96.01M, Peak:96.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:740.97M (Peak 755.64M) | Time:00:00.54 | Mem:96.01M, Peak:96.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:740.97M (Peak 755.64M) | Time:00:00.54 | Mem:96.01M, Peak:96.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:741.02M (Peak 755.64M) | Time:00:00.54 | Mem:96.06M, Peak:96.06M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:741.02M (Peak 755.64M) | Time:00:00.54 | Mem:96.06M, Peak:96.06M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:741.02M (Peak 755.64M) | Time:00:00.54 | Mem:96.06M, Peak:96.06M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:878.82M (Peak 878.82M) | Time:00:01.76 | Mem:96.06M, Peak:96.06M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:878.82M (Peak 878.82M) | Time:00:01.76 | Mem:96.06M, Peak:96.06M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:1063.53M (Peak 1063.53M) | Time:00:01.82 | Mem:96.09M, Peak:96.09M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:1063.49M (Peak 1063.53M) | Time:00:01.82 | Mem:280.73M, Peak:280.73M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:1063.50M (Peak 1063.53M) | Time:00:01.82 | Mem:280.73M, Peak:280.73M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:1063.50M (Peak 1063.53M) | Time:00:01.82 | Mem:355.76M, Peak:355.76M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:1063.50M (Peak 1063.53M) | Time:00:02.07 | Mem:467.76M, Peak:467.76M | Scene, ViewLayer | Updating Scene BVH | Building BVH 74%
+Fra:1 Mem:1063.50M (Peak 1063.53M) | Time:00:02.07 | Mem:467.76M, Peak:467.76M | Scene, ViewLayer | Updating Scene BVH | Building BVH 75%
+Fra:1 Mem:1063.50M (Peak 1063.53M) | Time:00:02.13 | Mem:432.73M, Peak:507.76M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:1063.50M (Peak 1063.53M) | Time:00:02.13 | Mem:432.73M, Peak:507.76M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:1131.38M (Peak 1131.38M) | Time:00:02.15 | Mem:432.73M, Peak:507.76M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:1131.38M (Peak 1131.38M) | Time:00:02.15 | Mem:500.62M, Peak:507.76M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:1131.38M (Peak 1131.38M) | Time:00:02.15 | Mem:500.62M, Peak:507.76M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:1131.38M (Peak 1131.38M) | Time:00:02.15 | Mem:500.62M, Peak:507.76M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:1131.38M (Peak 1131.38M) | Time:00:02.15 | Mem:500.62M, Peak:507.76M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:1131.38M (Peak 1131.38M) | Time:00:02.15 | Mem:500.62M, Peak:507.76M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:1131.38M (Peak 1131.38M) | Time:00:02.15 | Mem:500.70M, Peak:507.76M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:1131.38M (Peak 1131.38M) | Time:00:02.15 | Mem:500.70M, Peak:507.76M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:1131.39M (Peak 1131.39M) | Time:00:02.15 | Mem:500.71M, Peak:507.76M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:1131.39M (Peak 1131.39M) | Time:00:02.15 | Mem:500.71M, Peak:507.76M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:1131.39M (Peak 1131.39M) | Time:00:02.15 | Mem:500.62M, Peak:507.76M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:1131.39M (Peak 1131.39M) | Time:00:02.15 | Mem:500.71M, Peak:507.76M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:1131.39M (Peak 1131.39M) | Time:00:02.15 | Mem:500.71M, Peak:507.76M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:1131.40M (Peak 1131.40M) | Time:00:02.15 | Mem:500.71M, Peak:507.76M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:1131.40M (Peak 1131.40M) | Time:00:02.15 | Mem:500.71M, Peak:507.76M | Scene, ViewLayer | Sample 0/20
+Fra:1 Mem:1199.51M (Peak 1199.51M) | Time:00:03.21 | Remaining:00:20.02 | Mem:568.80M, Peak:568.80M | Scene, ViewLayer | Sample 1/20
+Fra:1 Mem:1228.18M (Peak 1271.18M) | Time:00:32.12 | Mem:568.80M, Peak:568.80M | Scene, ViewLayer | Sample 20/20
+Fra:1 Mem:1228.18M (Peak 1271.18M) | Time:00:32.12 | Mem:568.80M, Peak:568.80M | Scene, ViewLayer | Finished
+Saved: '/home/runner/work/YokaiDominion/YokaiDominion/output/export-reimport.png'
+Time: 00:32.32 (Saving: 00:00.19)
+
+GLB_REIMPORT_RENDER_PASS
+
+Blender quit
