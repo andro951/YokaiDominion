@@ -1,0 +1,22 @@
+{
+  "masterSha256": "deec460a59fd2b6149ed4ffb5498a285fe9b0eb5da9bd0003cd848e06239238b",
+  "staticVisualAsset": true,
+  "rigged": false,
+  "physicsIntegrated": false,
+  "skinRepresentation": "unlit-albedo bake to vertex colors, with normally lit PBR material; no pores/SSS bake",
+  "sourceBodyVertices": 825304,
+  "portableBodyVertices": 181565,
+  "triangleCount": 948194,
+  "materials": 14,
+  "embeddedImages": 13,
+  "files": {
+    "Character01_PBR012.blend": {
+      "bytes": 28888719,
+      "sha256": "90d993e175940aacb530241f0b60640f178e7117dc6c5087329c37ca893c8d13"
+    },
+    "Character01_Visual012.glb": {
+      "bytes": 66957036,
+      "sha256": "51d53697f9a77f5592b63deff16cae57103a6a5bdb7f2c24858fb49c3f8c4875"
+    }
+  }
+}

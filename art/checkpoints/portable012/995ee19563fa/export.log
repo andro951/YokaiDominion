@@ -1,0 +1,901 @@
+BODY_REDUCED 825304 181565
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:38:15)
+Read blend: "/home/runner/work/_temp/portable.blend"
+Fra:1 Mem:384.64M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Eye.R
+Fra:1 Mem:384.64M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Brow.-1
+Fra:1 Mem:386.83M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Upper liner.-1
+Fra:1 Mem:386.89M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Outer eyelash
+Fra:1 Mem:386.90M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Outer eyelash.001
+Fra:1 Mem:386.92M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Outer eyelash.002
+Fra:1 Mem:386.97M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Outer eyelash.003
+Fra:1 Mem:386.97M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Outer eyelash.004
+Fra:1 Mem:386.99M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Brow.1
+Fra:1 Mem:387.00M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Upper liner.1
+Fra:1 Mem:387.18M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Outer eyelash.005
+Fra:1 Mem:387.18M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Outer eyelash.006
+Fra:1 Mem:387.20M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Outer eyelash.007
+Fra:1 Mem:387.20M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Outer eyelash.008
+Fra:1 Mem:387.22M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Outer eyelash.009
+Fra:1 Mem:387.22M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Canine.-1
+Fra:1 Mem:387.24M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Canine.1
+Fra:1 Mem:387.27M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Iris.Eye.R
+Fra:1 Mem:387.39M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Iris.Eye.L
+Fra:1 Mem:388.23M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Loose over-trapezius panel R
+Fra:1 Mem:389.75M (Peak 1246.32M) | Time:498475:11:01.52 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Art009 individual eyebrow hairs
+Fra:1 Mem:393.91M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Fitted hair scalp
+Fra:1 Mem:396.84M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Side S wave -1.0-0
+Fra:1 Mem:397.11M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Side S wave -1.0-1
+Fra:1 Mem:398.31M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Side S wave -1.0-2
+Fra:1 Mem:399.75M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Side S wave -1.0-3
+Fra:1 Mem:400.02M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Side S wave -1.0-4
+Fra:1 Mem:400.69M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Side S wave -1.0-5
+Fra:1 Mem:400.68M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Face wave -1.0-0
+Fra:1 Mem:400.95M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Face wave -1.0-1
+Fra:1 Mem:401.22M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep -1.0-0
+Fra:1 Mem:401.49M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep -1.0-1
+Fra:1 Mem:402.11M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep -1.0-2
+Fra:1 Mem:402.21M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep -1.0-3
+Fra:1 Mem:402.64M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep -1.0-4
+Fra:1 Mem:402.64M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep -1.0-5
+Fra:1 Mem:403.20M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep -1.0-6
+Fra:1 Mem:403.29M (Peak 1246.32M) | Time:498475:11:01.53 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Side S wave 1.0-0
+Fra:1 Mem:403.63M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Side S wave 1.0-1
+Fra:1 Mem:403.74M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Side S wave 1.0-2
+Fra:1 Mem:404.17M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Side S wave 1.0-3
+Fra:1 Mem:404.28M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Side S wave 1.0-4
+Fra:1 Mem:404.65M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Side S wave 1.0-5
+Fra:1 Mem:404.82M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Face wave 1.0-0
+Fra:1 Mem:405.15M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Face wave 1.0-1
+Fra:1 Mem:406.33M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep 1.0-0
+Fra:1 Mem:406.83M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep 1.0-1
+Fra:1 Mem:406.77M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep 1.0-2
+Fra:1 Mem:408.76M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep 1.0-3
+Fra:1 Mem:408.87M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep 1.0-4
+Fra:1 Mem:409.30M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep 1.0-5
+Fra:1 Mem:409.41M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Crown sweep 1.0-6
+Fra:1 Mem:408.57M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Loose over-trapezius panel L
+Fra:1 Mem:410.22M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette
+Fra:1 Mem:410.38M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.001
+Fra:1 Mem:410.46M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.002
+Fra:1 Mem:410.51M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.003
+Fra:1 Mem:410.56M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.004
+Fra:1 Mem:410.61M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.005
+Fra:1 Mem:413.66M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.006
+Fra:1 Mem:413.71M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.007
+Fra:1 Mem:414.72M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.008
+Fra:1 Mem:414.77M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.009
+Fra:1 Mem:414.83M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.010
+Fra:1 Mem:414.88M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.011
+Fra:1 Mem:414.93M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.012
+Fra:1 Mem:415.00M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.013
+Fra:1 Mem:415.03M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.014
+Fra:1 Mem:416.54M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.015
+Fra:1 Mem:416.57M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.016
+Fra:1 Mem:416.64M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.017
+Fra:1 Mem:416.68M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.018
+Fra:1 Mem:416.73M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.019
+Fra:1 Mem:416.78M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.020
+Fra:1 Mem:416.83M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.021
+Fra:1 Mem:416.89M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.022
+Fra:1 Mem:416.94M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.023
+Fra:1 Mem:416.99M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.024
+Fra:1 Mem:417.04M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.025
+Fra:1 Mem:417.09M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.026
+Fra:1 Mem:417.14M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.027
+Fra:1 Mem:417.20M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.028
+Fra:1 Mem:417.25M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.029
+Fra:1 Mem:417.30M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.030
+Fra:1 Mem:417.35M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.031
+Fra:1 Mem:417.40M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.032
+Fra:1 Mem:417.70M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.033
+Fra:1 Mem:417.77M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.034
+Fra:1 Mem:417.78M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.036
+Fra:1 Mem:417.88M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.037
+Fra:1 Mem:417.93M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.038
+Fra:1 Mem:417.99M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.039
+Fra:1 Mem:418.04M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.040
+Fra:1 Mem:419.29M (Peak 1246.32M) | Time:498475:11:01.54 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.041
+Fra:1 Mem:419.34M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.042
+Fra:1 Mem:419.39M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.043
+Fra:1 Mem:419.44M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.044
+Fra:1 Mem:419.51M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.045
+Fra:1 Mem:419.55M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.046
+Fra:1 Mem:419.63M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair fine silhouette.047
+Fra:1 Mem:419.64M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.00
+Fra:1 Mem:419.79M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.01
+Fra:1 Mem:420.28M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.02
+Fra:1 Mem:420.34M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.03
+Fra:1 Mem:420.32M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.04
+Fra:1 Mem:420.50M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.05
+Fra:1 Mem:420.77M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.06
+Fra:1 Mem:421.04M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.07
+Fra:1 Mem:421.31M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.08
+Fra:1 Mem:421.58M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.09
+Fra:1 Mem:421.86M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.10
+Fra:1 Mem:422.13M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.11
+Fra:1 Mem:422.48M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.12
+Fra:1 Mem:422.67M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.13
+Fra:1 Mem:423.02M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.14
+Fra:1 Mem:423.21M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.15
+Fra:1 Mem:423.56M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.16
+Fra:1 Mem:423.76M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.17
+Fra:1 Mem:424.03M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.18
+Fra:1 Mem:424.30M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.19
+Fra:1 Mem:424.57M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.20
+Fra:1 Mem:424.84M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.21
+Fra:1 Mem:425.11M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.inner.22
+Fra:1 Mem:426.44M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.00
+Fra:1 Mem:426.61M (Peak 1246.32M) | Time:498475:11:01.55 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.01
+Fra:1 Mem:426.98M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.02
+Fra:1 Mem:427.16M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.03
+Fra:1 Mem:427.91M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.04
+Fra:1 Mem:428.18M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.05
+Fra:1 Mem:429.57M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.06
+Fra:1 Mem:429.68M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.07
+Fra:1 Mem:430.05M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.08
+Fra:1 Mem:429.27M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Body
+Fra:1 Mem:433.42M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.09
+Fra:1 Mem:433.79M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.10
+Fra:1 Mem:433.96M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.11
+Fra:1 Mem:434.24M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Back wave 009.outer.12
+Fra:1 Mem:434.51M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.00 front
+Fra:1 Mem:434.52M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.00 back
+Fra:1 Mem:434.54M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.01 front
+Fra:1 Mem:434.56M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.01 back
+Fra:1 Mem:434.67M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.02 front
+Fra:1 Mem:434.81M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.02 back
+Fra:1 Mem:434.76M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.03 front
+Fra:1 Mem:434.78M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.03 back
+Fra:1 Mem:434.80M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.04 front
+Fra:1 Mem:434.83M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.04 back
+Fra:1 Mem:434.82M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.05 front
+Fra:1 Mem:434.86M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.05 back
+Fra:1 Mem:434.88M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.06 back
+Fra:1 Mem:437.67M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.07 front
+Fra:1 Mem:443.57M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.07 back
+Fra:1 Mem:443.59M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.08 front
+Fra:1 Mem:443.67M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.08 back
+Fra:1 Mem:443.73M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.09 front
+Fra:1 Mem:443.75M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.09 back
+Fra:1 Mem:443.77M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.10 front
+Fra:1 Mem:443.79M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.10 back
+Fra:1 Mem:443.80M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.11 front
+Fra:1 Mem:443.83M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.11 back
+Fra:1 Mem:443.83M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.12 front
+Fra:1 Mem:443.87M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.12 back
+Fra:1 Mem:443.87M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.13 front
+Fra:1 Mem:443.90M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.13 back
+Fra:1 Mem:443.90M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.14 front
+Fra:1 Mem:443.93M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.14 back
+Fra:1 Mem:443.95M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.15 front
+Fra:1 Mem:443.96M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.15 back
+Fra:1 Mem:443.98M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.16 front
+Fra:1 Mem:444.00M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.16 back
+Fra:1 Mem:444.02M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.17 front
+Fra:1 Mem:444.04M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.17 back
+Fra:1 Mem:446.82M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.18 front
+Fra:1 Mem:446.84M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.18 back
+Fra:1 Mem:446.86M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.19 front
+Fra:1 Mem:446.88M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.19 back
+Fra:1 Mem:446.90M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.20 front
+Fra:1 Mem:446.92M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.20 back
+Fra:1 Mem:446.93M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.21 front
+Fra:1 Mem:446.96M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.21 back
+Fra:1 Mem:446.97M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.22 front
+Fra:1 Mem:446.99M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.inner.22 back
+Fra:1 Mem:447.00M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.00 front
+Fra:1 Mem:447.03M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.00 back
+Fra:1 Mem:447.03M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.01 front
+Fra:1 Mem:447.07M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.01 back
+Fra:1 Mem:447.07M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.02 front
+Fra:1 Mem:447.10M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.02 back
+Fra:1 Mem:447.18M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.03 front
+Fra:1 Mem:447.20M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.03 back
+Fra:1 Mem:447.20M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.04 front
+Fra:1 Mem:447.23M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.04 back
+Fra:1 Mem:447.24M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.05 front
+Fra:1 Mem:447.27M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.05 back
+Fra:1 Mem:447.27M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.06 front
+Fra:1 Mem:447.31M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.06 back
+Fra:1 Mem:447.31M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.07 front
+Fra:1 Mem:447.33M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.07 back
+Fra:1 Mem:447.35M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.08 front
+Fra:1 Mem:447.37M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.08 back
+Fra:1 Mem:447.38M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.09 front
+Fra:1 Mem:447.42M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.09 back
+Fra:1 Mem:447.42M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.10 front
+Fra:1 Mem:447.45M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.10 back
+Fra:1 Mem:447.45M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.11 front
+Fra:1 Mem:447.49M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.11 back
+Fra:1 Mem:447.49M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.12 front
+Fra:1 Mem:447.52M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Back wave 009.outer.12 back
+Fra:1 Mem:447.52M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-0 front
+Fra:1 Mem:447.55M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-0 back
+Fra:1 Mem:447.57M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-1 front
+Fra:1 Mem:447.59M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-1 back
+Fra:1 Mem:447.60M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-2 front
+Fra:1 Mem:447.62M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-2 back
+Fra:1 Mem:447.64M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-3 front
+Fra:1 Mem:447.66M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-3 back
+Fra:1 Mem:447.67M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-4 front
+Fra:1 Mem:447.69M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-4 back
+Fra:1 Mem:447.71M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-5 front
+Fra:1 Mem:447.73M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-5 back
+Fra:1 Mem:447.75M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-6 front
+Fra:1 Mem:447.76M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep -1.0-6 back
+Fra:1 Mem:447.78M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-0 front
+Fra:1 Mem:447.80M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-0 back
+Fra:1 Mem:447.82M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-1 front
+Fra:1 Mem:447.84M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-1 back
+Fra:1 Mem:447.85M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-2 front
+Fra:1 Mem:447.87M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-2 back
+Fra:1 Mem:447.89M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-3 front
+Fra:1 Mem:449.99M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-3 back
+Fra:1 Mem:454.17M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-4 front
+Fra:1 Mem:454.17M (Peak 1246.32M) | Time:498475:11:01.56 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-4 back
+Fra:1 Mem:454.20M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-5 front
+Fra:1 Mem:454.20M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-5 back
+Fra:1 Mem:454.24M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-6 front
+Fra:1 Mem:454.24M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Crown sweep 1.0-6 back
+Fra:1 Mem:454.28M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Face wave -1.0-0 front
+Fra:1 Mem:454.28M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Face wave -1.0-0 back
+Fra:1 Mem:454.30M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Face wave -1.0-1 front
+Fra:1 Mem:454.32M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Face wave -1.0-1 back
+Fra:1 Mem:454.34M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Face wave 1.0-0 front
+Fra:1 Mem:454.36M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Face wave 1.0-0 back
+Fra:1 Mem:454.38M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Face wave 1.0-1 front
+Fra:1 Mem:454.39M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Face wave 1.0-1 back
+Fra:1 Mem:454.41M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave -1.0-0 front
+Fra:1 Mem:454.43M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave -1.0-0 back
+Fra:1 Mem:454.45M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave -1.0-1 front
+Fra:1 Mem:454.46M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave -1.0-1 back
+Fra:1 Mem:454.48M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave -1.0-2 front
+Fra:1 Mem:454.50M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave -1.0-2 back
+Fra:1 Mem:454.52M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave -1.0-3 front
+Fra:1 Mem:454.54M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave -1.0-3 back
+Fra:1 Mem:454.55M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave -1.0-4 front
+Fra:1 Mem:454.57M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave -1.0-4 back
+Fra:1 Mem:454.59M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave -1.0-5 front
+Fra:1 Mem:454.62M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave -1.0-5 back
+Fra:1 Mem:454.63M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave 1.0-0 front
+Fra:1 Mem:454.66M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave 1.0-0 back
+Fra:1 Mem:454.66M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave 1.0-1 front
+Fra:1 Mem:454.69M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave 1.0-1 back
+Fra:1 Mem:454.69M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave 1.0-2 front
+Fra:1 Mem:454.73M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave 1.0-2 back
+Fra:1 Mem:454.73M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave 1.0-3 front
+Fra:1 Mem:454.76M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave 1.0-3 back
+Fra:1 Mem:454.76M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave 1.0-4 front
+Fra:1 Mem:454.80M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave 1.0-4 back
+Fra:1 Mem:454.80M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave 1.0-5 front
+Fra:1 Mem:454.83M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Hair008 fibres | Side S wave 1.0-5 back
+Fra:1 Mem:454.84M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Braided waist cord
+Fra:1 Mem:454.92M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Cord braid
+Fra:1 Mem:455.79M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Cord braid.001
+Fra:1 Mem:455.82M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Cord knot
+Fra:1 Mem:456.17M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Long cord end
+Fra:1 Mem:456.30M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Short cord end
+Fra:1 Mem:456.70M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Gathered front skirt
+Fra:1 Mem:457.72M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Gathered skirt edge
+Fra:1 Mem:457.85M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Gathered skirt edge.001
+Fra:1 Mem:457.97M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Gathered skirt hem
+Fra:1 Mem:458.43M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Gathered rear skirt
+Fra:1 Mem:459.34M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Gathered skirt edge.002
+Fra:1 Mem:459.46M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Gathered skirt edge.003
+Fra:1 Mem:459.59M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Gathered skirt hem.001
+Fra:1 Mem:459.65M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Art008 tailored tail opening hem
+Fra:1 Mem:459.76M (Peak 1246.32M) | Time:498475:11:01.57 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Horn.-1
+Fra:1 Mem:462.33M (Peak 1246.32M) | Time:498475:11:01.58 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Horn.1
+Fra:1 Mem:462.40M (Peak 1246.32M) | Time:498475:11:01.58 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Tail
+Fra:1 Mem:462.88M (Peak 1246.32M) | Time:498475:11:01.58 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Tail spade
+Fra:1 Mem:467.85M (Peak 1246.32M) | Time:498475:11:01.58 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | STUDIO Ground
+Fra:1 Mem:467.85M (Peak 1246.32M) | Time:498475:11:01.58 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | STUDIO Key
+Fra:1 Mem:467.85M (Peak 1246.32M) | Time:498475:11:01.58 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | STUDIO Fill
+Fra:1 Mem:467.85M (Peak 1246.32M) | Time:498475:11:01.58 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | STUDIO Rim
+Fra:1 Mem:467.85M (Peak 1246.32M) | Time:498475:11:01.58 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | STUDIO lower front fill
+Fra:1 Mem:474.97M (Peak 1246.32M) | Time:498475:11:01.61 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:474.96M (Peak 1246.32M) | Time:498475:11:01.61 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading Cloth_warm_ivory_Roughness
+Fra:1 Mem:474.96M (Peak 1246.32M) | Time:498475:11:01.61 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading Hair_ivory_silver_BaseColor
+Fra:1 Mem:474.96M (Peak 1246.32M) | Time:498475:11:01.61 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading Hair_ivory_silver_Normal
+Fra:1 Mem:474.96M (Peak 1246.32M) | Time:498475:11:01.61 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading Hair_ivory_silver_Roughness
+Fra:1 Mem:494.99M (Peak 1246.32M) | Time:498475:11:01.64 | Mem:4.00M, Peak:4.00M | Scene | Updating Images | Loading Hair_Art008_strand_aligned_ivory_BaseColor
+Fra:1 Mem:494.98M (Peak 1246.32M) | Time:498475:11:01.64 | Mem:8.00M, Peak:8.00M | Scene | Updating Images | Loading Cloth_warm_ivory_Normal
+Fra:1 Mem:498.98M (Peak 1246.32M) | Time:498475:11:01.64 | Mem:12.00M, Peak:12.00M | Scene | Updating Images | Loading Hair_Art008_strand_aligned_ivory_Normal
+Fra:1 Mem:502.98M (Peak 1246.32M) | Time:498475:11:01.66 | Mem:16.00M, Peak:16.00M | Scene | Updating Images | Loading Hair_Art008_strand_aligned_ivory_Roughness
+Fra:1 Mem:510.99M (Peak 1246.32M) | Time:498475:11:01.67 | Mem:20.00M, Peak:20.00M | Scene | Updating Images | Loading Hair008_FibreOpacity
+Fra:1 Mem:514.99M (Peak 1246.32M) | Time:498475:11:01.67 | Mem:24.00M, Peak:24.00M | Scene | Updating Images | Loading Cord_charcoal_Art007_woven_cord_BaseColor
+Fra:1 Mem:514.98M (Peak 1246.32M) | Time:498475:11:01.67 | Mem:28.00M, Peak:28.00M | Scene | Updating Images | Loading Cloth_warm_ivory_BaseColor
+Fra:1 Mem:518.98M (Peak 1246.32M) | Time:498475:11:01.68 | Mem:32.00M, Peak:32.00M | Scene | Updating Images | Loading Cord_charcoal_Art007_woven_cord_Normal
+Fra:1 Mem:526.99M (Peak 1246.32M) | Time:498475:11:01.69 | Mem:36.00M, Peak:36.00M | Scene | Updating Images | Loading Cord_charcoal_Art007_woven_cord_Roughness
+ALBEDO_BAKED (1089402, 4) [[0.03999999910593033, 0.03400000184774399, 0.06800000369548798], [0.15105924755334854, 0.1571415662765503, 0.232970729470253], [0.15949489176273346, 0.1590358018875122, 0.2374105155467987]]
+Info: Deleted 113 data-block(s)
+Info: No new files have been packed
+Info: Saved as "Character01_PBR012.blend"
+INFO Draco mesh compression is available, use library at /home/runner/work/_temp/blender-4.5.3-linux-x64/4.5/scripts/addons_core/io_scene_gltf2/libextern_draco.so
+19:11:04 | INFO: Starting glTF 2.0 export
+19:11:04 | INFO: Extracting primitive: GEO-body_female_realistic.002
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Art010_ContinuousDrape.001
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Art010_ContinuousDrape
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: GEO-body_female_realistic.eye.R
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: GEO-body_female_realistic.eye.L
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Brow.-1
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Upper liner.-1
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Outer eyelash
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Outer eyelash.001
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Outer eyelash.002
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Outer eyelash.003
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Outer eyelash.004
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Brow.1
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Upper liner.1
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Outer eyelash.005
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Outer eyelash.006
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Outer eyelash.007
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Outer eyelash.008
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Outer eyelash.009
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Seated canine
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Seated canine.001
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Iris.Eye.R.001
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Iris.Eye.L.001
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: IndividualEyebrowHairs
+19:11:05 | INFO: Primitives created: 1
+19:11:05 | INFO: Extracting primitive: Fitted hair scalp
+19:11:05 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Side S wave -1.0-0
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Side S wave -1.0-1
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Side S wave -1.0-2
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Side S wave -1.0-3
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Side S wave -1.0-4
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Side S wave -1.0-5
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Face wave -1.0-0
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Face wave -1.0-1
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep -1.0-0
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep -1.0-1
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep -1.0-2
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep -1.0-3
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep -1.0-4
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep -1.0-5
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep -1.0-6
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Side S wave 1.0-0
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Side S wave 1.0-1
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Side S wave 1.0-2
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Side S wave 1.0-3
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Side S wave 1.0-4
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Side S wave 1.0-5
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Face wave 1.0-0
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Face wave 1.0-1
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep 1.0-0
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep 1.0-1
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep 1.0-2
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep 1.0-3
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep 1.0-4
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep 1.0-5
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Crown sweep 1.0-6
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.001
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.002
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.003
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.004
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.005
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.006
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.007
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.008
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.009
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.010
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.011
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.012
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.013
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.014
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.015
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.016
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.017
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.018
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.019
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.020
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.021
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.022
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.023
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.024
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.025
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.026
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.027
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.028
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.029
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.030
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.031
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.032
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.033
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.034
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.035
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.036
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.037
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.038
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.039
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.040
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.041
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.042
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.043
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.044
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.045
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.046
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Hair fine silhouette.047
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.00
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.01
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.02
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.03
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.04
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.05
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.06
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.07
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.08
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.09
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.10
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.11
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.12
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.13
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.14
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.15
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.16
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.17
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.18
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.19
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.20
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.21
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.inner.22
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.00
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.01
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.02
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.03
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.04
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.05
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.06
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.07
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.08
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.09
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.10
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.11
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Back wave 009.outer.12
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon
+19:11:06 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.001
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.002
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.003
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.004
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.005
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.006
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.007
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.008
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.009
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.010
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.011
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.012
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.013
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.014
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.015
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.016
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.017
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.018
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.019
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.020
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.021
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.022
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.023
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.024
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.025
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.026
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.027
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.028
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.029
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.030
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.031
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.032
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.033
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.034
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.035
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.036
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.037
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.038
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.039
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.040
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.041
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.042
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.043
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.044
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.045
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.046
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.047
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.048
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.049
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.050
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.051
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.052
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.053
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.054
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.055
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.056
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.057
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.058
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.059
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.060
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.061
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.062
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.063
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.064
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.065
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.066
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.067
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.068
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.069
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.070
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.071
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.072
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.073
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.074
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.075
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.076
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.077
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.078
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.079
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.080
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.081
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.082
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.083
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.084
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.085
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.086
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.087
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.088
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.089
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.090
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.091
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.092
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.093
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.094
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.095
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.096
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.097
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.098
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.099
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.100
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.101
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.102
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.103
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.104
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.105
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.106
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.107
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.108
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.109
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.110
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.111
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.112
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.113
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.114
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.115
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.116
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.117
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.118
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.119
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.120
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.121
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.122
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.123
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.124
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.125
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.126
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.127
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.128
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.129
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.130
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: HairFibreRibbon.131
+19:11:06 | INFO: Primitives created: 1
+19:11:06 | INFO: Extracting primitive: Braided waist cord
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Cord braid
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Cord braid.001
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Cord knot
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Long cord end
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Short cord end
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Gathered front skirt
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Gathered skirt edge
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Gathered skirt edge.001
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Gathered skirt hem
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Gathered rear skirt
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Gathered skirt edge.002
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Gathered skirt edge.003
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Gathered skirt hem.001
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Art008 tailored tail opening hem
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Horn.-1
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Horn.1
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Tail
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Extracting primitive: Tail spade
+19:11:07 | INFO: Primitives created: 1
+19:11:07 | INFO: Finished glTF 2.0 export in 2.711379051208496 s
+
+ART012_PORTABLE_PASS
+
+Blender quit
