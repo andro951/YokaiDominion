@@ -2,13 +2,13 @@
 Edits the real Art008 master. No rig or physics acceptance is implied.
 """
 from pathlib import Path
-import argparse, hashlib, json, math, sys
+import argparse, hashlib, json, math, sys, shutil
 import bpy
 import numpy as np
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-REVISION='010-bust-trapezius-5'
+REVISION='010-bust-trapezius-6'
 
 def smooth(a,b,x):
  t=np.clip((x-a)/(b-a),0,1);return t*t*(3-2*t)
@@ -21,8 +21,9 @@ def edit():
  body=bpy.data.objects['Body']
  if body.get('art010'):raise ValueError('Refusing to apply chest enlargement twice')
  p=read(body)
- from bust_shape010 import deform
- q=deform(p);changed=np.any(q!=p,axis=1);unchanged=~changed
+ from bust_shape010 import deform,fair_surface
+ edges=np.empty(len(body.data.edges)*2,dtype=np.int32);body.data.edges.foreach_get('vertices',edges)
+ q=fair_surface(deform(p),p,edges.reshape(-1,2));changed=np.any(q!=p,axis=1);unchanged=~changed
  assert np.array_equal(p[unchanged],q[unchanged])
  attr=body.data.attributes.new('art010_previous_position','FLOAT_VECTOR','POINT');attr.data.foreach_set('vector',p.ravel())
  write(body,q);body['art010']=REVISION;body['clothing_shapes_body']=False
@@ -106,6 +107,10 @@ def edit():
   m=obj.modifiers.new('Fabric thickness','SOLIDIFY');m.thickness=.0011;m.offset=0
   obj['construction']='Continuous front-to-back loose strip over upper trapezius. No transverse neck collar, cups, underband, or breast lift.'
   obj['role']='separate_character_detail';panels.append(obj.name)
+ # Broad low frontal studio fill makes underside and abdominal forms inspectable.
+ light=bpy.data.lights.new('STUDIO lower front fill','AREA');light.energy=65;light.shape='DISK';light.size=2.0
+ lamp=bpy.data.objects.new('STUDIO lower front fill',light);bpy.data.collections['90_STUDIO'].objects.link(lamp)
+ lamp.location=(0,-3,1.35);lamp.rotation_euler=(Vector((0,0,1.40))-lamp.location).to_track_quat('-Z','Y').to_euler()
  bpy.context.scene['art_checkpoint']=REVISION
  return {'revision':REVISION,'bodyVertices':len(q),'changedVertices':int(np.count_nonzero(changed)),'otherBodyVerticesUnchanged':True,'maxAddedProjectionMetres':float((p[:,1]-q[:,1]).max()),'newPanels':panels,'rigOrPhysicsUpdated':False}
 
@@ -118,7 +123,10 @@ def render(out,views,width,samples):
   scene.render.resolution_x=width;scene.render.resolution_y=round(width*(1.12 if view in ('torso','shoulder') else 1.3));scene.render.filepath=str(out/(view+'.png'));bpy.ops.render.render(write_still=True)
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--source',type=Path,required=True);ap.add_argument('--out',type=Path,required=True);ap.add_argument('--render-only',action='store_true');ap.add_argument('--views',default='');ap.add_argument('--width',type=int,default=900);ap.add_argument('--samples',type=int,default=32)
- a=ap.parse_args(sys.argv[sys.argv.index('--')+1:]);out=a.out.resolve();out.mkdir(parents=True,exist_ok=True);bpy.ops.wm.open_mainfile(filepath=str(a.source.resolve()))
+ a=ap.parse_args(sys.argv[sys.argv.index('--')+1:]);out=a.out.resolve();out.mkdir(parents=True,exist_ok=True)
+ for f in (Path(__file__),Path(__file__).with_name('bust_shape010.py')):
+  if f.resolve()!=(out/f.name).resolve():shutil.copy2(f,out/f.name)
+ bpy.ops.wm.open_mainfile(filepath=str(a.source.resolve()))
  if not a.render_only:
   report=edit();bpy.ops.file.pack_all();bpy.context.preferences.filepaths.save_version=0;f=out/'Character01_Art010.blend';bpy.ops.wm.save_as_mainfile(filepath=str(f),compress=True);bpy.ops.wm.open_mainfile(filepath=str(f));assert bpy.data.objects['Body'].get('art010')==REVISION
   report.update({'savedBlendReopened':True,'sourceSha256':hashlib.sha256(a.source.read_bytes()).hexdigest(),'files':{f.name:{'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()}}});(out/'manifest.json').write_text(json.dumps(report,indent=2));print('ART010_SAVED_REOPENED',flush=True)
