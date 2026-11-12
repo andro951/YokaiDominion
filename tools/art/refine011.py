@@ -7,7 +7,7 @@ import bpy
 import numpy as np
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
-REVISION='011-fullness-drape-1'
+REVISION='011-fullness-drape-3'
 
 def smooth(a,b,x):
  t=np.clip((x-a)/(b-a),0,1);return t*t*(3-2*t)
@@ -64,12 +64,12 @@ def edit():
   for i in range(92,154):
    t=(i-92)/61.;envelope=math.sin(math.pi*t)**2
    for j,u in enumerate(np.linspace(-1,1,33)):
-    point=grid[i,j];point[0]-=sign*.0035*envelope*(1-u)/2
-    if 99<=i<=146:
-     h,no,_,_=bvh.ray_cast(Vector((point[0],point[1],1.77)),Vector((0,0,-1)),.4)
-     if h is not None:
-      contact=h.z+.0022+.00065*envelope*(1+math.sin(2.3*math.pi*u+.8*t+.15*sign))
-      point[2]=point[2]*(1-.82*envelope)+contact*.82*envelope
+    point=grid[i,j]
+    point[0]+=sign*.0015*envelope*(1-u)/2
+    # Use the existing continuous shoulder arc. A vertical ray can hit the
+    # neck instead of the trapezius, producing a narrow upright spike.
+    point[2]-=.0012*envelope
+    point[2]+=.00045*envelope*math.sin(2.25*math.pi*u+.8*t+.15*sign)
   # Fair the front/shoulder/back joins without changing endpoint attachment.
   for seam in (99,146):
    for _ in range(10):
