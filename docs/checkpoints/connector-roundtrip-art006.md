@@ -1,8 +1,13 @@
 # Direct GitHub checkpoint protocol
 
-This file is a small write/read-back probe of the connected GitHub Contents API. It is not a new character-art revision and does not claim that an editable model has been uploaded.
+This file tests the connected GitHub Contents API. It is not a new character-art revision and does not claim that an editable model has been uploaded.
 
-Repository head observed before this probe: `ae306363c0c4f80fdbc82916a0f2e54d3bea0611`.
+## Round-trip evidence
+
+- Repository head observed before this test: `ae306363c0c4f80fdbc82916a0f2e54d3bea0611`.
+- Initial direct create succeeded at commit `6d7738d3df3ecb427e7d771c0b3df7d52fdce1e5`.
+- Fetching the file at that exact commit returned the expected complete text and probe token.
+- This revision uses update_file with the fetched blob SHA `007b60f9af08c71329257a7c3bc5e05d43d3eaaa`; verify this revision by reading the resulting commit as well.
 
 ## Saving during active development
 
@@ -14,4 +19,4 @@ Repository head observed before this probe: `ae306363c0c4f80fdbc82916a0f2e54d3be
 
 No periodic background task is implied. This cadence applies while an assistant is actively working with tools in a conversation.
 
-Probe token: yokai-art006-direct-contents-roundtrip-v1
+Probe token: yokai-art006-direct-contents-roundtrip-v2
