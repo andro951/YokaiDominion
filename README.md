@@ -1,47 +1,50 @@
 # YokaiDominion
 
-C#-first character/game project: **Godot 4.7.2 .NET**, **Blender 4.5.3 LTS**, and an engine-independent **.NET 10** volumetric tissue runtime.
+C#-first character/game project: Godot .NET, Blender authoring, and an engine-independent C# volumetric tissue core.
 
-## Milestone 002: actual rigged character and tissue integration
+## Latest character: Art008 visual master
 
-An editable character prototype now exists, not just the earlier block/limb fixtures. It has an anatomical humanoid body, fantasy details, clothing, an exported skeleton, diagnostic poses, four volumetric tissue regions, and C# deformation of the visible character in Godot.
+The replacement character now has an editable visual master and a verified textured portable export. These are actual committed binary assets on **`art-checkpoints`**, not only scripts or expiring Actions artifacts.
 
-**This is a functional modeling/deformation prototype, NOT finished character art, anatomically calibrated flesh, a complete game, or final game-ready acceptance.** The reference likeness, shoulders, supported rest shape, collision handling and clothing require substantial refinement.
+- **Editable art master:** `art/checkpoints/finish008/9c869a359e9b/Character01_Finish008.blend`
+- **Portable baked-material Blender copy:** `art/checkpoints/portable008/e8a6f76486e9/Character01_PBR008.blend`
+- **Embedded-texture GLB:** `art/checkpoints/portable008/e8a6f76486e9/Character01_Visual008.glb`
+- **Textures:** the `textures/` directory beside that GLB.
 
-## Inspect or run
+Switch GitHub's branch selector from `main` to **`art-checkpoints`** to see those files. Source scripts remain on `main`. Exact immutable asset commits, hashes, sizes, validation runs and limitations are in [CHARACTER_ART008.md](docs/CHARACTER_ART008.md).
 
-See [RUN_CHARACTER.md](docs/RUN_CHARACTER.md). The downloadable milestone bundle includes the editable `.blend`, exported `.glb`, tissue data, both source repositories, actual rendered previews, a Godot motion video, reports, references and selected CC0 authoring data. Its game asset directory is populated for inspection.
+The visual pass includes anatomical surface refinement, face/eyes/brows/teeth, sloping muscular neck/shoulder transitions, defined musculature, independently draped continuous halter fabric, the preserved braided cord, layered long wavy hair with strand-opacity detail, horns, ears, tail, markings and material finish. It follows the user's later anatomy-first directions rather than reproducing the rejected mannequin's exaggerated proportions.
 
-For a fresh Git clone, obtain the `character-blockout` artifact from authoring run **42971187686** and install it with `python tools/install_character_asset.py character-blockout.zip`. Then run `tools/Run-CharacterLab.ps1` with the path to Godot 4.7.2 .NET, or build/import/run `game/Scenes/CharacterLab.tscn` manually. The default project scene remains the simpler numerical laboratory.
+**This replacement is a static visual asset. It does not yet have its replacement animation rig, skin weights, tissue-region refit or physics integration.** The GLB has zero skins and zero animations. The older milestone002 rig/physics results below must not be attributed to this new model. Artistic likeness should be judged from the actual saved model and views; successful export checks are not proof of final user-approved art quality.
 
-Character controls: left-drag/wheel orbit and zoom; 1-8 diagnostic poses; Space controlled jump; P native-skin/tissue comparison; R reset; Tab pose-study playback. The pose study is not a locomotion or contact-aware animation set.
+## Verified visual-asset delivery
 
-## Verified evidence
+The editable master is 17.4 MB; its source revision is `9c869a359e9b0ac9fa91f984b5fd97e38f44984a` and its immutable binary commit is `980b464ba9ade3f4d72e279c981f38729e68490b`.
 
-- Asset authoring revision: `95af2eb3f902dac56705f4b6d51f16589a8d8787`, full Blender/portable C#/Godot run **42971187686**, successful. Body: 13,380 authoring vertices, 26,756 triangles after export, 176 exported joints. Native topology, fingers and weight data are derived from a pinned CC0 base, not generated entirely from scratch.
-- Corrected renderer/runtime revision: `409ae5f39de720bb12e36cb82050825975f596a9`, run **42973867993**, successful. This reuses the exact SHA-256-checked asset above and checks actual rendered colour pixels as well as the character.
-- The controlled four-second character jump fixture drives **5,984 surface vertices**. Peak local volume change is approximately **4.19% in each breast cage** and **2.51% in each glute cage**, with zero inverted elements. These are fixture integrity results, not proof of anatomical realism.
-- Eight imported pose samples, rest skin-transform agreement and native skinned fallback passed. Actual pose images and video were downloaded and inspected. Residual shoulder stretching, floating crouch feet and floor penetration in the diagnostic knockdown remain known quality failures.
-- The existing **27 general numerical checks passed on Windows and Linux** at runtime revision `409ae5f`, run **42973868017**. This does not establish target-PC graphics performance.
+The portable files were produced by source `e8a6f76486e9222b30e158823aee7f80da30b6a9`, successful run `43160875654`, and committed at `4bec672d1e7836dec2d0db141ff6236e3c722395`. Every committed model/texture file was downloaded back and hash/size verified. The GLB was reimported, rendered and visually inspected. It contains its textures, including the 4K body maps, without external image or buffer URIs.
 
-Detailed source/run identities and limitations are in [milestone evidence](docs/evidence/milestone-002.json), [progress](docs/PROGRESS.md), and the companion testing repository. Generated workflow artifacts have finite retention (30 days for character builds); source, data hashes, reports and reproduction instructions remain in Git.
+This is a high-detail visual asset: 511,676 total triangles, 14 materials, 289 mesh objects and 16 embedded images. The portable body is 135,488 triangles. Production LODs, draw-call consolidation and target-machine performance remain separate work, not implied by the word portable.
 
-## Reference authority
+## Current reference and anatomy direction
 
-The original single illustration controls body proportions, breast size, hip shape, silhouette, outfit and palette. The generated turnaround is secondary for hair/horns/face and missing views. The current prototype is not a new approved reference and must not replace the original target. The generated sheet's Astra label is not an approved character name; use Character01 internally.
+The user's latest corrections take precedence over the earlier literal-silhouette contract. Build believable adult anatomy first. Keep naturally hanging, separated, outward-oriented breasts, a strong muscular body and substantial glutes; do not widen the skeleton merely to counterbalance breast volume. Only the waist cord is tight. The loose upper fabric angles toward the neck and does not lift or squeeze the body. Shoulders slope from muscular neck/trapezius into rounded deltoids; two upper abdominal rows remain readable.
 
-Original/secondary image hashes and authority are in `assets/reference/manifest.json`. Full image bytes are included in the downloadable package, not currently in Git.
+The original illustration and turnaround guide identity, colors, fantasy details and outfit. The current model is not an approved replacement reference. The sheet's Astra label is not a user-approved character name; use Character01 internally.
 
-## Architecture and provenance
+## Existing C# runtime and historical milestone002
 
-`src/Yokai.Tissue/` is portable C# without Godot dependencies. `game/` supplies skeletal-pose input and a CPU reference morph/skin/tissue rendering path. `tools/blender/build_character_anatomy.py` creates the current asset using selected CC0 graphical data; older procedural builders remain reproducible rejected baselines. See [THIRD_PARTY_ASSETS.md](docs/THIRD_PARTY_ASSETS.md). No upstream MakeHuman application code is imported.
+`src/Yokai.Tissue/` is portable C# without Godot dependencies. `game/` contains the earlier numerical laboratory and morph/skin/tissue reference integration. These remain usable engineering work, but their character mesh was superseded artistically.
 
-The numerical assembly is optimized even in editor Debug builds; override `-p:Optimize=false` to step through its internals. The CPU mesh-rebuild path is not the final optimized game renderer. The companion YokaiDominionTesting repository tests a pinned production revision instead of copying the solver.
+Historical runtime instructions are in [RUN_CHARACTER.md](docs/RUN_CHARACTER.md), with evidence in [milestone-002.json](docs/evidence/milestone-002.json). That earlier asset had 176 exported joints, eight diagnostic poses and four tissue cages. Its 27 general numerical checks passed on Windows/Linux at `409ae5f`, run `42973868017`; its measured jump behavior was not anatomically calibrated flesh. Shoulder stretching, contact and locomotion limitations are recorded in the historical reports. Do not treat the old diagnostic animations as a complete motion set for the replacement.
 
-## Next quality work
+The existing runtime baseline uses Godot 4.7.2 .NET / .NET 10. Art008 authoring and import checks used Blender 4.5.3 LTS. The companion YokaiDominionTesting repository pins exact production revisions rather than copying the solver.
 
-Refine face, hair, horns, silhouette and clothing against the original; fix shoulder deformation with anatomical weights and real corrective shapes; fit tissue volumes and supported equilibrium rather than treating bounding cages as anatomical mass; implement body/garment contact and restraint; then validate dynamic actions and target-machine performance. The anatomical revision's two named corrective shapes are currently zero placeholders. Hair and free clothing are skinned, not physically simulated.
+## Provenance
 
-## Checkpoints
+The active rebuilt body derives from Blender's official CC0 Human Base Meshes v1.4.1 realistic female asset, not from the old MakeHuman prototype. Fantasy details, garment/groom shaping, textures and integration work are project additions. Original topology/sculpt provenance and the older model's separate license history are documented in [THIRD_PARTY_ASSETS.md](docs/THIRD_PARTY_ASSETS.md).
 
-Push small coherent milestones during active work, including before risky operations. Preserve exact revisions, test evidence, failures and next actions. Do not weaken tests to hide defects. Do not commit credentials or licensed toolchain binaries. No development continues asynchronously after a response ends.
+## Mandatory saving policy
+
+Read [AGENTS.md](AGENTS.md) before working. During active editing, checkpoint unfinished changes every **5–10 minutes**, targeting five, and before long renders. Small text changes use direct Contents API create/update with the current file SHA and readback. Actual binary assets use ordinary Git in Actions, are pushed **before rendering**, then downloaded at immutable commits, hash-checked and reopened. A local save or source-only commit is not a saved model.
+
+Keep unique checkpoint paths, preserve user work, avoid force pushes, and record failures as failures. Do not commit credentials or toolchain/font files. No autonomous modeling continues after a response ends.
