@@ -1,0 +1,58 @@
+{
+  "status": "small art edit, not finished character",
+  "blender": "4.5.3 LTS",
+  "sourceBlendSha256": "3fc930d135960b0dfb24cdc7912f4d3574231fb2345cd4a3fc3a1b2ec3eac3b9",
+  "bodyCoordinatesSha256": "e80823ec4778277ac2a0b2b79c5385709732601d5060084506613a1c0f75fbac",
+  "anatomyUnchanged": true,
+  "savedBlendReopened": true,
+  "editedObjects": [
+    {
+      "name": "Braided waist cord",
+      "sourceVertices": 2762,
+      "modifier": "Art007 cord rounding"
+    },
+    {
+      "name": "Cord braid",
+      "sourceVertices": 3002,
+      "modifier": "Art007 cord rounding"
+    },
+    {
+      "name": "Cord braid.001",
+      "sourceVertices": 3002,
+      "modifier": "Art007 cord rounding"
+    },
+    {
+      "name": "Cord knot",
+      "sourceVertices": 662,
+      "modifier": "Art007 cord rounding"
+    },
+    {
+      "name": "Long cord end",
+      "sourceVertices": 602,
+      "modifier": "Art007 cord rounding"
+    },
+    {
+      "name": "Short cord end",
+      "sourceVertices": 452,
+      "modifier": "Art007 cord rounding"
+    }
+  ],
+  "files": {
+    "Character01_Cord007.blend": {
+      "bytes": 13386076,
+      "sha256": "a10153251e3296d6055849bbdfc77db6cabe818a485ed19aabc84a5ddc155b3b"
+    },
+    "cord-before.png": {
+      "bytes": 898478,
+      "sha256": "4d4b8fdad2d1e4f3f1c954ad04922d1f7937859253a101216a767b1cd17677dc"
+    },
+    "three-quarter.png": {
+      "bytes": 1023564,
+      "sha256": "0bb881c504fd56511ba2ae5173c81940227adee4a640861c96a88ec7eb663844"
+    },
+    "cord-after.png": {
+      "bytes": 897998,
+      "sha256": "78e0aed0646228b4ccc245dd1390b47df283e0b9a17d199d1ff1ef437d0116b7"
+    }
+  }
+}
