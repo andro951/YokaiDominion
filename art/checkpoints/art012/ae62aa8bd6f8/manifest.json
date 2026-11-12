@@ -1,0 +1,22 @@
+{
+  "revision": "012-higher-root-hanging-mass-1",
+  "bodyVertices": 169362,
+  "changedVertices": 8958,
+  "protectedVerticesUnchanged": 159888,
+  "maxDisplacementMetres": 0.09491888995544547,
+  "clothPanels": [
+    "Loose over-trapezius panel L",
+    "Loose over-trapezius panel R"
+  ],
+  "rigUpdated": false,
+  "physicsUpdated": false,
+  "userApproved": false,
+  "sourceSha256": "54ab5f8d2cc71160c12522d046c396db19604b6ef7c2c1bc130ebba18032b948",
+  "savedBlendReopened": true,
+  "files": {
+    "Character01_Art012.blend": {
+      "bytes": 23499088,
+      "sha256": "afd27fb206fc2a3819d278ea211607563be09c85450a1ddf6d54b98548d8abda"
+    }
+  }
+}
