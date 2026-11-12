@@ -1,41 +1,22 @@
-"""Portable PBR export of the saved visual master. No rig or physics is invented.
-Repack multi-tile UVs, transfer sculpt normals, and preserve a separate editable master.
-"""
+"""Portable PBR export of the saved visual master. No rig or physics is invented."""
 from __future__ import annotations
 import argparse,hashlib,json,re,struct,sys,shutil,time
 from pathlib import Path
 import bpy
 import numpy as np
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+import portable_geometry009
+prepare_body=portable_geometry009.prepare_body
 
 def select_only(o):
  bpy.ops.object.select_all(action='DESELECT');o.hide_set(False);o.hide_viewport=False;o.select_set(True);bpy.context.view_layer.objects.active=o
 
-def prepare_body(body):
- select_only(body);uv=body.data.uv_layers.active
- original=np.empty(len(uv.data)*2);uv.data.foreach_get('uv',original);original=original.reshape(-1,2)
- shifted=original-original.min(0);shifted/=max(float(shifted.max())+1e-6,1.)
- uv.data.foreach_set('uv',shifted.ravel());body.data.update();print('PACK_ATLAS_BEGIN',time.time(),flush=True)
- bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT');bpy.ops.uv.select_all(action='SELECT')
- # AABB island packing avoids expensive concave nesting on the dense sculpt.
- # Measured locally: complete atlas in under one second, with unchanged island UVs.
- bpy.ops.uv.pack_islands(udim_source='CLOSEST_UDIM',shape_method='AABB',rotate=False,scale=True,margin=.004)
- bpy.ops.object.mode_set(mode='OBJECT');body.data.update();uv=body.data.uv_layers.active
- a=np.empty(len(uv.data)*2);uv.data.foreach_get('uv',a);a=a.reshape(-1,2)
- if a.min()<-.0001 or a.max()>1.0001:raise RuntimeError('UVs remain outside portable atlas')
- print('PACK_ATLAS_END',time.time(),flush=True)
- high=body;high.name='Body_SculptSource';low=high.copy();low.data=high.data.copy();low.name='Body';bpy.context.collection.objects.link(low);select_only(low)
- dec=low.modifiers.new('Portable anatomical resolution','DECIMATE');dec.decimate_type='UNSUBDIV';dec.iterations=2;bpy.ops.object.modifier_apply(modifier=dec.name)
- tri=low.modifiers.new('Baked tangent triangulation','TRIANGULATE');bpy.ops.object.modifier_apply(modifier=tri.name)
- for f in low.data.polygons:f.use_smooth=True
- return low,high,{'sourceUvMin':original.min(0).tolist(),'sourceUvMax':original.max(0).tolist(),'atlasMin':a.min(0).tolist(),'atlasMax':a.max(0).tolist(),'sourceVertices':len(high.data.vertices),'portableVertices':len(low.data.vertices)}
-
 def bake_set(obj,materials,label,out,resolution,high=None):
  images={};scene=bpy.context.scene
  for kind in ('BaseColor','Normal','Roughness'):
-  select_only(obj);selected_to_active=kind=='Normal' and high is not None
+  select_only(obj);selected_to_active=high is not None
   if high:
-   high.hide_render=not selected_to_active;high.hide_set(not selected_to_active)
-   if selected_to_active:high.select_set(True)
+   high.hide_render=False;high.hide_set(False);high.select_set(True)
   scene.render.bake.use_selected_to_active=selected_to_active;scene.render.bake.use_cage=False
   scene.render.bake.cage_extrusion=.008;scene.render.bake.max_ray_distance=.015
   image=bpy.data.images.new(label+'_'+kind,width=resolution,height=resolution,alpha=False)
@@ -50,7 +31,7 @@ def bake_set(obj,materials,label,out,resolution,high=None):
     else:emit.inputs['Color'].default_value=bs.inputs['Base Color'].default_value
     links.new(emit.outputs[0],output.inputs['Surface']);restore.append((m,output,old,emit))
   print('BAKE_BEGIN',label,kind,resolution,time.time(),flush=True)
-  bpy.ops.object.bake(type={'BaseColor':'EMIT','Normal':'NORMAL','Roughness':'ROUGHNESS'}[kind],margin=16,use_clear=True,normal_space='TANGENT')
+  bpy.ops.object.bake(type={'BaseColor':'EMIT','Normal':'NORMAL','Roughness':'ROUGHNESS'}[kind],margin=16,use_clear=True,normal_space='TANGENT',use_selected_to_active=selected_to_active,use_cage=False,cage_extrusion=.008,max_ray_distance=.015)
   for m,output,old,emit in restore:
    for link in list(output.inputs['Surface'].links):m.node_tree.links.remove(link)
    for socket in old:m.node_tree.links.new(socket,output.inputs['Surface'])
@@ -152,5 +133,6 @@ def main():
   if f.is_file() and f.suffix in ('.blend','.glb','.png'):
    assert f.stat().st_size<99_000_000,(f,'exceeds conservative ordinary-Git file limit')
    report['files'][str(f.relative_to(out))]={'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()}
- (out/'portable-manifest.json').write_text(json.dumps(report,indent=2));shutil.copy2(__file__,out/'export008.py');print('ART008_PORTABLE_EXPORT_PASS',flush=True)
+ (out/'portable-manifest.json').write_text(json.dumps(report,indent=2))
+ shutil.copy2(__file__,out/'export008.py');shutil.copy2(portable_geometry009.__file__,out/'portable_geometry009.py');print('ART008_PORTABLE_EXPORT_PASS',flush=True)
 if __name__=='__main__':main()
