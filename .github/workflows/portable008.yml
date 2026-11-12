@@ -1,0 +1,117 @@
+name: Art008 portable textured asset
+on:
+  push:
+    paths: ['tools/art/export008.py', '.github/workflows/portable008.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: editable-art-checkpoint
+  cancel-in-progress: false
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore saved Art008 contour master and verify bytes
+        run: |
+          set -euo pipefail
+          git fetch origin art-checkpoints
+          git worktree add --detach "$RUNNER_TEMP/assets" FETCH_HEAD
+          base="$RUNNER_TEMP/assets/art/checkpoints/finish008/ccb035f720d2/Character01_Finish008.blend"
+          echo "e5a5e2cfa01996467daca74db5a4b90b818c95e454168441e708ea7fd430e134  $base" | sha256sum -c -
+          echo "BASE=$base" >> "$GITHUB_ENV"
+          echo "ASSET_PATH=art/checkpoints/portable008/${GITHUB_SHA:0:12}" >> "$GITHUB_ENV"
+          mkdir -p output
+          printf '%s\n' "$GITHUB_SHA" > output/source.ref
+      - name: Install verified Blender
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -fL --retry 3 https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz -o blender.tar.xz
+          echo '975c58fcb244273838534bba771e64ad87739216b0f9b39a888531a49a72d845  blender.tar.xz' | sha256sum -c -
+          tar -xf blender.tar.xz
+          echo "BLENDER=$RUNNER_TEMP/blender-4.5.3-linux-x64/blender" >> "$GITHUB_ENV"
+      - name: Bake textures and save PBR model plus GLB
+        env:
+          OPENBLAS_NUM_THREADS: 4
+        run: |
+          set -euo pipefail
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/export008.py -- --source "$BASE" --out output --resolution 2048 2>&1 | tee output/bake.log
+          grep -q ART008_PORTABLE_EXPORT_PASS output/bake.log
+      - name: Commit actual files before rendering export preview
+        id: save
+        run: |
+          set -euo pipefail
+          test -s output/portable-manifest.json
+          git config user.name 'Yokai checkpoint bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin art-checkpoints
+          dst="$RUNNER_TEMP/portable-save"
+          git worktree add --detach "$dst" FETCH_HEAD
+          mkdir -p "$dst/$ASSET_PATH"
+          cp -r output/. "$dst/$ASSET_PATH/"
+          cd "$dst"
+          git add "$ASSET_PATH"
+          git commit -m "Save actual Art008 PBR blend GLB and textures ${GITHUB_SHA:0:12} [skip ci]"
+          git push origin HEAD:refs/heads/art-checkpoints
+          echo "ASSET_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Download all committed binaries and compare checksums
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,pathlib,urllib.request
+          manifest=json.loads(pathlib.Path('output/portable-manifest.json').read_text());results={}
+          for name,expected in manifest['files'].items():
+              url=f"https://raw.githubusercontent.com/{os.environ['GITHUB_REPOSITORY']}/{os.environ['ASSET_COMMIT']}/{os.environ['ASSET_PATH']}/{name}"
+              with urllib.request.urlopen(url,timeout=90) as r:data=r.read()
+              assert hashlib.sha256(data).hexdigest()==expected['sha256'] and len(data)==expected['bytes'],name
+              results[name]={'sha256':expected['sha256'],'bytes':len(data),'matches':True}
+          pathlib.Path('output/remote-readback.json').write_text(json.dumps({'assetCommit':os.environ['ASSET_COMMIT'],'assetPath':os.environ['ASSET_PATH'],'files':results},indent=2))
+          PY
+      - name: Reimport actual exported GLB and render it
+        env:
+          OPENBLAS_NUM_THREADS: 4
+        run: |
+          set -euo pipefail
+          cat > /tmp/reimport.py <<'PY'
+          import bpy,json
+          from pathlib import Path
+          from mathutils import Vector
+          for o in list(bpy.data.objects):
+              if o.type not in {'CAMERA','LIGHT'} and not o.name.startswith('STUDIO'):
+                  bpy.data.objects.remove(o,do_unlink=True)
+          bpy.ops.import_scene.gltf(filepath=str(Path('output/Character01_Visual008.glb').resolve()))
+          meshes=[o for o in bpy.data.objects if o.type=='MESH' and not o.name.startswith('STUDIO')]
+          assert len(meshes)>50
+          scene=bpy.context.scene;camera=scene.camera
+          camera.location=(3,-6,2.1);camera.rotation_euler=(Vector((0,0,1.06))-camera.location).to_track_quat('-Z','Y').to_euler();camera.data.type='ORTHO';camera.data.ortho_scale=2.35
+          scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=20;scene.cycles.use_denoising=True
+          scene.render.resolution_x=850;scene.render.resolution_y=1105;scene.render.resolution_percentage=100
+          scene.render.filepath=str(Path('output/export-reimport.png').resolve());bpy.ops.render.render(write_still=True)
+          Path('output/reimport.json').write_text(json.dumps({'reimportPassed':True,'meshObjects':len(meshes),'staticVisualAsset':True},indent=2))
+          print('GLB_REIMPORT_RENDER_PASS')
+          PY
+          "$BLENDER" -b output/Character01_PBR008.blend -t 4 --python-exit-code 1 --python /tmp/reimport.py 2>&1 | tee output/reimport.log
+      - name: Save export readback and rendered evidence
+        if: always() && steps.save.outcome == 'success'
+        run: |
+          set -euo pipefail
+          git fetch origin art-checkpoints
+          dst="$RUNNER_TEMP/evidence-save"
+          git worktree add --detach "$dst" FETCH_HEAD
+          cp output/remote-readback.json output/reimport* output/export-reimport.png "$dst/$ASSET_PATH/" 2>/dev/null || true
+          cd "$dst"
+          git add "$ASSET_PATH"
+          if ! git diff --cached --quiet; then
+            git commit -m "Save Art008 portable export verification ${GITHUB_SHA:0:12} [skip ci]"
+            git push origin HEAD:refs/heads/art-checkpoints
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: art008-portable-files
+          path: output/
+          retention-days: 30
+          if-no-files-found: error
