@@ -1,7 +1,10 @@
-"""Resume anatomical art from versioned source; save the editable master before renders."""
+"""Anatomical art master. Saves editable geometry before reviewing images."""
 from pathlib import Path
-import sys, runpy
+import sys,runpy
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-import body004
-sys.modules['anatomy']=body004
+import body005
+sys.modules['anatomy']=body005
+import art005
+art005.install()
+if '--detail' not in sys.argv:sys.argv+=['--detail','2']
 runpy.run_path(str(Path(__file__).with_name('finish_art.py')),run_name='__main__')
