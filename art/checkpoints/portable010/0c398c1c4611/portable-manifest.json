@@ -1,0 +1,23 @@
+{
+  "revision": "010-bust-trapezius-10",
+  "masterSha256": "ffb67040af36dbd7063892fed8a25b76dfe7710ea52a6c1d2ccc1ed8632e5b66",
+  "portableBaselineSha256": "08239fda16dcc8ae3b82523ba28e806b3b3bd3535140e96dc0e3047cab8a1fd5",
+  "staticVisualAsset": true,
+  "rigged": false,
+  "runtimePhysicsIntegrated": false,
+  "bodyVertices": 67746,
+  "mappedBodyVertices": 5994,
+  "maximumSourceMappingErrorMetres": 0.0001815376745071262,
+  "imagesEmbedded": true,
+  "triangles": 533276,
+  "files": {
+    "Character01_PBR010.blend": {
+      "bytes": 45430391,
+      "sha256": "63bdf2a9d015d2f1182dab573973cc1dd2f5daaca6ffd913600a94727c5d1b15"
+    },
+    "Character01_Visual010.glb": {
+      "bytes": 41638740,
+      "sha256": "6ff6c471012d4b13db0578fcc30773e15bf43daaf00d65393e0fb58135c61214"
+    }
+  }
+}

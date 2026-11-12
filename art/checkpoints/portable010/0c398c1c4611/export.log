@@ -1,0 +1,594 @@
+Info: No new files have been packed
+Info: Saved as "Character01_PBR010.blend"
+INFO Draco mesh compression is available, use library at /home/runner/work/_temp/blender-4.5.3-linux-x64/4.5/scripts/addons_core/io_scene_gltf2/libextern_draco.so
+07:06:42 | INFO: Starting glTF 2.0 export
+07:06:42 | INFO: Extracting primitive: GEO-body_female_realistic.001
+07:06:43 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: GEO-body_female_realistic.eye.R
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: GEO-body_female_realistic.eye.L
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Brow.-1
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Upper liner.-1
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Outer eyelash
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Outer eyelash.001
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Outer eyelash.002
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Outer eyelash.003
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Outer eyelash.004
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Brow.1
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Upper liner.1
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Outer eyelash.005
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Outer eyelash.006
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Outer eyelash.007
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Outer eyelash.008
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Outer eyelash.009
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Seated canine
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Seated canine.001
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Iris.Eye.R.001
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Iris.Eye.L.001
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: IndividualEyebrowHairs
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Fitted hair scalp
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Side S wave -1.0-0
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Side S wave -1.0-1
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Side S wave -1.0-2
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Side S wave -1.0-3
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Side S wave -1.0-4
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Side S wave -1.0-5
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Face wave -1.0-0
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Face wave -1.0-1
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep -1.0-0
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep -1.0-1
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep -1.0-2
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep -1.0-3
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep -1.0-4
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep -1.0-5
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep -1.0-6
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Side S wave 1.0-0
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Side S wave 1.0-1
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Side S wave 1.0-2
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Side S wave 1.0-3
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Side S wave 1.0-4
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Side S wave 1.0-5
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Face wave 1.0-0
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Face wave 1.0-1
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep 1.0-0
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep 1.0-1
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep 1.0-2
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep 1.0-3
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep 1.0-4
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep 1.0-5
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Crown sweep 1.0-6
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.001
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.002
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.003
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.004
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.005
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.006
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.007
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.008
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.009
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.010
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.011
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.012
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.013
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.014
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.015
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.016
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.017
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.018
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.019
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.020
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.021
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.022
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.023
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.024
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.025
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.026
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.027
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.028
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.029
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.030
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.031
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.032
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.033
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.034
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.035
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.036
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.037
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.038
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.039
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.040
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.041
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.042
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.043
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.044
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.045
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.046
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Hair fine silhouette.047
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.00
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.01
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.02
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.03
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.04
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.05
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.06
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.07
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.08
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.09
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.10
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.11
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.12
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.13
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.14
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.15
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.16
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.17
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.18
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.19
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.20
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.21
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.inner.22
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.00
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.01
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.02
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.03
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.04
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.05
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.06
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.07
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.08
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.09
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.10
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.11
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Back wave 009.outer.12
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon
+07:06:44 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.001
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.002
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.003
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.004
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.005
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.006
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.007
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.008
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.009
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.010
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.011
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.012
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.013
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.014
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.015
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.016
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.017
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.018
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.019
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.020
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.021
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.022
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.023
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.024
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.025
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.026
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.027
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.028
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.029
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.030
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.031
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.032
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.033
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.034
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.035
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.036
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.037
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.038
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.039
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.040
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.041
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.042
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.043
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.044
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.045
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.046
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.047
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.048
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.049
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.050
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.051
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.052
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.053
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.054
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.055
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.056
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.057
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.058
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.059
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.060
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.061
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.062
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.063
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.064
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.065
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.066
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.067
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.068
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.069
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.070
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.071
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.072
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.073
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.074
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.075
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.076
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.077
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.078
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.079
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.080
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.081
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.082
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.083
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.084
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.085
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.086
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.087
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.088
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.089
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.090
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.091
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.092
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.093
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.094
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.095
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.096
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.097
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.098
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.099
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.100
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.101
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.102
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.103
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.104
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.105
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.106
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.107
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.108
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.109
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.110
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.111
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.112
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.113
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.114
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.115
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.116
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.117
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.118
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.119
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.120
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.121
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.122
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.123
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.124
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.125
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.126
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.127
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.128
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.129
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.130
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: HairFibreRibbon.131
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Braided waist cord
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Cord braid
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Cord braid.001
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Cord knot
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Long cord end
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Short cord end
+07:06:44 | INFO: Primitives created: 1
+07:06:44 | INFO: Extracting primitive: Gathered front skirt
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Gathered skirt edge
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Gathered skirt edge.001
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Gathered skirt hem
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Gathered rear skirt
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Gathered skirt edge.002
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Gathered skirt edge.003
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Gathered skirt hem.001
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Art008 tailored tail opening hem
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Art010_ContinuousDrape.001
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Art010_ContinuousDrape
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Horn.-1
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Horn.1
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Tail
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Extracting primitive: Tail spade
+07:06:45 | INFO: Primitives created: 1
+07:06:45 | INFO: Finished glTF 2.0 export in 2.3594701290130615 s
+
+ART010_PORTABLE_EXPORT_PASS
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:38:15)
+Read blend: "/home/runner/work/_temp/master.blend"
+Read blend: "/home/runner/work/_temp/portable.blend"
+
+Blender quit
