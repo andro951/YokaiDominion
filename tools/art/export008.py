@@ -1,5 +1,5 @@
 """Portable PBR export of the saved visual master. No rig or physics is invented.
-Repack the source multi-tile UVs, transfer sculpt normals, and retain a separate master.
+Repack multi-tile UVs, transfer sculpt normals, and preserve a separate editable master.
 """
 from __future__ import annotations
 import argparse,hashlib,json,re,struct,sys,shutil
@@ -11,20 +11,20 @@ def select_only(o):
  bpy.ops.object.select_all(action='DESELECT');o.hide_set(False);o.hide_viewport=False;o.select_set(True);bpy.context.view_layer.objects.active=o
 
 def prepare_body(body):
- select_only(body)
- uv=body.data.uv_layers.active
+ select_only(body);uv=body.data.uv_layers.active
  original=np.empty(len(uv.data)*2);uv.data.foreach_get('uv',original);original=original.reshape(-1,2)
- # Blender's anatomical source uses many UDIM tiles. A single PNG must not be
- # baked against those unrepacked coordinates: it leaves most body parts black.
+ # Move all UDIM islands into tile 1001 before packing. Keep relative island scale.
+ shifted=original-original.min(0);shifted/=max(float(shifted.max())+1e-6,1.)
+ uv.data.foreach_set('uv',shifted.ravel());body.data.update()
  bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT');bpy.ops.uv.select_all(action='SELECT')
- bpy.ops.uv.pack_islands(rotate=True,scale=True,margin=.004)
- bpy.ops.object.mode_set(mode='OBJECT')
+ bpy.ops.uv.pack_islands(udim_source='CLOSEST_UDIM',rotate=True,scale=True,margin=.004)
+ bpy.ops.object.mode_set(mode='OBJECT');body.data.update()
+ # RNA wrappers are invalidated by edit-mode mesh reconstruction: reacquire them.
+ uv=body.data.uv_layers.active
  a=np.empty(len(uv.data)*2);uv.data.foreach_get('uv',a);a=a.reshape(-1,2)
- if a.min() < -.0001 or a.max()>1.0001:raise RuntimeError('UVs remain outside portable atlas')
+ if a.min()<-.0001 or a.max()>1.0001:raise RuntimeError('UVs remain outside portable atlas')
  high=body;high.name='Body_SculptSource'
- low=high.copy();low.data=high.data.copy();low.name='Body';bpy.context.collection.objects.link(low)
- select_only(low)
- # Reverse one regular subdivision level, preserving the anatomical quad base.
+ low=high.copy();low.data=high.data.copy();low.name='Body';bpy.context.collection.objects.link(low);select_only(low)
  dec=low.modifiers.new('Portable anatomical resolution','DECIMATE');dec.decimate_type='UNSUBDIV';dec.iterations=2;bpy.ops.object.modifier_apply(modifier=dec.name)
  tri=low.modifiers.new('Baked tangent triangulation','TRIANGULATE');bpy.ops.object.modifier_apply(modifier=tri.name)
  for f in low.data.polygons:f.use_smooth=True
@@ -33,13 +33,12 @@ def prepare_body(body):
 def bake_set(obj,materials,label,out,resolution,high=None):
  images={};scene=bpy.context.scene
  for kind in ('BaseColor','Normal','Roughness'):
-  select_only(obj)
-  selected_to_active=kind=='Normal' and high is not None
+  select_only(obj);selected_to_active=kind=='Normal' and high is not None
   if high:
    high.hide_render=not selected_to_active;high.hide_set(not selected_to_active)
    if selected_to_active:high.select_set(True)
-  scene.render.bake.use_selected_to_active=selected_to_active
-  scene.render.bake.use_cage=False;scene.render.bake.cage_extrusion=.008;scene.render.bake.max_ray_distance=.015
+  scene.render.bake.use_selected_to_active=selected_to_active;scene.render.bake.use_cage=False
+  scene.render.bake.cage_extrusion=.008;scene.render.bake.max_ray_distance=.015
   image=bpy.data.images.new(label+'_'+kind,width=resolution,height=resolution,alpha=False)
   if kind!='BaseColor':image.colorspace_settings.name='Non-Color'
   restore=[];temp=[]
@@ -64,10 +63,9 @@ def bake_set(obj,materials,label,out,resolution,high=None):
  return images
 
 def coverage(body,image):
- uv=body.data.uv_layers.active
- u=np.empty(len(uv.data)*2);uv.data.foreach_get('uv',u);u=u.reshape(-1,2)
- centers=np.array([u[list(p.loop_indices)].mean(0) for p in body.data.polygons])
- w,h=image.size;pixels=np.empty(w*h*4,dtype=np.float32);image.pixels.foreach_get(pixels);pixels=pixels.reshape(h,w,4)
+ uv=body.data.uv_layers.active;u=np.empty(len(uv.data)*2);uv.data.foreach_get('uv',u);u=u.reshape(-1,2)
+ centers=np.array([u[list(p.loop_indices)].mean(0) for p in body.data.polygons]);w,h=image.size
+ pixels=np.empty(w*h*4,dtype=np.float32);image.pixels.foreach_get(pixels);pixels=pixels.reshape(h,w,4)
  x=np.clip((centers[:,0]*w).astype(int),0,w-1);y=np.clip((centers[:,1]*h).astype(int),0,h-1)
  fraction=float(np.mean(pixels[y,x,:3].max(1)<.001))
  if fraction>.005:raise RuntimeError(f'Black/unbaked body coverage {fraction:.3%}')
@@ -88,6 +86,18 @@ def plane_for(material):
  if names:p.data.uv_layers[0].name=names[0]
  return p
 
+def glb_document(path):
+ data=path.read_bytes();magic,version,size=struct.unpack_from('<III',data);assert magic==0x46546C67 and version==2 and size==len(data)
+ length,kind=struct.unpack_from('<II',data,12);assert kind==0x4E4F534A
+ doc=json.loads(data[20:20+length]);tail=data[20+length:]
+ # Alpha-masked strand cards avoid cross-card sorting while retaining fine edges.
+ for mat in doc.get('materials',[]):
+  if mat.get('name','').startswith('Hair008'):
+   mat['alphaMode']='MASK';mat['alphaCutoff']=.30;mat['doubleSided']=True
+ payload=json.dumps(doc,separators=(',',':')).encode();payload+=b' '*((-len(payload))%4)
+ path.write_bytes(struct.pack('<III',magic,2,20+len(payload)+len(tail))+struct.pack('<II',len(payload),kind)+payload+tail)
+ return doc
+
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--source',type=Path,required=True);ap.add_argument('--out',type=Path,required=True);ap.add_argument('--resolution',type=int,default=4096)
  a=ap.parse_args(sys.argv[sys.argv.index('--')+1:]);out=a.out.resolve();(out/'textures').mkdir(parents=True,exist_ok=True)
@@ -96,21 +106,24 @@ def main():
  objects=[o for o in scene.objects if o.type=='MESH' and not o.hide_render and not o.name.startswith('STUDIO')]
  original=bpy.data.objects.get('Body');assert original in objects and original.get('finish008_applied')
  body,high,uv_report=prepare_body(original);objects.remove(high);objects.append(body)
- images=bake_set(body,list(body.data.materials),'Body',out,a.resolution,high)
- coverage_report=coverage(body,images['BaseColor']);mat=pbr_material('Body_PBR',images)
- body.data.materials.clear();body.data.materials.append(mat)
+ images=bake_set(body,list(body.data.materials),'Body',out,a.resolution,high);coverage_report=coverage(body,images['BaseColor'])
+ mat=pbr_material('Body_PBR',images);body.data.materials.clear();body.data.materials.append(mat)
  for f in body.data.polygons:f.material_index=0
- # Art-master hair and cloth already have dense authored surfaces. Their extra
- # preview subdivisions are not needed in the portable presentation mesh.
  for o in objects:
   for mod in o.modifiers:
    if mod.type=='SUBSURF':mod.levels=mod.render_levels=0
  materials=sorted({m for o in objects if o!=body for m in o.data.materials if m},key=lambda m:m.name)
  for m in materials:
   if not m.use_nodes:continue
+  if m.get('portable_pbr_ready'):
+   for node in m.node_tree.nodes:
+    if node.type=='TEX_IMAGE' and node.image:
+     image=node.image;dest=out/'textures'/(re.sub('[^A-Za-z0-9]+','_',image.name)+'.png')
+     if image.packed_file:dest.write_bytes(image.packed_file.data)
+     else:image.filepath_raw=str(dest);image.file_format='PNG';image.save()
+   continue
   bs=m.node_tree.nodes.get('Principled BSDF')
-  if not bs:continue
-  if any(n.type in {'VERTEX_COLOR','ATTRIBUTE'} for n in m.node_tree.nodes):continue
+  if not bs or any(n.type in {'VERTEX_COLOR','ATTRIBUTE'} for n in m.node_tree.nodes):continue
   if not any(bs.inputs[s].is_linked for s in ('Base Color','Normal','Roughness')):continue
   label=re.sub('[^A-Za-z0-9]+','_',m.name).strip('_')[:55]
   helper=plane_for(m);tiles=bake_set(helper,[m],label,out,1024);bpy.data.objects.remove(helper,do_unlink=True);new=pbr_material(label+'_PBR',tiles)
@@ -128,16 +141,13 @@ def main():
    select_only(o);bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT');bpy.ops.uv.smart_project(island_margin=.02);bpy.ops.object.mode_set(mode='OBJECT')
   if not all(len(p.vertices)==3 for p in o.data.polygons):
    tri=o.modifiers.new('Portable triangulation','TRIANGULATE');tri.keep_custom_normals=True
- bpy.ops.file.pack_all();bpy.context.preferences.filepaths.save_version=0
- body['export_status']='Static visual asset; rig/physics refit and production LOD are not implied'
+ bpy.ops.file.pack_all();bpy.context.preferences.filepaths.save_version=0;body['export_status']='Static visual asset; rig/physics refit and production LOD are not implied'
  pbr=out/'Character01_PBR008.blend';bpy.ops.wm.save_as_mainfile(filepath=str(pbr),compress=True)
  bpy.ops.object.select_all(action='DESELECT')
  for o in objects:o.hide_set(False);o.select_set(True)
- bpy.context.view_layer.objects.active=body
- glb=out/'Character01_Visual008.glb'
+ bpy.context.view_layer.objects.active=body;glb=out/'Character01_Visual008.glb'
  bpy.ops.export_scene.gltf(filepath=str(glb),export_format='GLB',use_selection=True,export_apply=True,export_yup=True,export_texcoords=True,export_normals=True,export_tangents=True,export_materials='EXPORT',export_vertex_color='MATERIAL',export_animations=False,export_skins=False,export_morph=False,export_cameras=False,export_lights=False,export_extras=True)
- data=glb.read_bytes();magic,version,size=struct.unpack_from('<III',data);assert magic==0x46546C67 and version==2 and size==len(data)
- length,kind=struct.unpack_from('<II',data,12);doc=json.loads(data[20:20+length]);assert doc.get('meshes') and len(doc.get('images',[]))>=3
+ doc=glb_document(glb);assert doc.get('meshes') and len(doc.get('images',[]))>=3
  report={'sourceSha256':hashlib.sha256(a.source.read_bytes()).hexdigest(),'staticVisualAsset':True,'rigged':False,'runtimePhysicsIntegrated':False,'uvAtlas':uv_report,'bodyBakeCoverage':coverage_report,'materials':len(doc.get('materials',[])),'meshes':len(doc['meshes']),'images':len(doc.get('images',[])),'triangles':sum(doc['accessors'][p['indices']]['count']//3 for m in doc['meshes'] for p in m['primitives'] if 'indices' in p),'files':{}}
  for f in sorted(out.rglob('*')):
   if f.is_file() and f.suffix in ('.blend','.glb','.png'):
