@@ -7,7 +7,8 @@ import bpy
 import numpy as np
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
-REVISION='010-bust-trapezius-3'
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+REVISION='010-bust-trapezius-5'
 
 def smooth(a,b,x):
  t=np.clip((x-a)/(b-a),0,1);return t*t*(3-2*t)
@@ -19,20 +20,9 @@ def write(o,p):
 def edit():
  body=bpy.data.objects['Body']
  if body.get('art010'):raise ValueError('Refusing to apply chest enlargement twice')
- p=read(body);q=p.copy();x,y,z=p.T;ax=np.abs(x)
- changed=np.zeros(len(q),dtype=bool)
- attached=smooth(1.307,1.340,z)*(1-smooth(1.505,1.565,z))*(1-smooth(.185,.228,ax))*smooth(.020,.044,ax)
- # Integrate local expansion instead of extruding a hard patch. The abdomen and
- # breast-root attachment boundaries remain fixed, independently of clothing.
- for step in range(60):
-  t=(step+.5)/60;xx,yy,zz=q.T;au=np.abs(xx);cx=.123+.020*t;cz=1.405+.010*t
-  rho=np.sqrt(((au-cx)/(.117*(1+.28*t)))**2+((zz-cz)/(.145*(1+.25*t)))**2)
-  mask=(1-smooth(.42,1.38,rho))*(1-smooth(-.102,-.060,yy))*smooth(.016,.040,au)*smooth(1.215,1.300,zz)*attached
-  changed|=mask>0
-  q[:,0]+=np.sign(xx)*(.025+.40*(au-cx))*mask/60
-  q[:,1]+=(math.log(1.95)*(yy+.115)-.009)*mask/60
-  q[:,2]+=(math.log(1.45)*(zz-1.370)+.009)*mask/60
- unchanged=~changed
+ p=read(body)
+ from bust_shape010 import deform
+ q=deform(p);changed=np.any(q!=p,axis=1);unchanged=~changed
  assert np.array_equal(p[unchanged],q[unchanged])
  attr=body.data.attributes.new('art010_previous_position','FLOAT_VECTOR','POINT');attr.data.foreach_set('vector',p.ravel())
  write(body,q);body['art010']=REVISION;body['clothing_shapes_body']=False
@@ -76,7 +66,7 @@ def edit():
   a[:,:,1]=-depth
   for j in range(33):
    k=int(np.argmin(a[:,j,1]));t=np.linspace(0,1,k+1)
-   bridge=a[0,j,1]*(1-t)+a[k,j,1]*t-.005*np.sin(math.pi*t)
+   v0=t*t*(3-2*t);bridge=a[0,j,1]*(1-v0)+a[k,j,1]*v0-.004*np.sin(math.pi*t)**2
    a[:k+1,j,1]=np.minimum(a[:k+1,j,1],bridge)
   rear=[]
   for t in np.linspace(0,1,96):
