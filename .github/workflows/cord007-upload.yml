@@ -1,0 +1,95 @@
+name: Cord007 actual model upload test
+on:
+  push:
+    paths: ['tools/art/cord_checkpoint007.py', '.github/workflows/cord007-upload.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: editable-art-checkpoint
+  cancel-in-progress: false
+jobs:
+  edit-save-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore existing editable model, not an earlier mannequin
+        run: |
+          set -euo pipefail
+          git fetch origin 0c14f54535bc0897f6b29b7c27e92ed191ce6759
+          git worktree add --detach "$RUNNER_TEMP/baseline" FETCH_HEAD
+          test -s "$RUNNER_TEMP/baseline/art/current/Character01_ArtMaster.blend"
+          mkdir -p output
+          printf '%s\n' "$GITHUB_SHA" > output/source.ref
+          printf '%s\n' 0c14f54535bc0897f6b29b7c27e92ed191ce6759 > output/baseline.ref
+      - name: Install checksum-verified Blender
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -fL --retry 3 https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz -o blender.tar.xz
+          curl -fL --retry 3 https://download.blender.org/release/Blender4.5/blender-4.5.3.sha256 -o sums
+          expected=$(grep 'blender-4.5.3-linux-x64.tar.xz' sums | awk '{print $1}')
+          echo "$expected  blender.tar.xz" | sha256sum -c -
+          tar -xf blender.tar.xz
+          echo "BLENDER=$RUNNER_TEMP/blender-4.5.3-linux-x64/blender" >> "$GITHUB_ENV"
+      - name: Edit cord, save real blend and render matched previews
+        run: |
+          set -euo pipefail
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/cord_checkpoint007.py -- --source "$RUNNER_TEMP/baseline/art/current/Character01_ArtMaster.blend" --out output 2>&1 | tee output/build.log
+          grep -q YOKAI_CORD007_EDIT_AND_REOPEN_PASS output/build.log
+      - name: Push actual binary files to persistent asset branch
+        if: always()
+        id: save
+        run: |
+          set -euo pipefail
+          test -s output/Character01_Cord007.blend
+          git config user.name 'Yokai checkpoint bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin art-checkpoints
+          dst="$RUNNER_TEMP/upload-worktree"
+          git worktree add --detach "$dst" FETCH_HEAD
+          mkdir -p "$dst/art/checkpoints/cord007"
+          cp output/Character01_Cord007.blend "$dst/art/checkpoints/cord007/"
+          cp output/*.png output/*.json output/*.ref "$dst/art/checkpoints/cord007/" 2>/dev/null || true
+          printf 'Small cord refinement, not final character. Source %s; baseline 0c14f54535bc0897f6b29b7c27e92ed191ce6759. Complete editable Blender bytes are stored here.\n' "$GITHUB_SHA" > "$dst/art/checkpoints/cord007/STATUS.txt"
+          cd "$dst"
+          git add art/checkpoints/cord007
+          if ! git diff --cached --quiet; then
+            git commit -m "Save actual Cord007 blend and previews from ${GITHUB_SHA:0:12} [skip ci]"
+            git push origin HEAD:refs/heads/art-checkpoints
+          fi
+          echo "asset_commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "ASSET_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Download committed model and previews from GitHub and compare bytes
+        if: steps.save.outcome == 'success'
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json, os, pathlib, urllib.request
+          out = pathlib.Path('output')
+          manifest = json.loads((out/'manifest.json').read_text())
+          results = {}
+          for name, expected in manifest['files'].items():
+              url = f"https://raw.githubusercontent.com/{os.environ['GITHUB_REPOSITORY']}/{os.environ['ASSET_COMMIT']}/art/checkpoints/cord007/{name}"
+              with urllib.request.urlopen(url, timeout=90) as response:
+                  data = response.read()
+              actual = hashlib.sha256(data).hexdigest()
+              assert actual == expected['sha256'], (name, 'SHA256 mismatch')
+              assert len(data) == expected['bytes'], (name, 'size mismatch')
+              results[name] = {'sha256': actual, 'bytes': len(data), 'matches': True}
+              if name.endswith('.blend'):
+                  pathlib.Path(os.environ['RUNNER_TEMP'], 'remote-readback.blend').write_bytes(data)
+          result = {'assetCommit': os.environ['ASSET_COMMIT'], 'allRemoteFilesMatched': True, 'files': results}
+          (out/'remote-readback.json').write_text(json.dumps(result, indent=2))
+          print(json.dumps(result, indent=2))
+          PY
+          "$BLENDER" -b "$RUNNER_TEMP/remote-readback.blend" --python-exit-code 1 --python-expr "import bpy; assert bpy.data.objects.get('Body'); assert any(o.modifiers.get('Art007 cord rounding') for o in bpy.data.objects if o.type == 'MESH'); print('REMOTE_BLEND_REOPEN_PASS')" | tee output/remote-reopen.log
+          grep -q REMOTE_BLEND_REOPEN_PASS output/remote-reopen.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cord007-binary-roundtrip
+          path: output/
+          retention-days: 30
+          if-no-files-found: error
