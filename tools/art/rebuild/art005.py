@@ -18,7 +18,7 @@ def smooth_rows(a,passes=5):
 
 def garment(body,mat,bvh,front):
     out=[]
-    guide=np.array([[.050,1.666,.015],[.070,1.603,.025],[.108,1.532,.041],[.147,1.453,.051],[.165,1.389,.058],[.148,1.312,.051],[.123,1.235,.047],[.092,1.155,.061]])
+    guide=np.array([[.050,1.649,.014],[.070,1.594,.023],[.103,1.532,.034],[.134,1.453,.041],[.145,1.389,.043],[.136,1.312,.040],[.119,1.250,.042],[.092,1.197,.061]])
     profile=catmull(guide,115)
     for side in (-1.,1.):
         grid=[]
@@ -37,9 +37,7 @@ def garment(body,mat,bvh,front):
         for j in range(a.shape[1]):
             yy=a[:,j,1];start=int(np.argmin(yy[:90]))
             if start<100:
-                v=np.linspace(0,1,len(yy)-start)
-                hanging=yy[start]*(1-v)+yy[-1]*v-.006*np.sin(np.pi*v)
-                yy[start:]=np.minimum(yy[start:],hanging)
+                v=np.linspace(0,1,len(yy)-start);hanging=yy[start]*(1-v)+yy[-1]*v-.006*np.sin(np.pi*v);yy[start:]=np.minimum(yy[start:],hanging)
             baseline=yy.copy();yy[:]=np.minimum(smooth_rows(yy[:,None],8)[:,0],baseline+.001)
         for _ in range(4):a[:,1:-1,1]=np.minimum(a[:,1:-1,1],.24*a[:,:-2,1]+.52*a[:,1:-1,1]+.24*a[:,2:,1])
         for i,t in enumerate(np.linspace(0,1,len(a))):
@@ -48,19 +46,18 @@ def garment(body,mat,bvh,front):
         obj=ribbon('Loose neck panel '+str(side),a,mat['cloth'],.0014,1);out.append(obj)
         for j in (0,-1):tube('Fine folded selvedge',[p[j] for p in a],[.00065,.00065],mat['cloth'],n=115,sides=6)
     for side in (-1.,1.):
-        pts=[(side*.050,-.074,1.666),(side*.067,-.055,1.687),(side*.074,-.01,1.692),(side*.069,.037,1.678),(side*.045,.071,1.660),(0,.083,1.651)]
+        pts=[(side*.050,-.074,1.649),(side*.067,-.055,1.672),(side*.074,-.01,1.683),(side*.069,.037,1.678),(side*.045,.071,1.660),(0,.083,1.651)]
         out.append(strand('Soft nape drape '+str(side),pts,[.015,.017,.019,.020,.023,.026],mat['cloth'],n=65,sides=14,depth=.11))
     for rear in (False,True):
         grid=[]
         for t in np.linspace(0,1,115):
             row=[]
             for u in np.linspace(-1,1,49):
-                width=.158-.022*t+.012*math.sin(math.pi*t);x=width*u+.008*math.sin(math.pi*t)*math.sin(2*t)
-                z=1.157-.755*t-.045*t**7*(1-u*u)+.008*t**8*math.sin(5*u+1)
+                width=.158-.072*t**1.7+.018*math.sin(math.pi*t);x=width*u+.008*math.sin(math.pi*t)*math.sin(2*t)
+                z=1.197-.795*t-.065*t**7*(1-u*u)+.008*t**8*math.sin(5*u+1)
                 wave=(.002+.008*t)*(math.sin(3.4*math.pi*u+.7*t)+.25*math.sin(7*math.pi*u-t))
                 if rear:
-                    hit,_,_,_=bvh.ray_cast(Vector((x,2,z)),Vector((0,-1,0)),4);surface=hit.y+.009 if hit else .17
-                    y=max(.17+.025*math.sin(math.pi*t),surface)+wave
+                    hit,_,_,_=bvh.ray_cast(Vector((x,2,z)),Vector((0,-1,0)),4);surface=hit.y+.009 if hit else .17;y=max(.17+.025*math.sin(math.pi*t),surface)+wave
                 else:
                     surface=front(x,z,.009);y=min(-.173-.015*math.sin(math.pi*t),surface if surface is not None else -.173)+wave
                 row.append([x,y,z])
@@ -71,25 +68,24 @@ def garment(body,mat,bvh,front):
         tube('Shaped lower hem',a[-1],[.0008,.0008],mat['cloth'],n=60,sides=6)
     points=[]
     for a in np.linspace(0,2*math.pi,200):
-        d=Vector((math.cos(a),math.sin(a),0));origin=d*1.;origin.z=1.158;hit,n,_,_=bvh.ray_cast(origin,-d,2)
+        d=Vector((math.cos(a),math.sin(a),0));origin=d*1.;origin.z=1.198;hit,n,_,_=bvh.ray_cast(origin,-d,2)
         p=hit+n*.008 if hit else Vector((.17*math.cos(a),.15*math.sin(a),1.158))
         if p.y<-.10:p.y=min(p.y,-.183)
         if p.y>.10:p.y=max(p.y,.180)
-        p.z=1.158+.001*math.sin(2*a);points.append(tuple(p))
+        p.z=1.198+.001*math.sin(2*a);points.append(tuple(p))
     tube('Braided waist cord',points,[.0045,.0045],mat['cord'],n=230,sides=12)
     for phase in (0,math.pi):
         pts=[]
         for i,p in enumerate(points):
             a=2*math.pi*i/(len(points)-1);v=45*a+phase;pts.append(np.array(p)+.0042*np.array([math.cos(a)*math.cos(v),math.sin(a)*math.cos(v),math.sin(v)]))
         tube('Cord braid',pts,[.00075,.00075],mat['cord'],n=600,sides=5)
-    cx=.065;y=-.189;z=1.158
+    cx=.065;y=-.189;z=1.198
     tube('Cord knot',[(cx-.01,y,z),(cx+.008,y-.006,z+.008),(cx+.014,y-.008,z-.004),(cx-.006,y-.005,z-.01),(cx-.01,y,z)],[.004,.004],mat['cord'],n=55,sides=12)
     tube('Long cord end',[(cx,y-.006,z),(cx+.012,y-.017,z-.06),(cx+.006,y-.014,z-.15),(cx+.014,y-.005,z-.20)],[.0033,.0030,.0026,.0018],mat['cord'],n=60,sides=10)
     tube('Short cord end',[(cx+.01,y-.004,z),(cx+.033,y-.018,z-.05),(cx+.035,y-.010,z-.13)],[.0032,.0028,.0018],mat['cord'],n=45,sides=10)
     return out
 
 def resolve_cloth(clothes,bvh):
-    # Nearest-surface snapping across an armpit caused the old sideways ledges.
     for o in clothes:
         for p in o.data.polygons:p.use_smooth=True
 
@@ -97,21 +93,28 @@ def hair(body,mat):
     rng=random.Random(1505);out=[];m=mat['hair'];vv=[];ff=[];n=72
     for j,t in enumerate(np.linspace(0,1,34)):
         for k,a in enumerate(np.linspace(0,2*math.pi,n,endpoint=False)):
-            th=.012+t*(1.45+.42*(math.sin(a)+1)/2)
-            vv.append((.108*math.sin(th)*math.cos(a),.004+.089*math.sin(th)*math.sin(a),1.845+.110*math.cos(th)))
+            th=.012+t*(1.45+.42*(math.sin(a)+1)/2);vv.append((.108*math.sin(th)*math.cos(a),.004+.089*math.sin(th)*math.sin(a),1.845+.110*math.cos(th)))
             if j:
                 p=(j-1)*n+k;q=(j-1)*n+(k+1)%n;ff.append((p,q,q+n,p+n))
-    out.append(mesh('Fitted hair scalp',vv,ff,m));guides=[]
+    out.append(mesh('Fitted hair scalp',vv,ff,m))
+    inner,bs=base('Hair | inner shadow',(.56,.59,.66),.48)
+    levels=[(1.933,.062,.055,.026),(1.85,.090,.096,.039),(1.74,.119,.125,.035),(1.62,.148,.165,.037),(1.49,.181,.176,.034),(1.35,.209,.182,.030),(1.20,.225,.156,.023),(1.105,.233,.085,.015),(1.065,.237,.003,.001)]
+    cv=[];cf=[]
+    for j,(z,cy,rx,ry) in enumerate(levels):
+        for k,a in enumerate(np.linspace(0,2*math.pi,56,endpoint=False)):
+            cv.append((rx*math.cos(a),cy+ry*math.sin(a),z+.008*math.sin(5*a)*math.sin(j*math.pi/8)))
+            if j:
+                q=(j-1)*56+k;r=(j-1)*56+(k+1)%56;cf.append((q,r,r+56,q+56))
+    core=mesh('Continuous inner mane',cv,cf,inner);sub=core.modifiers.new('Smooth inner volume','SUBSURF');sub.levels=sub.render_levels=2;out.append(core);guides=[]
     for layer,count in enumerate((11,9,7)):
         for j in range(count):
             f=2*j/(count-1)-1;phase=.9*j+.5*layer;endz=1.03+.15*layer+.07*abs(f)+rng.uniform(-.03,.03);pts=[]
             for t in np.linspace(0,1,12):
-                wave=math.sin(t*math.pi*4.1+phase)*math.sin(math.pi*t)
-                x=f*(.064+.135*t)+.027*wave
+                wave=math.sin(t*math.pi*4.1+phase)*math.sin(math.pi*t);x=f*(.064+.135*t)+.027*wave
                 y=.060+.16*t+.028*math.sin(math.pi*t)+layer*.020+.020*math.cos(t*math.pi*4+phase)*math.sin(math.pi*t)
                 z=1.946*(1-t)+endz*t;x+=np.sign(f)*.027*t**7;pts.append((x,y,z))
             w=.030+rng.uniform(-.004,.005)
-            guides.append((f'Back wave {layer}-{j}',pts,[.008,.020,w,w*1.05,w,w,w*.95,w*.8,w*.7,w*.5,w*.27,.0005],.68))
+            guides.append((f'Back wave {layer}-{j}',pts,[.008,.020,w,w*1.05,w,w,w*.98,w*.94,w*.86,w*.72,w*.40,.0005],.68))
     for s in (-1.,1.):
         for j in range(6):
             f=j/5
