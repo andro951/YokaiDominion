@@ -1,0 +1,91 @@
+{
+  "assetCommit": "43d3d0f7de50b902c54bcccd9db620479c5f410e",
+  "assetPath": "art/checkpoints/portable008/23b3d6ca50d0",
+  "files": {
+    "Character01_PBR008.blend": {
+      "sha256": "a7a3c08594072509c5537f5ccf16413dbbc3c4cc45eefe2995a07a96b3063fba",
+      "bytes": 43063730,
+      "matches": true
+    },
+    "Character01_Visual008.glb": {
+      "sha256": "eb67b314cb91a1f98ca88f53d18dce70d55c7f6d38aef4a10e32019d6f3eeb70",
+      "bytes": 38285712,
+      "matches": true
+    },
+    "textures/Body_BaseColor.png": {
+      "sha256": "648b2e206fbf7e859e9d7353b1ffa35570aba47abe215d33c9361687c63bb9ab",
+      "bytes": 2348010,
+      "matches": true
+    },
+    "textures/Body_Normal.png": {
+      "sha256": "464b28afae7b404bdeabbf5a2a3f3daaa8d9662e5787132dc9116e4e91470c45",
+      "bytes": 11555040,
+      "matches": true
+    },
+    "textures/Body_Roughness.png": {
+      "sha256": "4986bf7af1b125dba0e178d61213c812bd1d3f42d97be307d613bf4ad557ad81",
+      "bytes": 3310794,
+      "matches": true
+    },
+    "textures/Cloth_warm_ivory_BaseColor.png": {
+      "sha256": "c12032c07d5d75539b0c4947c856b98ca7f228d7773488adb88faa44d41f1e01",
+      "bytes": 15890,
+      "matches": true
+    },
+    "textures/Cloth_warm_ivory_Normal.png": {
+      "sha256": "5be54551600ad1137d3a0f0248d6fd4577a8a2b8de4272f82aaab52ef0c6e62b",
+      "bytes": 1293506,
+      "matches": true
+    },
+    "textures/Cloth_warm_ivory_Roughness.png": {
+      "sha256": "c79a5f67313113713c421973a9a773344c7cc0fb40c0b3eebefd3b16a25ef1cc",
+      "bytes": 15888,
+      "matches": true
+    },
+    "textures/Cord_charcoal_Art007_woven_cord_BaseColor.png": {
+      "sha256": "8a6f5b67b9ab4d8458e85f92716d1f1adda3f4bbd5a10bb932e061c1b39fd234",
+      "bytes": 15889,
+      "matches": true
+    },
+    "textures/Cord_charcoal_Art007_woven_cord_Normal.png": {
+      "sha256": "61aea926bfabc4cbd1592b88895b6e445af97e40c049eee9b499fc658477ed95",
+      "bytes": 1074838,
+      "matches": true
+    },
+    "textures/Cord_charcoal_Art007_woven_cord_Roughness.png": {
+      "sha256": "4e8bd9dcf928d652152c61eaa7f4eaeebd7963fac83476b85869ab770e0f10d1",
+      "bytes": 15888,
+      "matches": true
+    },
+    "textures/Hair_Art008_strand_aligned_ivory_BaseColor.png": {
+      "sha256": "b850bde240f18d71b99a2e318f6608413c9dd9ffc2f898dc708fbfa5df41274f",
+      "bytes": 535503,
+      "matches": true
+    },
+    "textures/Hair_Art008_strand_aligned_ivory_Normal.png": {
+      "sha256": "12463c7f27847d0a53ae20a302b5214bb0c8c8180b91f67f94f6f1bcdb4d0362",
+      "bytes": 15887,
+      "matches": true
+    },
+    "textures/Hair_Art008_strand_aligned_ivory_Roughness.png": {
+      "sha256": "f6e33ec376237bc75570c7b09326013c4571f7935c594a4009d6bb342231f8b5",
+      "bytes": 15886,
+      "matches": true
+    },
+    "textures/Hair_ivory_silver_BaseColor.png": {
+      "sha256": "42498262e5fdfb95ea776a9f67a7b61f812d6b0e8deef5e0e16956211e896599",
+      "bytes": 542458,
+      "matches": true
+    },
+    "textures/Hair_ivory_silver_Normal.png": {
+      "sha256": "12463c7f27847d0a53ae20a302b5214bb0c8c8180b91f67f94f6f1bcdb4d0362",
+      "bytes": 15887,
+      "matches": true
+    },
+    "textures/Hair_ivory_silver_Roughness.png": {
+      "sha256": "57e3e3c1327861932498ce1273c100e1e989219bb86a9b3948cb5d59b2cc73f8",
+      "bytes": 15887,
+      "matches": true
+    }
+  }
+}
