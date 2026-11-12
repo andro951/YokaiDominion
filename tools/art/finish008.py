@@ -8,8 +8,8 @@ import bpy
 import numpy as np
 from mathutils import Vector
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-MODULES=[importlib.import_module(n) for n in ('surface008','portrait008','silhouette008','finishing008','beauty008','garment008')]
-REVISION='008-garment-7'
+MODULES=[importlib.import_module(n) for n in ('surface008','portrait008','silhouette008','finishing008','beauty008','skin008','garment008')]
+REVISION='008-surface-8'
 
 def smooth(a,b,x):
  t=np.clip((x-a)/(b-a),0,1);return t*t*(3-2*t)
