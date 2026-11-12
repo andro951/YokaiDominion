@@ -1,0 +1,17 @@
+{
+  "assetCommit": "b211dee15cdb391ef0c2df93167b14a6795b7410",
+  "assetPath": "art/checkpoints/portable012/995ee19563fa",
+  "allMatched": true,
+  "files": {
+    "Character01_PBR012.blend": {
+      "bytes": 28888719,
+      "sha256": "90d993e175940aacb530241f0b60640f178e7117dc6c5087329c37ca893c8d13",
+      "matched": true
+    },
+    "Character01_Visual012.glb": {
+      "bytes": 66957036,
+      "sha256": "51d53697f9a77f5592b63deff16cae57103a6a5bdb7f2c24858fb49c3f8c4875",
+      "matched": true
+    }
+  }
+}
