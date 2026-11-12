@@ -1,0 +1,68 @@
+{
+  "sourceSha256": "ee0753bf84c30a7d4a252ae9139022051e4e90ba410571242f566e14dff2d916",
+  "blender": "4.5.3 LTS",
+  "fixedReviewVersion": 1,
+  "width": 720,
+  "samples": 24,
+  "images": {
+    "front.png": {
+      "sha256": "f2bc3129ff7a473244278c2bbc51a00f6bb529289bd538cb330ca43276911ef8",
+      "bytes": 679282
+    },
+    "quarter.png": {
+      "sha256": "3db13a867afcc2c25d481811aee5c16c9e5aaaf55fb5424dfc504aa9ea219b65",
+      "bytes": 712773
+    },
+    "side.png": {
+      "sha256": "f3b662e1c2989d5db2acd30f17d9af1943ac354ae1bd15622f33cd5fb4ae61ca",
+      "bytes": 682367
+    }
+  },
+  "shots": {
+    "front": {
+      "location": [
+        0,
+        -4,
+        1.45
+      ],
+      "target": [
+        0,
+        -0.06,
+        1.45
+      ],
+      "orthoScale": 0.88,
+      "aspect": 1.08,
+      "bodyOnly": false
+    },
+    "quarter": {
+      "location": [
+        2,
+        -4,
+        1.5
+      ],
+      "target": [
+        0,
+        -0.06,
+        1.45
+      ],
+      "orthoScale": 0.88,
+      "aspect": 1.08,
+      "bodyOnly": false
+    },
+    "side": {
+      "location": [
+        4,
+        0,
+        1.45
+      ],
+      "target": [
+        0,
+        -0.07,
+        1.45
+      ],
+      "orthoScale": 0.88,
+      "aspect": 1.08,
+      "bodyOnly": false
+    }
+  }
+}
