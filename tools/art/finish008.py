@@ -2,13 +2,15 @@
 No rig/physics acceptance is implied. Always saves the model before optional rendering.
 """
 from __future__ import annotations
-import argparse, hashlib, json, math, sys
+import argparse, hashlib, json, math, sys, shutil
 from pathlib import Path
 import bpy
 import numpy as np
 from mathutils import Vector
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+import surface008
 
-REVISION = '008-face-1'
+REVISION = '008-surface-2'
 
 def smooth(a,b,x):
     t=np.clip((x-a)/(b-a),0,1); return t*t*(3-2*t)
@@ -30,7 +32,6 @@ def facial_warp(p):
     d[:,2]+=.0028*chin
     nose=np.exp(-((z-1.772)/.019)**2-((ax-.021)/.018)**2)*(1-smooth(-.181,-.137,y))
     d[:,0]-=np.sign(x)*.0011*nose
-    # Subtle upward outer canthus, not wholesale socket or eyeball replacement.
     outer=np.exp(-((ax-.060)/.016)**2-((z-1.825)/.018)**2)*front
     d[:,2]+=.0018*outer
     corners=np.exp(-((ax-.030)/.012)**2-((z-1.742)/.013)**2)*front
@@ -48,11 +49,8 @@ def edit():
         if o.name.startswith(('Brow','Upper liner','Outer eyelash','Canine')):
             p=facial_warp(positions(o))
             if o.name.startswith('Brow.'):
-                # Existing brows are closed meshes: thin each cross-section, preserving sweep.
-                center=p.mean(0);p[:,2]=center[2]+(p[:,2]-center[2])*.77
-                p[:,1]+=.0003
+                center=p.mean(0);p[:,2]=center[2]+(p[:,2]-center[2])*.77;p[:,1]+=.0003
             if o.name.startswith('Canine'):
-                # Seat tooth roots inside the lip; keep only short tips visible.
                 top=p[:,2].max();p[:,2]=top+(p[:,2]-top)*.72+.0016;p[:,1]+=.0010
             put(o,p)
     skin=bpy.data.materials.get('Skin | cool slate')
@@ -62,6 +60,7 @@ def edit():
             bs.inputs['Specular IOR Level'].default_value=.24
             bs.inputs['Subsurface Weight'].default_value=.075
             bs.inputs['Subsurface Scale'].default_value=.0015
+    surface008.apply(body)
     body['finish008_applied']=REVISION
     body['asset_kind']='Visual art refinement; rig and physics refit remain separate'
     bpy.context.scene['art_checkpoint']=REVISION
@@ -85,6 +84,9 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('--source',type=Path,required=True);ap.add_argument('--out',type=Path,required=True)
     ap.add_argument('--render-only',action='store_true');ap.add_argument('--views',default='');ap.add_argument('--width',type=int,default=850);ap.add_argument('--samples',type=int,default=24)
     a=ap.parse_args(sys.argv[sys.argv.index('--')+1:]);out=a.out.resolve();out.mkdir(parents=True,exist_ok=True)
+    for f in (Path(__file__),Path(surface008.__file__)):
+        target=out/f.name
+        if target.resolve()!=f.resolve():shutil.copy2(f,target)
     bpy.ops.wm.open_mainfile(filepath=str(a.source.resolve()))
     if not a.render_only:
         edit();bpy.ops.file.pack_all();bpy.context.preferences.filepaths.save_version=0
