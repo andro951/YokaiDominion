@@ -1,0 +1,105 @@
+{
+  "sourceSha256": "235c3e4d408f4d56c1b36105a8bdd7faaeff9f0ce07375bd4f5ac24217a4e71b",
+  "staticVisualAsset": true,
+  "rigged": false,
+  "runtimePhysicsIntegrated": false,
+  "uvAtlas": {
+    "sourceUvMin": [
+      0.03867601230740547,
+      0.030347011983394623
+    ],
+    "sourceUvMax": [
+      8.94870662689209,
+      3.9667115211486816
+    ],
+    "atlasMin": [
+      0.0024959028232842684,
+      0.0021904953755438328
+    ],
+    "atlasMax": [
+      0.9978553056716919,
+      0.9808706045150757
+    ],
+    "sourceVertices": 169362,
+    "portableVertices": 42342
+  },
+  "bodyBakeCoverage": {
+    "sampledFaces": 84680,
+    "unbakedFraction": 0.0,
+    "threshold": 0.005
+  },
+  "materials": 12,
+  "meshes": 206,
+  "images": 15,
+  "triangles": 432872,
+  "files": {
+    "Character01_PBR008.blend": {
+      "bytes": 38390293,
+      "sha256": "f843b07a534ef1c6dcca961c52e0986d9144889cd426b939d359eef7d966ac3c"
+    },
+    "Character01_Visual008.glb": {
+      "bytes": 33717772,
+      "sha256": "048c64d43e3c10f2c12c24393b84fece9993c730f1a1805d5455f6b4fb1ab7af"
+    },
+    "textures/Body_BaseColor.png": {
+      "bytes": 1918530,
+      "sha256": "41798dc29b84dce61345b6d1bd84707d51d9e587d79a2de924a2e54b25059111"
+    },
+    "textures/Body_Normal.png": {
+      "bytes": 10665148,
+      "sha256": "ba9f77c24f12eb011bb3f7fa35d0b3457c4e68c5274b18d40c2b814af65f57b8"
+    },
+    "textures/Body_Roughness.png": {
+      "bytes": 2019223,
+      "sha256": "41de16e40de7b1655219b29da978bee979083035d7f8739900bec8001f08fc07"
+    },
+    "textures/Cloth_warm_ivory_BaseColor.png": {
+      "bytes": 15890,
+      "sha256": "c12032c07d5d75539b0c4947c856b98ca7f228d7773488adb88faa44d41f1e01"
+    },
+    "textures/Cloth_warm_ivory_Normal.png": {
+      "bytes": 1293506,
+      "sha256": "5be54551600ad1137d3a0f0248d6fd4577a8a2b8de4272f82aaab52ef0c6e62b"
+    },
+    "textures/Cloth_warm_ivory_Roughness.png": {
+      "bytes": 15888,
+      "sha256": "c79a5f67313113713c421973a9a773344c7cc0fb40c0b3eebefd3b16a25ef1cc"
+    },
+    "textures/Cord_charcoal_Art007_woven_cord_BaseColor.png": {
+      "bytes": 15889,
+      "sha256": "8a6f5b67b9ab4d8458e85f92716d1f1adda3f4bbd5a10bb932e061c1b39fd234"
+    },
+    "textures/Cord_charcoal_Art007_woven_cord_Normal.png": {
+      "bytes": 1074838,
+      "sha256": "61aea926bfabc4cbd1592b88895b6e445af97e40c049eee9b499fc658477ed95"
+    },
+    "textures/Cord_charcoal_Art007_woven_cord_Roughness.png": {
+      "bytes": 15888,
+      "sha256": "4e8bd9dcf928d652152c61eaa7f4eaeebd7963fac83476b85869ab770e0f10d1"
+    },
+    "textures/Hair_Art008_strand_aligned_ivory_BaseColor.png": {
+      "bytes": 535503,
+      "sha256": "b850bde240f18d71b99a2e318f6608413c9dd9ffc2f898dc708fbfa5df41274f"
+    },
+    "textures/Hair_Art008_strand_aligned_ivory_Normal.png": {
+      "bytes": 15887,
+      "sha256": "12463c7f27847d0a53ae20a302b5214bb0c8c8180b91f67f94f6f1bcdb4d0362"
+    },
+    "textures/Hair_Art008_strand_aligned_ivory_Roughness.png": {
+      "bytes": 15886,
+      "sha256": "f6e33ec376237bc75570c7b09326013c4571f7935c594a4009d6bb342231f8b5"
+    },
+    "textures/Hair_ivory_silver_BaseColor.png": {
+      "bytes": 542458,
+      "sha256": "42498262e5fdfb95ea776a9f67a7b61f812d6b0e8deef5e0e16956211e896599"
+    },
+    "textures/Hair_ivory_silver_Normal.png": {
+      "bytes": 15887,
+      "sha256": "12463c7f27847d0a53ae20a302b5214bb0c8c8180b91f67f94f6f1bcdb4d0362"
+    },
+    "textures/Hair_ivory_silver_Roughness.png": {
+      "bytes": 15887,
+      "sha256": "57e3e3c1327861932498ce1273c100e1e989219bb86a9b3948cb5d59b2cc73f8"
+    }
+  }
+}
