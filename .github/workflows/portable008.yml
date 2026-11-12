@@ -1,12 +1,12 @@
 name: Art008 portable textured asset
 on:
   push:
-    paths: ['tools/art/export008.py', '.github/workflows/portable008.yml']
+    paths: ['tools/art/export008.py', 'tools/art/portable_geometry009.py', '.github/workflows/portable008.yml']
   workflow_dispatch:
 permissions:
   contents: write
 concurrency:
-  group: editable-art-checkpoint
+  group: portable-texture-bake
   cancel-in-progress: false
 jobs:
   export:
@@ -14,13 +14,13 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-      - name: Restore corrected Art008 master and verify bytes
+      - name: Restore complete Art008 visual master and verify bytes
         run: |
           set -euo pipefail
           git fetch origin art-checkpoints
           git worktree add --detach "$RUNNER_TEMP/assets" FETCH_HEAD
-          base="$RUNNER_TEMP/assets/art/checkpoints/finish008/b2af9b1add70/Character01_Finish008.blend"
-          echo "235c3e4d408f4d56c1b36105a8bdd7faaeff9f0ce07375bd4f5ac24217a4e71b  $base" | sha256sum -c -
+          base="$RUNNER_TEMP/assets/art/checkpoints/finish008/9c869a359e9b/Character01_Finish008.blend"
+          echo "3344fd9706024a8ee5f903472de93333191d78a8ec32c5759dc53467cf3a07e3  $base" | sha256sum -c -
           echo "BASE=$base" >> "$GITHUB_ENV"
           echo "ASSET_PATH=art/checkpoints/portable008/${GITHUB_SHA:0:12}" >> "$GITHUB_ENV"
           mkdir -p output
@@ -55,7 +55,13 @@ jobs:
           cd "$dst"
           git add "$ASSET_PATH"
           git commit -m "Save actual Art008 PBR blend GLB and textures ${GITHUB_SHA:0:12} [skip ci]"
-          git push origin HEAD:refs/heads/art-checkpoints
+          saved=false
+          for attempt in 1 2 3; do
+            if git push origin HEAD:refs/heads/art-checkpoints; then saved=true; break; fi
+            git fetch origin art-checkpoints
+            git rebase FETCH_HEAD
+          done
+          test "$saved" = true
           echo "ASSET_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - name: Download all committed binaries and compare checksums
         run: |
@@ -106,7 +112,13 @@ jobs:
           git add "$ASSET_PATH"
           if ! git diff --cached --quiet; then
             git commit -m "Save Art008 portable export verification ${GITHUB_SHA:0:12} [skip ci]"
-            git push origin HEAD:refs/heads/art-checkpoints
+            saved=false
+            for attempt in 1 2 3; do
+              if git push origin HEAD:refs/heads/art-checkpoints; then saved=true; break; fi
+              git fetch origin art-checkpoints
+              git rebase FETCH_HEAD
+            done
+            test "$saved" = true
           fi
       - uses: actions/upload-artifact@v4
         if: always()
