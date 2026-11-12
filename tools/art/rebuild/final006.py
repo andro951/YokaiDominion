@@ -57,7 +57,7 @@ def torso_bvh(body):
 
 def fabric_finish(body,mat):
     """Cut loose halter panels on the already-shaped body. No cups or underband."""
-    prefixes=('Loose neck panel','Continuous','Soft nape','Fine folded','Rolled cloth','Shaped lower','Neck selvedge','Drape boundary','Neck rolled','Apron','Front hanging cloth','Back hanging cloth','Gathered')
+    prefixes=('Loose neck panel','Continuous neck fabric','Continuous soft neck wrap','Soft nape','Fine folded','Rolled cloth','Shaped lower','Neck selvedge','Drape boundary','Neck rolled','Apron','Front hanging cloth','Back hanging cloth','Gathered')
     for o in list(bpy.data.objects):
         if o.type=='MESH' and o.name.startswith(prefixes):bpy.data.objects.remove(o,do_unlink=True)
     bvh=torso_bvh(body)
@@ -87,7 +87,7 @@ def fabric_finish(body,mat):
         a[:,:,1]=-depth
         for j in range(31):
             start=int(np.argmin(a[:88,j,1]));t=np.linspace(0,1,len(a)-start)
-            hanging=a[start,j,1]*(1-t)+a[-1,j,1]*t-.004*np.sin(math.pi*t)
+            v=t*t*(2-t);hanging=a[start,j,1]*(1-v)+a[-1,j,1]*v-.003*np.sin(math.pi*t)
             a[start:,j,1]=np.minimum(a[start:,j,1],hanging)
         for i,t in enumerate(np.linspace(0,1,len(a))):
             for j,u in enumerate(np.linspace(-1,1,31)):
@@ -128,7 +128,7 @@ def fabric_finish(body,mat):
                 free=(.215 if rear else -.202)+(.011 if rear else -.009)*math.sin(math.pi*t)
                 v=float(smooth(0,.28,t));y=top*(1-v)+free*v
                 if sup is not None:y=max(y,sup+.006) if rear else min(y,sup-.006)
-                wave=(.001+.0062*math.sin(math.pi*t*.92))*(math.sin(3.2*math.pi*u+.85*t)+.24*math.sin(6.4*math.pi*u-1.2*t))
+                wave=(.002+.011*math.sin(math.pi*t*.92))*(math.sin(3.2*math.pi*u+.85*t)+.24*math.sin(6.4*math.pi*u-1.2*t))
                 y+=wave;row.append([x,y,z])
             grid.append(row)
         a=np.array(grid)
