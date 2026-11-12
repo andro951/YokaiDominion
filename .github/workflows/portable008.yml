@@ -14,13 +14,13 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-      - name: Restore saved Art008 contour master and verify bytes
+      - name: Restore corrected Art008 master and verify bytes
         run: |
           set -euo pipefail
           git fetch origin art-checkpoints
           git worktree add --detach "$RUNNER_TEMP/assets" FETCH_HEAD
-          base="$RUNNER_TEMP/assets/art/checkpoints/finish008/ccb035f720d2/Character01_Finish008.blend"
-          echo "e5a5e2cfa01996467daca74db5a4b90b818c95e454168441e708ea7fd430e134  $base" | sha256sum -c -
+          base="$RUNNER_TEMP/assets/art/checkpoints/finish008/b2af9b1add70/Character01_Finish008.blend"
+          echo "235c3e4d408f4d56c1b36105a8bdd7faaeff9f0ce07375bd4f5ac24217a4e71b  $base" | sha256sum -c -
           echo "BASE=$base" >> "$GITHUB_ENV"
           echo "ASSET_PATH=art/checkpoints/portable008/${GITHUB_SHA:0:12}" >> "$GITHUB_ENV"
           mkdir -p output
@@ -33,12 +33,12 @@ jobs:
           echo '975c58fcb244273838534bba771e64ad87739216b0f9b39a888531a49a72d845  blender.tar.xz' | sha256sum -c -
           tar -xf blender.tar.xz
           echo "BLENDER=$RUNNER_TEMP/blender-4.5.3-linux-x64/blender" >> "$GITHUB_ENV"
-      - name: Bake textures and save PBR model plus GLB
+      - name: Bake atlas and sculpt detail; save PBR model plus GLB
         env:
           OPENBLAS_NUM_THREADS: 4
         run: |
           set -euo pipefail
-          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/export008.py -- --source "$BASE" --out output --resolution 2048 2>&1 | tee output/bake.log
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/export008.py -- --source "$BASE" --out output --resolution 4096 2>&1 | tee output/bake.log
           grep -q ART008_PORTABLE_EXPORT_PASS output/bake.log
       - name: Commit actual files before rendering export preview
         id: save
@@ -87,8 +87,8 @@ jobs:
           assert len(meshes)>50
           scene=bpy.context.scene;camera=scene.camera
           camera.location=(3,-6,2.1);camera.rotation_euler=(Vector((0,0,1.06))-camera.location).to_track_quat('-Z','Y').to_euler();camera.data.type='ORTHO';camera.data.ortho_scale=2.35
-          scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=20;scene.cycles.use_denoising=True
-          scene.render.resolution_x=850;scene.render.resolution_y=1105;scene.render.resolution_percentage=100
+          scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=24;scene.cycles.use_denoising=True
+          scene.render.resolution_x=1000;scene.render.resolution_y=1300;scene.render.resolution_percentage=100
           scene.render.filepath=str(Path('output/export-reimport.png').resolve());bpy.ops.render.render(write_still=True)
           Path('output/reimport.json').write_text(json.dumps({'reimportPassed':True,'meshObjects':len(meshes),'staticVisualAsset':True},indent=2))
           print('GLB_REIMPORT_RENDER_PASS')
