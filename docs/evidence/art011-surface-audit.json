@@ -1,0 +1,27 @@
+{
+  "revision": "011-fullness-drape-3",
+  "sourceCommit": "4cb4818d7029e5bce84a56359623de373b899139",
+  "scope": "Static visual breast and upper-garment revision; no rig or runtime physics acceptance",
+  "bodyVertices": 169362,
+  "protectedVerticesUnchanged": true,
+  "protectedVertexCount": 159606,
+  "edgeStretchP999RelativeToArt010": 1.258432999904548,
+  "edgeStretchMaxRelativeToArt010": 1.4662896387189934,
+  "finiteGeometry": true,
+  "garment": {
+    "Loose over-trapezius panel L": {
+      "evaluatedVertices": 62790,
+      "sampleStride": 4,
+      "nearSurfaceSamples": 14854,
+      "penetrationsDeeperThanHalfMillimetre": 0
+    },
+    "Loose over-trapezius panel R": {
+      "evaluatedVertices": 62790,
+      "sampleStride": 4,
+      "nearSurfaceSamples": 14827,
+      "penetrationsDeeperThanHalfMillimetre": 0
+    }
+  },
+  "method": "Nearest-body-surface signed distance at every fourth evaluated garment vertex, considering distances below 0.03 m. Negative distance below -0.0005 m is flagged.",
+  "limitations": "Sampled static clearance is not a proof of triangle-level collision freedom, dynamic garment support, animation safety, or final artistic likeness. Shoulders, hips, legs, back and face are unchanged by this local revision."
+}
