@@ -1,0 +1,12 @@
+{
+  "assetCommit": "1e3649e9c8683a51ece6dfdaf3639a3198a8f118",
+  "assetPath": "art/checkpoints/face014/006503bbc6a8",
+  "allMatched": true,
+  "files": {
+    "Character01_Art014.blend": {
+      "bytes": 88381563,
+      "sha256": "347c10d42c2b73eae6ffee8e5d7d79fe0b5cc169b11a417c6bfdda07865bac0a",
+      "matched": true
+    }
+  }
+}

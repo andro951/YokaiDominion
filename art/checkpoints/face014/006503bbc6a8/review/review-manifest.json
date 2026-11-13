@@ -1,0 +1,129 @@
+{
+  "version": 13,
+  "sourceSha256": "347c10d42c2b73eae6ffee8e5d7d79fe0b5cc169b11a417c6bfdda07865bac0a",
+  "blender": "4.5.3 LTS",
+  "lights": [
+    [
+      "key",
+      [
+        -3,
+        -4,
+        5
+      ],
+      520,
+      3
+    ],
+    [
+      "fill",
+      [
+        4,
+        -2,
+        3
+      ],
+      260,
+      3.5
+    ],
+    [
+      "rim",
+      [
+        1,
+        2,
+        4.2
+      ],
+      720,
+      2.2
+    ],
+    [
+      "lower",
+      [
+        0,
+        -3,
+        1.35
+      ],
+      65,
+      2
+    ]
+  ],
+  "width": 800,
+  "samples": 32,
+  "images": {
+    "face-front.png": {
+      "sha256": "bd477cab655356d96ed96f9b18ca7e4cc62df0fca188cbbac5092b2bd2c6ed03",
+      "bytes": 964160
+    },
+    "face-quarter.png": {
+      "sha256": "d918c853bbc29c0868cdd79e1f35b13a5e011b5c15140889bcd6eb38b57a9761",
+      "bytes": 911903
+    },
+    "face-side.png": {
+      "sha256": "b8b8d138014156c2b15243d567a73a894b1b17a62e513c43be3219d94f14b81f",
+      "bytes": 840815
+    },
+    "full.png": {
+      "sha256": "6c8d34e60a7cf61c617d90608b010a58c25d968d739f0ff86874d9e18033e93a",
+      "bytes": 957375
+    }
+  },
+  "shots": {
+    "face-front": {
+      "location": [
+        0,
+        -3,
+        1.808
+      ],
+      "target": [
+        0,
+        -0.09,
+        1.808
+      ],
+      "scale": 0.34,
+      "aspect": 1.0,
+      "bodyOnly": false
+    },
+    "face-quarter": {
+      "location": [
+        1.6,
+        -3,
+        1.82
+      ],
+      "target": [
+        0,
+        -0.09,
+        1.808
+      ],
+      "scale": 0.36,
+      "aspect": 1.0,
+      "bodyOnly": false
+    },
+    "face-side": {
+      "location": [
+        3,
+        0,
+        1.81
+      ],
+      "target": [
+        0,
+        -0.075,
+        1.808
+      ],
+      "scale": 0.36,
+      "aspect": 1.0,
+      "bodyOnly": false
+    },
+    "full": {
+      "location": [
+        2.6,
+        -5.8,
+        1.85
+      ],
+      "target": [
+        0,
+        -0.015,
+        1.08
+      ],
+      "scale": 2.35,
+      "aspect": 1.32,
+      "bodyOnly": false
+    }
+  }
+}
