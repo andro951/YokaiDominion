@@ -1,0 +1,48 @@
+name: MakeHuman stage01 official assets
+on:
+  push:
+    paths: ['.github/workflows/makehuman-stage01-prepare.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: makehumancommunity/mpfb2
+          ref: v2.0.18
+          path: mpfb2
+      - name: Download and select native MakeHuman assets
+        run: |
+          set -euo pipefail
+          mkdir -p output/assets output/mpfb
+          cp -r mpfb2/src/mpfb/. output/mpfb/
+          cp mpfb2/LICENSE* output/ 2>/dev/null || true
+          git -C mpfb2 rev-parse HEAD > output/mpfb.ref
+          curl -fL --retry 2 --max-time 240 https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip -o /tmp/system.zip
+          curl -fL --retry 2 --max-time 180 https://files.makehumancommunity.org/asset_packs/hair02/hair02_ccby.zip -o /tmp/hair.zip
+          python - <<'PY'
+          import zipfile,pathlib,json,hashlib
+          out=pathlib.Path('output'); inv={}; hashes={}
+          for name,path in [('system','/tmp/system.zip'),('hair02','/tmp/hair.zip')]:
+              blob=pathlib.Path(path); hashes[name]=hashlib.sha256(blob.read_bytes()).hexdigest()
+              z=zipfile.ZipFile(path);inv[name]=z.namelist();print(name,len(inv[name]),inv[name][:20])
+              for n in z.namelist():
+                  p=pathlib.PurePosixPath(n)
+                  if n.endswith('/') or '..' in p.parts or p.is_absolute():continue
+                  lower=n.lower()
+                  keep=name=='hair02' or any('/'+k+'/' in '/'+lower for k in ['eyes','eyebrows','eyelashes','teeth','tongue','hair']) or ('skins/' in lower and ('young_caucasian_female' in lower or 'young_asian_female' in lower)) or ('license' in lower or lower.endswith('readme.txt'))
+                  if keep:
+                      dest=out/'assets'/n;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(z.read(n))
+          (out/'upstream-packs.json').write_text(json.dumps({'sha256':hashes,'inventory':inv},indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: makehuman-stage01-authoring-assets
+          path: output/
+          retention-days: 30
+          if-no-files-found: error
