@@ -1,0 +1,104 @@
+name: New MakeHuman stage01 checkpoint
+on:
+  push:
+    paths: ['tools/makehuman_stage01/build.py', '.github/workflows/makehuman-stage01.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: makehuman-stage01
+  cancel-in-progress: false
+jobs:
+  build-save-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: makehuman-stage01-authoring-assets
+          run-id: 43361271524
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: vendor
+      - name: Install checksum-verified Blender
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -fL --retry 3 https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz -o blender.tar.xz
+          echo '975c58fcb244273838534bba771e64ad87739216b0f9b39a888531a49a72d845  blender.tar.xz' | sha256sum -c -
+          tar -xf blender.tar.xz
+          echo "BLENDER=$RUNNER_TEMP/blender-4.5.3-linux-x64/blender" >> "$GITHUB_ENV"
+      - name: Build a new native MakeHuman body and save actual files
+        env:
+          OPENBLAS_NUM_THREADS: 2
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/makehuman_stage01/build.py -- --vendor vendor --out output > output/build.log 2>&1
+          grep -q MAKEHUMAN_STAGE01_SAVED_REOPENED output/build.log
+          cp tools/makehuman_stage01/*.py output/
+          cp vendor/mpfb.ref vendor/upstream-packs.json output/
+          printf '%s\n' "$GITHUB_SHA" > output/source.ref
+          echo "ASSET_PATH=art/checkpoints/makehuman-stage01/${GITHUB_SHA:0:12}" >> "$GITHUB_ENV"
+      - name: Commit real editable model and presets before rendering
+        id: save
+        run: |
+          set -euo pipefail
+          test -s output/MakeHuman_Oni_Stage01.blend
+          git config user.name 'Yokai checkpoint bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch --depth=1 origin art-checkpoints
+          git worktree add --detach "$RUNNER_TEMP/assets" FETCH_HEAD
+          mkdir -p "$RUNNER_TEMP/assets/$ASSET_PATH"
+          cp output/* "$RUNNER_TEMP/assets/$ASSET_PATH/"
+          cd "$RUNNER_TEMP/assets"
+          git add "$ASSET_PATH"
+          git commit -m "Save new MakeHuman body study ${GITHUB_SHA:0:12} before render [skip ci]"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:refs/heads/art-checkpoints; then break; fi
+            git fetch origin art-checkpoints;git rebase FETCH_HEAD
+          done
+          commit=$(git rev-parse HEAD)
+          git fetch origin art-checkpoints;git merge-base --is-ancestor "$commit" FETCH_HEAD
+          echo "ASSET_COMMIT=$commit" >> "$GITHUB_ENV"
+      - name: Download saved model bytes and reopen
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,hashlib,os,pathlib,urllib.request
+          out=pathlib.Path('output');m=json.loads((out/'manifest.json').read_text());checks={}
+          for name,expected in m['files'].items():
+              url=f"https://raw.githubusercontent.com/{os.environ['GITHUB_REPOSITORY']}/{os.environ['ASSET_COMMIT']}/{os.environ['ASSET_PATH']}/{name}"
+              with urllib.request.urlopen(url,timeout=180) as r:data=r.read()
+              assert len(data)==expected['bytes'] and hashlib.sha256(data).hexdigest()==expected['sha256']
+              (out/name).write_bytes(data);checks[name]=dict(expected,matched=True)
+          (out/'remote-readback.json').write_text(json.dumps({'assetCommit':os.environ['ASSET_COMMIT'],'assetPath':os.environ['ASSET_PATH'],'allMatched':True,'files':checks},indent=2))
+          PY
+          "$BLENDER" -b output/MakeHuman_Oni_Stage01.blend --python-exit-code 1 --python-expr "import bpy; b=bpy.data.objects['MakeHuman_Oni_Body']; assert b.data.shape_keys; assert b.get('cloth_does_not_shape_body'); assert not any(o.type=='ARMATURE' for o in bpy.data.objects); print('MAKEHUMAN_REMOTE_REOPEN_PASS')" > output/reopen.log 2>&1
+          grep -q MAKEHUMAN_REMOTE_REOPEN_PASS output/reopen.log
+      - name: Render only the saved native character
+        run: |
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/makehuman_stage01/review.py -- --source output/MakeHuman_Oni_Stage01.blend --out output/review --shots quarter,front,side,back,portrait --width 900 --samples 32 > output/render.log 2>&1
+      - name: Preserve actual model review and readback
+        if: always() && steps.save.outcome == 'success'
+        run: |
+          set -euo pipefail
+          cp output/*.json output/*.log "$RUNNER_TEMP/assets/$ASSET_PATH/"
+          if test -d output/review; then cp -r output/review "$RUNNER_TEMP/assets/$ASSET_PATH/"; fi
+          cd "$RUNNER_TEMP/assets"
+          git add "$ASSET_PATH"
+          if ! git diff --cached --quiet; then
+            git commit -m "Save MakeHuman stage01 actual renders and readback ${GITHUB_SHA:0:12} [skip ci]"
+            for attempt in 1 2 3; do
+              if git push origin HEAD:refs/heads/art-checkpoints; then break; fi
+              git fetch origin art-checkpoints;git rebase FETCH_HEAD
+            done
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: makehuman-stage01-model-verified
+          path: output/
+          retention-days: 30
+          if-no-files-found: error
