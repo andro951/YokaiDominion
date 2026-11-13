@@ -8,7 +8,7 @@ import bpy
 import numpy as np
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
-REVISION='013-contour-drape-1'
+REVISION='013-contour-drape-2'
 def smooth(a,b,x):
  t=np.clip((x-a)/(b-a),0,1);return t*t*(3-2*t)
 def positions(o):
@@ -44,11 +44,18 @@ def edit(source,out):
   for _ in range(28):
    old=g.copy();avg=(old[:-2]+old[2:])*.5;g[1:-1]+=.36*weight[1:-1,None,None]*(avg-old[1:-1])
    old=g.copy();g[:,1:-1]+=.12*weight[:,None,None]*((old[:,:-2]+old[:,2:])*.5-old[:,1:-1])
-  # Retain broad, low-amplitude folds rather than the earlier sharp scallops.
+  # Add broad longitudinal folds along the cloth normal, with zero edge offset.
+  # They sit outside the existing drape rather than squeezing the body.
+  old=g.copy()
   for i in range(4,96):
-   t=i/99.;envelope=float(weight[i]);u=np.linspace(-1,1,33)
-   fold=.0015*envelope*(1+np.cos(2.3*np.pi*u+1.4*t))
-   g[i,:,1]-=fold
+   t=i/99.;envelope=float(weight[i]);u=np.linspace(0,1,33)
+   width_tangent=np.gradient(old[i],axis=0);length_tangent=old[i+1]-old[i-1]
+   normal=np.cross(width_tangent,length_tangent)
+   normal/=np.maximum(np.linalg.norm(normal,axis=1)[:,None],1e-10)
+   if normal[16,1]>0:normal=-normal
+   broad=(.0035+.0015*np.sin(np.pi*t)**2)*envelope
+   fold=broad*np.sin(np.pi*u)**.7*(.5+.5*np.cos(4*np.pi*u+.5*np.sin(2*np.pi*t)))
+   g[i]+=normal*fold[:,None]
   # Only resolve inward intersections; do not turn the cloth into a skin-tight shell.
   corrected=0;worst=0.
   for i in range(4,101):
