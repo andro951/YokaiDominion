@@ -1,0 +1,19 @@
+{
+  "revision": "014-face-4",
+  "bodyVertices": 825304,
+  "changedVertices": 22721,
+  "protectedVertices": 802583,
+  "protectedExactlyUnchanged": true,
+  "maxDisplacementMetres": 0.011060834501483678,
+  "otherObjectsUnchanged": true,
+  "rigUpdated": false,
+  "runtimePhysicsUpdated": false,
+  "sourceSha256": "b3b17ad6fd91a210d231058fe7229e3308e5539d76bc1a58b7e9e4ccbab6aa66",
+  "savedBlendReopened": true,
+  "files": {
+    "Character01_Art014.blend": {
+      "bytes": 88381563,
+      "sha256": "347c10d42c2b73eae6ffee8e5d7d79fe0b5cc169b11a417c6bfdda07865bac0a"
+    }
+  }
+}
