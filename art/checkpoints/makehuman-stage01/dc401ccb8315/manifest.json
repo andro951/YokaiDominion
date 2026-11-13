@@ -1,0 +1,82 @@
+{
+  "revision": "makehuman-stage01-3",
+  "mpfbVersion": "2.0.18",
+  "upstreamCommit": "d0a32e57a7f915cb2f2b95410e2117648c7bbb7e",
+  "bodyCageVertices": 19158,
+  "macros": {
+    "gender": 0.0,
+    "age": 0.56,
+    "muscle": 0.95,
+    "weight": 0.52,
+    "proportions": 0.6,
+    "height": 0.72,
+    "cupsize": 1.0,
+    "firmness": 0.35,
+    "race": {
+      "asian": 0.65,
+      "caucasian": 0.35,
+      "african": 0.0
+    }
+  },
+  "targets": {
+    "buttocks/buttocks-volume-incr": 0.55,
+    "stomach/stomach-tone-incr": 0.35,
+    "torso/torso-muscle-dorsi-incr": 0.15,
+    "legs/l-upperleg-scale-horiz-incr": 0.25,
+    "legs/l-upperleg-scale-depth-incr": 0.25,
+    "arms/l-upperarm-muscle-incr": 0.3,
+    "arms/l-upperarm-shoulder-muscle-incr": 0.18,
+    "arms/l-lowerarm-muscle-incr": 0.18,
+    "legs/r-upperleg-scale-horiz-incr": 0.25,
+    "legs/r-upperleg-scale-depth-incr": 0.25,
+    "arms/r-upperarm-muscle-incr": 0.3,
+    "arms/r-upperarm-shoulder-muscle-incr": 0.18,
+    "arms/r-lowerarm-muscle-incr": 0.18
+  },
+  "bodyShapedOnlyByNativeTargets": true,
+  "priorCharacterImported": false,
+  "skin": {
+    "original": "assets/skins/young_caucasian_female2/young_lightskinned_female_diffuse2.png",
+    "originalSha256": "8d1fb3ceedf142fad32a3504eca1feb4539aecca6de66acde1514b9a61fc7ba0",
+    "paletteSrgb": [
+      0.76,
+      0.7,
+      0.82
+    ]
+  },
+  "hair": {
+    "asset": "elvs_hazel_hair",
+    "author": "Elvaerwyn",
+    "license": "CC-BY",
+    "recolored": "ivory-silver"
+  },
+  "coverage": [
+    "Review drape L",
+    "Review drape R",
+    "Review lower cover"
+  ],
+  "finalOutfitCreated": false,
+  "rigged": false,
+  "physicsIntegrated": false,
+  "savedBlendReopened": true,
+  "files": {
+    "MakeHuman_Oni_Stage01.blend": {
+      "bytes": 9524103,
+      "sha256": "ce32dc0483c65538d3db15561812884eea197c7ddbe851ae7403f201ac335b11"
+    },
+    "MakeHuman_Oni_Body.mhm": {
+      "bytes": 1290,
+      "sha256": "a535578048483c09efccc02e839464d4f220ba5063bafc6d49a0fc6154fea5e4"
+    },
+    "LavenderSkin.png": {
+      "bytes": 3195728,
+      "sha256": "1b1c30ae9efbd5af29466fdc78688de2153f2a85c90625dddcddf8de758f921e"
+    },
+    "MakeHuman_Oni_Stage01.json": {
+      "bytes": 3366,
+      "sha256": "ef3ffac28993296a2d756cc3a77ff32e6c70966497f635a4904469af86438f89"
+    }
+  },
+  "temporaryCoverageSmoothed": true,
+  "studioCameraAndLightsIncluded": true
+}
