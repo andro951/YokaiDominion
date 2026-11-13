@@ -1,0 +1,27 @@
+{
+  "assetCommit": "42ca53e8f7528203878a5b1114853ae4995b8281",
+  "assetPath": "art/checkpoints/makehuman-stage01/dc401ccb8315",
+  "allMatched": true,
+  "files": {
+    "MakeHuman_Oni_Stage01.blend": {
+      "bytes": 9524103,
+      "sha256": "ce32dc0483c65538d3db15561812884eea197c7ddbe851ae7403f201ac335b11",
+      "matched": true
+    },
+    "MakeHuman_Oni_Body.mhm": {
+      "bytes": 1290,
+      "sha256": "a535578048483c09efccc02e839464d4f220ba5063bafc6d49a0fc6154fea5e4",
+      "matched": true
+    },
+    "LavenderSkin.png": {
+      "bytes": 3195728,
+      "sha256": "1b1c30ae9efbd5af29466fdc78688de2153f2a85c90625dddcddf8de758f921e",
+      "matched": true
+    },
+    "MakeHuman_Oni_Stage01.json": {
+      "bytes": 3366,
+      "sha256": "ef3ffac28993296a2d756cc3a77ff32e6c70966497f635a4904469af86438f89",
+      "matched": true
+    }
+  }
+}
