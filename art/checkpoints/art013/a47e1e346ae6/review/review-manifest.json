@@ -1,0 +1,148 @@
+{
+  "version": 13,
+  "sourceSha256": "c8c7add42e078b4c042b68fd49c30cc845a98c1713da8306df0ab2bb5dc39911",
+  "blender": "4.5.3 LTS",
+  "lights": [
+    [
+      "key",
+      [
+        -3,
+        -4,
+        5
+      ],
+      520,
+      3
+    ],
+    [
+      "fill",
+      [
+        4,
+        -2,
+        3
+      ],
+      260,
+      3.5
+    ],
+    [
+      "rim",
+      [
+        1,
+        2,
+        4.2
+      ],
+      720,
+      2.2
+    ],
+    [
+      "lower",
+      [
+        0,
+        -3,
+        1.35
+      ],
+      65,
+      2
+    ]
+  ],
+  "width": 800,
+  "samples": 32,
+  "images": {
+    "front.png": {
+      "sha256": "cf184613ea69f86d603b8f05ecac71055190ab4490c4abe1d4c17871469ec1f9",
+      "bytes": 862651
+    },
+    "quarter.png": {
+      "sha256": "1eb18c62c5ec68b0a8e477b260192acf7f78cbf7d8d95e99ba4851b7dbb13764",
+      "bytes": 883725
+    },
+    "side.png": {
+      "sha256": "6d1a0b962caa3f631bac568d9dc4bff20e1f24535e3e59a0b0bcf944aac0552d",
+      "bytes": 874892
+    },
+    "shoulder.png": {
+      "sha256": "b44582c873d0b25c2905956555945868cb6054e572b9eebd91f557ce2fa41e8d",
+      "bytes": 855807
+    },
+    "full.png": {
+      "sha256": "f4e69fec4749d9a866317c6273e50d7299282791178d21bd4141f7f6b492c5ff",
+      "bytes": 957996
+    }
+  },
+  "shots": {
+    "front": {
+      "location": [
+        0,
+        -4,
+        1.45
+      ],
+      "target": [
+        0,
+        -0.06,
+        1.45
+      ],
+      "scale": 0.88,
+      "aspect": 1.08,
+      "bodyOnly": false
+    },
+    "quarter": {
+      "location": [
+        2,
+        -4,
+        1.5
+      ],
+      "target": [
+        0,
+        -0.06,
+        1.45
+      ],
+      "scale": 0.88,
+      "aspect": 1.08,
+      "bodyOnly": false
+    },
+    "side": {
+      "location": [
+        4,
+        0,
+        1.45
+      ],
+      "target": [
+        0,
+        -0.07,
+        1.45
+      ],
+      "scale": 0.88,
+      "aspect": 1.08,
+      "bodyOnly": false
+    },
+    "shoulder": {
+      "location": [
+        1,
+        -2,
+        2.05
+      ],
+      "target": [
+        0,
+        -0.015,
+        1.635
+      ],
+      "scale": 0.58,
+      "aspect": 1.0,
+      "bodyOnly": false
+    },
+    "full": {
+      "location": [
+        2.6,
+        -5.8,
+        1.85
+      ],
+      "target": [
+        0,
+        -0.015,
+        1.08
+      ],
+      "scale": 2.35,
+      "aspect": 1.32,
+      "bodyOnly": false
+    }
+  }
+}
