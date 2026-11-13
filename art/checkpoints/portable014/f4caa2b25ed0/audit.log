@@ -1,0 +1,6 @@
+ART014_SCOPE_AUDIT_PASS {"revision": "014-face-4", "beforeSha256": "39cee47abe223f4b9368e846d9ee36573fe30746ebd0ecd7052aa9e579a3f5bf", "afterSha256": "03e6eb524d6b55eea064e0b0f353326596937316f59708e66fd8f5d969f5c9fb", "allNonFaceBodyVerticesExactlyUnchanged": true, "nonFaceBodyVertexCount": 169631, "otherMeshObjectsExactlyUnchanged": 290, "bodyTopologyUvsColorsMaterialAssignmentsUnchanged": true, "finitePositions": true, "changedVertices": 10620, "maximumDisplacementMetres": 0.011059407144784927, "changedOriginalBounds": [[-0.11295612156391144, -0.18954671919345856, 1.685133934020996], [0.11276619136333466, -0.02502763830125332, 1.8399943113327026]], "scope": "Static geometry integrity and protected regions, not an artistic likeness score or animation test"}
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:38:15)
+Read blend: "/home/runner/work/_temp/portable.blend"
+Read blend: "/home/runner/work/YokaiDominion/YokaiDominion/output/Character01_PBR014.blend"
+
+Blender quit
