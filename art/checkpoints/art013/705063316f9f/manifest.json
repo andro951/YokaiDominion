@@ -1,0 +1,33 @@
+{
+  "revision": "013-contour-drape-2",
+  "sourceSha256": "deec460a59fd2b6149ed4ffb5498a285fe9b0eb5da9bd0003cd848e06239238b",
+  "bodyVertices": 825304,
+  "changedBodyVertices": 76768,
+  "protectedVertices": 680787,
+  "protectedVerticesUnchanged": true,
+  "maxBodyDisplacementMetres": 0.006216111801002362,
+  "garment": [
+    {
+      "name": "Loose over-trapezius panel L",
+      "maxDisplacementMetres": 0.010147981169197162,
+      "clearanceCorrections": 0,
+      "maxClearanceCorrectionMetres": 0.0
+    },
+    {
+      "name": "Loose over-trapezius panel R",
+      "maxDisplacementMetres": 0.010186821853973306,
+      "clearanceCorrections": 0,
+      "maxClearanceCorrectionMetres": 0.0
+    }
+  ],
+  "staticVisualOnly": true,
+  "rigUpdated": false,
+  "runtimePhysicsUpdated": false,
+  "files": {
+    "Character01_Art013.blend": {
+      "bytes": 79416422,
+      "sha256": "b3b17ad6fd91a210d231058fe7229e3308e5539d76bc1a58b7e9e4ccbab6aa66"
+    }
+  },
+  "savedBlendReopened": true
+}
