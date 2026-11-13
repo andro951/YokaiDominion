@@ -1,0 +1,109 @@
+name: Art014 verified face export
+on:
+  push:
+    paths: ['tools/art/export014.py', '.github/workflows/portable014.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: art014-portable
+  cancel-in-progress: false
+jobs:
+  export-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore the exact reviewed master and unchanged PBR013 baseline
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          curl -fL --retry 3 https://raw.githubusercontent.com/andro951/YokaiDominion/1e3649e9c8683a51ece6dfdaf3639a3198a8f118/art/checkpoints/face014/006503bbc6a8/Character01_Art014.blend -o "$RUNNER_TEMP/master.blend"
+          echo "347c10d42c2b73eae6ffee8e5d7d79fe0b5cc169b11a417c6bfdda07865bac0a  $RUNNER_TEMP/master.blend" | sha256sum -c -
+          curl -fL --retry 3 https://raw.githubusercontent.com/andro951/YokaiDominion/38edb00f0bb1e0c228c89b5af3a5d9f26e105f56/art/checkpoints/portable013/98ac3d6ed90a/Character01_PBR013.blend -o "$RUNNER_TEMP/portable.blend"
+          echo "39cee47abe223f4b9368e846d9ee36573fe30746ebd0ecd7052aa9e579a3f5bf  $RUNNER_TEMP/portable.blend" | sha256sum -c -
+          echo "ASSET_PATH=art/checkpoints/portable014/${GITHUB_SHA:0:12}" >> "$GITHUB_ENV"
+          printf '%s\n' "$GITHUB_SHA" > output/source.ref
+          cp tools/art/export014.py tools/art/face014.py tools/art/review014.py tools/art/review013.py tools/art/audit014.py output/
+      - name: Install checksum verified Blender
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -fL --retry 3 https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz -o blender.tar.xz
+          echo '975c58fcb244273838534bba771e64ad87739216b0f9b39a888531a49a72d845  blender.tar.xz' | sha256sum -c -
+          tar -xf blender.tar.xz
+          echo "BLENDER=$RUNNER_TEMP/blender-4.5.3-linux-x64/blender" >> "$GITHUB_ENV"
+      - name: Transfer reviewed face geometry and save actual files
+        env:
+          OPENBLAS_NUM_THREADS: 2
+        run: |
+          set -euo pipefail
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/export014.py -- --master "$RUNNER_TEMP/master.blend" --portable "$RUNNER_TEMP/portable.blend" --out output > output/export.log 2>&1
+          grep -q ART014_PORTABLE_PASS output/export.log
+      - name: Commit actual model files before rendering
+        id: save
+        run: |
+          set -euo pipefail
+          test -s output/Character01_Visual014.glb
+          git config user.name 'Yokai checkpoint bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch --depth=1 origin art-checkpoints
+          git worktree add --detach "$RUNNER_TEMP/assets" FETCH_HEAD
+          mkdir -p "$RUNNER_TEMP/assets/$ASSET_PATH"
+          cp output/* "$RUNNER_TEMP/assets/$ASSET_PATH/"
+          cd "$RUNNER_TEMP/assets"
+          git add "$ASSET_PATH"
+          git commit -m "Save actual Art014 face export ${GITHUB_SHA:0:12} before render [skip ci]"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:refs/heads/art-checkpoints; then break; fi
+            git fetch origin art-checkpoints; git rebase FETCH_HEAD
+          done
+          commit=$(git rev-parse HEAD)
+          git fetch origin art-checkpoints; git merge-base --is-ancestor "$commit" FETCH_HEAD
+          echo "ASSET_COMMIT=$commit" >> "$GITHUB_ENV"
+      - name: Download remote files, compare hashes, reopen and audit protected geometry
+        env:
+          OPENBLAS_NUM_THREADS: 2
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os,json,hashlib,pathlib,urllib.request
+          out=pathlib.Path('output');m=json.loads((out/'portable-manifest.json').read_text());checks={}
+          for name,expected in m['files'].items():
+              url=f"https://raw.githubusercontent.com/{os.environ['GITHUB_REPOSITORY']}/{os.environ['ASSET_COMMIT']}/{os.environ['ASSET_PATH']}/{name}"
+              with urllib.request.urlopen(url,timeout=180) as r:data=r.read()
+              assert len(data)==expected['bytes'] and hashlib.sha256(data).hexdigest()==expected['sha256']
+              (out/name).write_bytes(data);checks[name]=dict(expected,matched=True)
+          (out/'remote-readback.json').write_text(json.dumps({'assetCommit':os.environ['ASSET_COMMIT'],'assetPath':os.environ['ASSET_PATH'],'allMatched':True,'files':checks},indent=2))
+          PY
+          "$BLENDER" -b output/Character01_PBR014.blend --python-exit-code 1 --python-expr "import bpy; assert bpy.data.objects['Body']['art014']=='014-face-4'; print('ART014_REMOTE_PBR_REOPEN_PASS')" > output/reopen.log 2>&1
+          grep -q ART014_REMOTE_PBR_REOPEN_PASS output/reopen.log
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/audit014.py -- --before "$RUNNER_TEMP/portable.blend" --after output/Character01_PBR014.blend --out output/scope-audit.json > output/audit.log 2>&1
+          grep -q ART014_SCOPE_AUDIT_PASS output/audit.log
+      - name: Reimport and render the downloaded GLB
+        run: |
+          set -euo pipefail
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/art/export014.py -- --out output --review > output/reimport.log 2>&1
+          grep -q ART014_REIMPORT_PASS output/reimport.log
+      - name: Preserve exported portrait and verification evidence
+        if: always() && steps.save.outcome == 'success'
+        run: |
+          set -euo pipefail
+          cp output/*.json output/*.log "$RUNNER_TEMP/assets/$ASSET_PATH/"
+          if test -d output/reimport; then cp -r output/reimport "$RUNNER_TEMP/assets/$ASSET_PATH/"; fi
+          cd "$RUNNER_TEMP/assets"
+          git add "$ASSET_PATH"
+          if ! git diff --cached --quiet; then
+            git commit -m "Verify Art014 face export and retain real portrait renders ${GITHUB_SHA:0:12} [skip ci]"
+            for attempt in 1 2 3; do
+              if git push origin HEAD:refs/heads/art-checkpoints; then break; fi
+              git fetch origin art-checkpoints; git rebase FETCH_HEAD
+            done
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: art014-portable-verified
+          path: output/
+          retention-days: 30
+          if-no-files-found: error
