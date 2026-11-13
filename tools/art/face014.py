@@ -5,7 +5,7 @@ from pathlib import Path
 import argparse,hashlib,json,sys
 import bpy
 import numpy as np
-REVISION='014-face-3'
+REVISION='014-face-4'
 
 def smooth(a,b,x):
  t=np.clip((x-a)/(b-a),0,1);return t*t*(3-2*t)
@@ -26,8 +26,8 @@ def deform(p):
  q[:,0]-=np.sign(x)*.0035*jaw*g
  chin=np.exp(-((z-1.718)/.020)**2)*(1-smooth(.038,.065,ax))
  q[:,0]-=x*.14*chin*g
- q[:,1]+=.0042*chin*g
- q[:,2]+=(.002+.008*smooth(.008,.035,ax))*chin*g
+ q[:,1]+=.0012*chin*g
+ q[:,2]+=(.002+.006*smooth(.008,.035,ax))*chin*g
  # Remove the high lateral shelf and refill the cut-in buccal plane gently.
  shelf=np.exp(-((ax-.075)/.024)**2-((z-1.801)/.024)**2)
  q[:,0]-=np.sign(x)*.0055*shelf*g
@@ -36,7 +36,9 @@ def deform(p):
  q[:,0]+=np.sign(x)*.0012*hollow*g
  q[:,1]+=.0010*shelf*g
  groove=np.exp(-(x/.032)**4-((z-1.731)/.009)**2)
- q[:,1]-=.0028*groove*g
+ q[:,1]-=.0020*groove*g
+ medial=np.exp(-((ax-.045)/.028)**2-((z-1.796)/.026)**2)
+ q[:,1]-=.0025*medial*g
  return q,g
 
 def apply():
@@ -44,7 +46,7 @@ def apply():
  p=positions(body);q,g=deform(p)
  # Fair only the cheek/jaw planes, with a feathered zero mask at the features.
  x,y,z=p.T;ax=np.abs(x)
- weight=g*np.maximum(np.exp(-((ax-.059)/.031)**2-((z-1.784)/.029)**2),.6*np.exp(-((z-1.722)/.025)**2))
+ weight=g*np.maximum(np.exp(-((ax-.059)/.031)**2-((z-1.784)/.029)**2),.18*np.exp(-((z-1.722)/.025)**2))
  edges=np.empty(len(body.data.edges)*2,dtype=np.int32);body.data.edges.foreach_get('vertices',edges);edges=edges.reshape(-1,2)
  subset=np.flatnonzero((weight>1e-8)|(g>0));look=np.full(len(p),-1,dtype=np.int32);look[subset]=np.arange(len(subset))
  keep=(look[edges[:,0]]>=0)&(look[edges[:,1]]>=0);e=look[edges[keep]]
