@@ -5,7 +5,7 @@ from pathlib import Path
 import argparse,hashlib,json,sys
 import bpy
 import numpy as np
-REVISION='014-face-1'
+REVISION='014-face-3'
 
 def smooth(a,b,x):
  t=np.clip((x-a)/(b-a),0,1);return t*t*(3-2*t)
@@ -22,17 +22,21 @@ def deform(p):
  mouth=(1-smooth(.027,.040,ax))*np.exp(-((z-1.749)/.013)**4)
  nose=(1-smooth(.024,.039,ax))*smooth(1.755,1.770,z)
  feature=np.maximum(mouth,nose);g=gate*(1-feature)
- jaw=np.exp(-((z-1.733)/.036)**2)*smooth(.012,.051,ax)
- q[:,0]-=np.sign(x)*.0080*jaw*g
+ jaw=np.exp(-((z-1.728)/.027)**2)*smooth(.012,.051,ax)
+ q[:,0]-=np.sign(x)*.0035*jaw*g
  chin=np.exp(-((z-1.718)/.020)**2)*(1-smooth(.038,.065,ax))
  q[:,0]-=x*.14*chin*g
  q[:,1]+=.0042*chin*g
- q[:,2]+=.0055*chin*g
+ q[:,2]+=(.002+.008*smooth(.008,.035,ax))*chin*g
  # Remove the high lateral shelf and refill the cut-in buccal plane gently.
  shelf=np.exp(-((ax-.075)/.024)**2-((z-1.801)/.024)**2)
- q[:,0]-=np.sign(x)*.0035*shelf*g
+ q[:,0]-=np.sign(x)*.0055*shelf*g
  hollow=np.exp(-((ax-.054)/.025)**2-((z-1.772)/.024)**2)
- q[:,1]-=.0048*hollow*g
+ q[:,1]-=.0040*hollow*g
+ q[:,0]+=np.sign(x)*.0012*hollow*g
+ q[:,1]+=.0010*shelf*g
+ groove=np.exp(-(x/.032)**4-((z-1.731)/.009)**2)
+ q[:,1]-=.0028*groove*g
  return q,g
 
 def apply():
@@ -46,7 +50,7 @@ def apply():
  keep=(look[edges[:,0]]>=0)&(look[edges[:,1]]>=0);e=look[edges[keep]]
  a=np.r_[e[:,0],e[:,1]];b=np.r_[e[:,1],e[:,0]];count=np.maximum(np.bincount(a,minlength=len(subset)),1)
  local=q[subset].copy();w=weight[subset]
- for _ in range(32):
+ for _ in range(280):
   mean=np.column_stack([np.bincount(a,weights=local[b,k],minlength=len(subset))/count for k in range(3)])
   local+=.36*w[:,None]*(mean-local)
  q[subset]=local
