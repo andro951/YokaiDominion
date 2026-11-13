@@ -1,0 +1,27 @@
+# MakeHuman character study. Native body parameters; see Blender for colored preview.
+version v1.2.0
+name Oni body study
+modifier macrodetails/Gender 0.000000
+modifier macrodetails/Age 0.560000
+modifier macrodetails-universal/Muscle 0.950000
+modifier macrodetails-universal/Weight 0.520000
+modifier macrodetails-proportions/BodyProportions 0.600000
+modifier macrodetails-height/Height 0.720000
+modifier breast/BreastSize 1.000000
+modifier breast/BreastFirmness 0.350000
+modifier macrodetails/Asian 0.650000
+modifier macrodetails/Caucasian 0.350000
+modifier macrodetails/African 0.000000
+modifier buttocks/buttocks-volume-decr|incr 0.550000
+modifier stomach/stomach-tone-decr|incr 0.350000
+modifier torso/torso-muscle-dorsi-decr|incr 0.150000
+modifier legs/l-upperleg-scale-horiz-decr|incr 0.250000
+modifier legs/l-upperleg-scale-depth-decr|incr 0.250000
+modifier arms/l-upperarm-muscle-decr|incr 0.300000
+modifier arms/l-upperarm-shoulder-muscle-decr|incr 0.180000
+modifier arms/l-lowerarm-muscle-decr|incr 0.180000
+modifier legs/r-upperleg-scale-horiz-decr|incr 0.250000
+modifier legs/r-upperleg-scale-depth-decr|incr 0.250000
+modifier arms/r-upperarm-muscle-decr|incr 0.300000
+modifier arms/r-upperarm-shoulder-muscle-decr|incr 0.180000
+modifier arms/r-lowerarm-muscle-decr|incr 0.180000

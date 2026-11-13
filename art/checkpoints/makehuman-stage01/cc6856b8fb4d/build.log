@@ -1,0 +1,25 @@
+Log config does not exist. Creating empty template.
+Will rewrite log config /home/runner/.config/blender/4.5/mpfb/config/log_levels.json
+[WARN ] services.locationservice ...............: User home directory does not exist /home/runner/.config/blender/4.5/extensions/.user/makehuman_study/mpfb
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] services.locationservice ...............: Creating relevant directory: /home/runner/.config/blender/4.5/extensions/.user/makehuman_study/mpfb
+[INFO ] services.locationservice ...............: Creating relevant directory: /home/runner/.config/blender/4.5/extensions/.user/makehuman_study/mpfb/data
+[INFO ] services.locationservice ...............: Creating relevant directory: /home/runner/.config/blender/4.5/extensions/.user/makehuman_study/mpfb/config
+[INFO ] services.locationservice ...............: Creating relevant directory: /home/runner/.config/blender/4.5/extensions/.user/makehuman_study/mpfb/cache
+[INFO ] services.locationservice ...............: Creating relevant directory: /home/runner/.config/blender/4.5/extensions/.user/makehuman_study/mpfb/logs
+[INFO ] mpfb.init ..............................: Build info FROM_SOURCE
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+[WARN ] material.mhmaterial ....................: Patching input material line to cater for non-normalized key ('bumpTexture', 'bumpmapTexture')
+Info: Packed 6 file(s)
+Info: Saved as "MakeHuman_Oni_Stage01.blend"
+MAKEHUMAN_STAGE01_SAVED_REOPENED
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:38:15)
+OBJ import of 'base.obj' took 12.03 ms
+OBJ import of 'high-poly.obj' took 1.87 ms
+OBJ import of 'eyebrow006.obj' took 0.20 ms
+OBJ import of 'eyelashes01.obj' took 0.30 ms
+OBJ import of 'elvs_hazel_hair.obj' took 2.61 ms
+Read blend: "/home/runner/work/YokaiDominion/YokaiDominion/output/MakeHuman_Oni_Stage01.blend"
+
+Blender quit
