@@ -1,0 +1,23 @@
+{
+  "revision": "013-contour-drape-2",
+  "masterSha256": "b3b17ad6fd91a210d231058fe7229e3308e5539d76bc1a58b7e9e4ccbab6aa66",
+  "portableBaselineSha256": "90d993e175940aacb530241f0b60640f178e7117dc6c5087329c37ca893c8d13",
+  "bakedSkinColorsUnchanged": true,
+  "skinColorSha256": "4a70197bad076b0443a37495501aa2ecc9c74b417388f8a8a89d64799a69cec6",
+  "bodyVertices": 181565,
+  "triangleCount": 948194,
+  "staticVisualOnly": true,
+  "rigged": false,
+  "physicsIntegrated": false,
+  "files": {
+    "Character01_PBR013.blend": {
+      "bytes": 28887520,
+      "sha256": "39cee47abe223f4b9368e846d9ee36573fe30746ebd0ecd7052aa9e579a3f5bf"
+    },
+    "Character01_Visual013.glb": {
+      "bytes": 66956844,
+      "sha256": "a6bc11acbb2e558304903cecd89e39f9e5659c570f416b464556d68c78a63d5c"
+    }
+  },
+  "savedBlendReopened": true
+}
