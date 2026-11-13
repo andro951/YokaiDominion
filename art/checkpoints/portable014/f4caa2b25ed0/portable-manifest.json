@@ -1,0 +1,27 @@
+{
+  "revision": "014-face-4",
+  "masterSha256": "347c10d42c2b73eae6ffee8e5d7d79fe0b5cc169b11a417c6bfdda07865bac0a",
+  "portableBaselineSha256": "39cee47abe223f4b9368e846d9ee36573fe30746ebd0ecd7052aa9e579a3f5bf",
+  "bakedSkinColorsUnchanged": true,
+  "skinColorSha256": "4a70197bad076b0443a37495501aa2ecc9c74b417388f8a8a89d64799a69cec6",
+  "bodyVertices": 181565,
+  "mappedFacialVertices": 10650,
+  "protectedBodyVerticesUnchanged": 170915,
+  "maximumSurfaceMappingErrorMetres": 0.00025357925915159285,
+  "triangleCount": 948194,
+  "otherObjectsUnchanged": true,
+  "staticVisualOnly": true,
+  "rigged": false,
+  "physicsIntegrated": false,
+  "files": {
+    "Character01_PBR014.blend": {
+      "bytes": 28888652,
+      "sha256": "03e6eb524d6b55eea064e0b0f353326596937316f59708e66fd8f5d969f5c9fb"
+    },
+    "Character01_Visual014.glb": {
+      "bytes": 66956864,
+      "sha256": "d16b32f18eadcad15635a409f18d60cb705e065876354290d3ed405c86df7b78"
+    }
+  },
+  "savedBlendReopened": true
+}
