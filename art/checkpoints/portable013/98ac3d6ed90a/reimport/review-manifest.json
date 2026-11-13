@@ -1,0 +1,110 @@
+{
+  "version": 13,
+  "sourceSha256": "d3c6e2517d888b157981050010690c32bb1a4eb8fc139c2ea6f9b8677f279a28",
+  "blender": "4.5.3 LTS",
+  "lights": [
+    [
+      "key",
+      [
+        -3,
+        -4,
+        5
+      ],
+      520,
+      3
+    ],
+    [
+      "fill",
+      [
+        4,
+        -2,
+        3
+      ],
+      260,
+      3.5
+    ],
+    [
+      "rim",
+      [
+        1,
+        2,
+        4.2
+      ],
+      720,
+      2.2
+    ],
+    [
+      "lower",
+      [
+        0,
+        -3,
+        1.35
+      ],
+      65,
+      2
+    ]
+  ],
+  "width": 800,
+  "samples": 32,
+  "images": {
+    "front.png": {
+      "sha256": "87d5abbf3d5360875844a6bc29b7124eb5b21920b5ca1fd44507386db3877178",
+      "bytes": 874970
+    },
+    "quarter.png": {
+      "sha256": "eb214c26f7b0561483236a389cc768e60e7f2e159a86032a2b7f146ec02549c6",
+      "bytes": 891832
+    },
+    "side.png": {
+      "sha256": "803b1bbd5ec04fe0df4f349b1ef1f1403f0ba033627a090af61b37989147f9ca",
+      "bytes": 879213
+    }
+  },
+  "shots": {
+    "front": {
+      "location": [
+        0,
+        -4,
+        1.45
+      ],
+      "target": [
+        0,
+        -0.06,
+        1.45
+      ],
+      "scale": 0.88,
+      "aspect": 1.08,
+      "bodyOnly": false
+    },
+    "quarter": {
+      "location": [
+        2,
+        -4,
+        1.5
+      ],
+      "target": [
+        0,
+        -0.06,
+        1.45
+      ],
+      "scale": 0.88,
+      "aspect": 1.08,
+      "bodyOnly": false
+    },
+    "side": {
+      "location": [
+        4,
+        0,
+        1.45
+      ],
+      "target": [
+        0,
+        -0.07,
+        1.45
+      ],
+      "scale": 0.88,
+      "aspect": 1.08,
+      "bodyOnly": false
+    }
+  }
+}
