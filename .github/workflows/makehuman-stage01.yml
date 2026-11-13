@@ -1,7 +1,7 @@
 name: New MakeHuman stage01 checkpoint
 on:
   push:
-    paths: ['tools/makehuman_stage01/build.py', '.github/workflows/makehuman-stage01.yml']
+    paths: ['tools/makehuman_stage01/build.py', 'tools/makehuman_stage01/run.py', '.github/workflows/makehuman-stage01.yml']
   workflow_dispatch:
 permissions:
   contents: write
@@ -29,14 +29,14 @@ jobs:
           echo '975c58fcb244273838534bba771e64ad87739216b0f9b39a888531a49a72d845  blender.tar.xz' | sha256sum -c -
           tar -xf blender.tar.xz
           echo "BLENDER=$RUNNER_TEMP/blender-4.5.3-linux-x64/blender" >> "$GITHUB_ENV"
-      - name: Build a new native MakeHuman body and save actual files
+      - name: Build new native body and pack first-stage preview
         env:
           OPENBLAS_NUM_THREADS: 2
         run: |
           set -euo pipefail
           mkdir -p output
-          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/makehuman_stage01/build.py -- --vendor vendor --out output > output/build.log 2>&1
-          grep -q MAKEHUMAN_STAGE01_SAVED_REOPENED output/build.log
+          "$BLENDER" -b -t 4 --python-exit-code 1 --python tools/makehuman_stage01/run.py -- --vendor vendor --out output > output/build.log 2>&1
+          grep -q MAKEHUMAN_STAGE01_FINAL_SAVED output/build.log
           cp tools/makehuman_stage01/*.py output/
           cp vendor/mpfb.ref vendor/upstream-packs.json output/
           printf '%s\n' "$GITHUB_SHA" > output/source.ref
@@ -75,7 +75,7 @@ jobs:
               (out/name).write_bytes(data);checks[name]=dict(expected,matched=True)
           (out/'remote-readback.json').write_text(json.dumps({'assetCommit':os.environ['ASSET_COMMIT'],'assetPath':os.environ['ASSET_PATH'],'allMatched':True,'files':checks},indent=2))
           PY
-          "$BLENDER" -b output/MakeHuman_Oni_Stage01.blend --python-exit-code 1 --python-expr "import bpy; b=bpy.data.objects['MakeHuman_Oni_Body']; assert b.data.shape_keys; assert b.get('cloth_does_not_shape_body'); assert not any(o.type=='ARMATURE' for o in bpy.data.objects); print('MAKEHUMAN_REMOTE_REOPEN_PASS')" > output/reopen.log 2>&1
+          "$BLENDER" -b output/MakeHuman_Oni_Stage01.blend --python-exit-code 1 --python-expr "import bpy; b=bpy.data.objects['MakeHuman_Oni_Body']; assert b.data.shape_keys; assert b.get('cloth_does_not_shape_body'); assert b.get('stage')=='makehuman-stage01-3'; assert not any(o.type=='ARMATURE' for o in bpy.data.objects); print('MAKEHUMAN_REMOTE_REOPEN_PASS')" > output/reopen.log 2>&1
           grep -q MAKEHUMAN_REMOTE_REOPEN_PASS output/reopen.log
       - name: Render only the saved native character
         run: |
